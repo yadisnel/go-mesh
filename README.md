@@ -65,7 +65,7 @@ service.Init()
 service.Run()
 ```
 
-See the [docs](https://www.yadisnel.com) for detailed information on the architecture, installation and use of go-mesh.
+See the [docs](https://yadisnel.github.io/go-mesh) for detailed information on the architecture, installation and use of go-mesh.
 
 ## License
 
