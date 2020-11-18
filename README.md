@@ -65,7 +65,7 @@ service.Init()
 service.Run()
 ```
 
-See the [docs](https://yadisnel.github.io/go-ms) for detailed information on the architecture, installation and use of go-ms.
+See the [docs](https://yadisnel.github.io/go-ms) for detailed information on the architecture, quick start an guides of installation and use of go-ms.
 
 ## License
 
