@@ -65,9 +65,9 @@ service.Init()
 service.Run()
 ```
 
-See the [docs](https://yadisnel.github.io/go-ms) for detailed information on the architecture, installation and use of go-mesh.
+See the [docs](https://yadisnel.github.io/go-ms) for detailed information on the architecture, installation and use of go-ms.
 
 ## License
 
-Go Mesh is Apache 2.0 licensed.
+go-ms is Apache 2.0 licensed.
 
