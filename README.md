@@ -48,24 +48,7 @@ are pluggable and allows Go Micro to be runtime agnostic. You can plugin any und
 
 ## Getting Started
 
-To make use of go-ms
-
-```golang
-import "github.com/micro/go-micro/v2"
-
-// create a new service
-service := micro.NewService(
-    micro.Name("helloworld"),
-)
-
-// initialise flags
-service.Init()
-
-// start the service
-service.Run()
-```
-
-See the [docs](https://yadisnel.github.io/go-ms) 
+To make use of go-ms see the [docs](https://yadisnel.github.io/go-ms) 
 for detailed architecture information, see the go-ms quick start, installation and usage guides.
 
 ## License
