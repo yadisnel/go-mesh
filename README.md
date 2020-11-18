@@ -1,10 +1,10 @@
 # go-ms [![License](https://img.shields.io/:license-apache-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Go.Dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/github.com/micro/go-micro?tab=doc) [![Travis CI](https://api.travis-ci.org/micro/go-micro.svg?branch=master)](https://travis-ci.org/micro/go-micro) [![Go Report Card](https://goreportcard.com/badge/micro/go-micro)](https://goreportcard.com/report/github.com/micro/go-micro) 
 
-Go-Ms is a framework for distributed systems development. Its source code is based on the popular go-mico library.
+go-ms is a framework for distributed systems development. Its source code is based on the popular go-mico library.
 
 ## Overview
 
-Go-ms provides the core requirements for distributed systems development including RPC and Event driven communication. 
+go-ms provides the core requirements for distributed systems development including RPC and Event driven communication. 
 The **Mesh** philosophy is sane defaults with a pluggable architecture. We provide defaults to get you started quickly 
 but everything can be easily swapped out. 
 
