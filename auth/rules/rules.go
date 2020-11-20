@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/micro/go-micro/v2/auth"
+	"github.com/yadisnel/go-ms/v1/auth"
 )
 
 // Verify an account has access to a resource using the rules provided. If the account does not have

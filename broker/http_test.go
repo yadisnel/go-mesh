@@ -6,9 +6,9 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/micro/go-micro/v2/broker"
-	"github.com/micro/go-micro/v2/registry"
-	"github.com/micro/go-micro/v2/registry/memory"
+	"github.com/yadisnel/go-ms/v1/broker"
+	"github.com/yadisnel/go-ms/v1/registry"
+	"github.com/yadisnel/go-ms/v1/registry/memory"
 )
 
 var (

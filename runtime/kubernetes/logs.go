@@ -9,9 +9,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/micro/go-micro/v2/runtime"
-	"github.com/micro/go-micro/v2/util/kubernetes/client"
-	"github.com/micro/go-micro/v2/util/log"
+	"github.com/yadisnel/go-ms/v1/runtime"
+	"github.com/yadisnel/go-ms/v1/util/kubernetes/client"
+	"github.com/yadisnel/go-ms/v1/util/log"
 )
 
 type klog struct {

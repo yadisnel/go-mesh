@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/micro/go-micro/v2/transport"
+	"github.com/yadisnel/go-ms/v1/transport"
 )
 
 type pool struct {

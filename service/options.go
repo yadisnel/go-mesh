@@ -4,11 +4,11 @@ import (
 	"context"
 	"time"
 
-	"github.com/micro/go-micro/v2/broker"
-	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/registry"
-	"github.com/micro/go-micro/v2/server"
-	"github.com/micro/go-micro/v2/transport"
+	"github.com/yadisnel/go-ms/v1/broker"
+	"github.com/yadisnel/go-ms/v1/client"
+	"github.com/yadisnel/go-ms/v1/registry"
+	"github.com/yadisnel/go-ms/v1/server"
+	"github.com/yadisnel/go-ms/v1/transport"
 )
 
 type Options struct {

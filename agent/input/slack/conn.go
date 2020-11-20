@@ -3,12 +3,11 @@ package slack
 import (
 	"errors"
 	"fmt"
+	"github.com/nlopes/slack"
+	"github.com/yadisnel/go-ms/v1/agent/input"
 	"strings"
 	"sync"
 	"time"
-
-	"github.com/micro/go-micro/v2/agent/input"
-	"github.com/nlopes/slack"
 )
 
 // Satisfies the input.Conn interface

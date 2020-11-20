@@ -4,9 +4,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/runtime"
-	pb "github.com/micro/go-micro/v2/runtime/service/proto"
+	"github.com/yadisnel/go-ms/v1/client"
+	"github.com/yadisnel/go-ms/v1/runtime"
+	pb "github.com/yadisnel/go-ms/v1/runtime/service/proto"
 )
 
 type svc struct {

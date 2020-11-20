@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/coreos/etcd/clientv3"
-	"github.com/micro/go-micro/v2/registry"
+	"github.com/yadisnel/go-ms/v1/registry"
 )
 
 type etcdWatcher struct {

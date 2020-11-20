@@ -4,16 +4,16 @@ import (
 	"bytes"
 	errs "errors"
 
-	"github.com/micro/go-micro/v2/codec"
-	raw "github.com/micro/go-micro/v2/codec/bytes"
-	"github.com/micro/go-micro/v2/codec/grpc"
-	"github.com/micro/go-micro/v2/codec/json"
-	"github.com/micro/go-micro/v2/codec/jsonrpc"
-	"github.com/micro/go-micro/v2/codec/proto"
-	"github.com/micro/go-micro/v2/codec/protorpc"
-	"github.com/micro/go-micro/v2/errors"
-	"github.com/micro/go-micro/v2/registry"
-	"github.com/micro/go-micro/v2/transport"
+	"github.com/yadisnel/go-ms/v1/codec"
+	raw "github.com/yadisnel/go-ms/v1/codec/bytes"
+	"github.com/yadisnel/go-ms/v1/codec/grpc"
+	"github.com/yadisnel/go-ms/v1/codec/json"
+	"github.com/yadisnel/go-ms/v1/codec/jsonrpc"
+	"github.com/yadisnel/go-ms/v1/codec/proto"
+	"github.com/yadisnel/go-ms/v1/codec/protorpc"
+	"github.com/yadisnel/go-ms/v1/errors"
+	"github.com/yadisnel/go-ms/v1/registry"
+	"github.com/yadisnel/go-ms/v1/transport"
 )
 
 const (

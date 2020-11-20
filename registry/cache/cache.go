@@ -7,9 +7,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/micro/go-micro/v2/logger"
-	"github.com/micro/go-micro/v2/registry"
-	util "github.com/micro/go-micro/v2/util/registry"
+	"github.com/yadisnel/go-ms/v1/logger"
+	"github.com/yadisnel/go-ms/v1/registry"
+	util "github.com/yadisnel/go-ms/v1/util/registry"
 )
 
 // Cache is the registry cache interface

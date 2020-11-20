@@ -1,4 +1,4 @@
-module github.com/micro/go-micro/v2
+module github.com/yadisnel/go-ms/v1
 
 go 1.13
 
@@ -46,7 +46,7 @@ require (
 	github.com/kr/pretty v0.1.0
 	github.com/lib/pq v1.3.0
 	github.com/lucas-clemente/quic-go v0.14.1
-	github.com/micro/cli/v2 v2.1.2
+	github.com/yadisnel/go-ms-cli/v2 v2.0.0
 	github.com/miekg/dns v1.1.27
 	github.com/mitchellh/hashstructure v1.0.0
 	github.com/nats-io/nats-server/v2 v2.1.6 // indirect

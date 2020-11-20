@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/micro/go-micro/v2/auth"
-	"github.com/micro/go-micro/v2/auth/token"
+	"github.com/yadisnel/go-ms/v1/auth"
+	"github.com/yadisnel/go-ms/v1/auth/token"
 )
 
 func TestGenerate(t *testing.T) {

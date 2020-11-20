@@ -4,11 +4,11 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/config/source"
-	proto "github.com/micro/go-micro/v2/config/source/service/proto"
-	"github.com/micro/go-micro/v2/errors"
-	"github.com/micro/go-micro/v2/logger"
+	"github.com/yadisnel/go-ms/v1/client"
+	"github.com/yadisnel/go-ms/v1/config/source"
+	proto "github.com/yadisnel/go-ms/v1/config/source/service/proto"
+	"github.com/yadisnel/go-ms/v1/errors"
+	"github.com/yadisnel/go-ms/v1/logger"
 )
 
 var (

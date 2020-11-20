@@ -2,7 +2,7 @@
 package os
 
 import (
-	"github.com/micro/go-micro/v2/runtime/local/process"
+	"github.com/yadisnel/go-ms/v1/runtime/local/process"
 )
 
 type Process struct{}
