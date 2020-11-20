@@ -72,7 +72,7 @@ func (s *service) Init(opts ...Option) {
 
 	s.once.Do(func() {
 		// setup the plugins
-		for _, p := range strings.Split(os.Getenv("MICRO_PLUGIN"), ",") {
+		for _, p := range strings.Split(os.Getenv("GOMS_PLUGIN"), ",") {
 			if len(p) == 0 {
 				continue
 			}

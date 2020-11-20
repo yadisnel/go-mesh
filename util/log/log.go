@@ -57,7 +57,7 @@ func levelToLevel(l Level) nlog.Level {
 }
 
 func init() {
-	switch os.Getenv("MICRO_LOG_LEVEL") {
+	switch os.Getenv("GOMS_LOG_LEVEL") {
 	case "trace":
 		level = LevelTrace
 	case "debug":
