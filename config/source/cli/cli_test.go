@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/micro/cli/v2"
+	"github.com/yadisnel/go-ms-cli/v2"
 	"github.com/yadisnel/go-ms/v1"
 	"github.com/yadisnel/go-ms/v1/config"
 	"github.com/yadisnel/go-ms/v1/config/cmd"

@@ -4,7 +4,7 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/micro/cli/v2"
+	"github.com/yadisnel/go-ms-cli/v2"
 	"github.com/yadisnel/go-ms/v1/agent/input"
 	"github.com/nlopes/slack"
 )
@@ -29,12 +29,12 @@ func (p *slackInput) Flags() []cli.Flag {
 		&cli.BoolFlag{
 			Name:    "slack_debug",
 			Usage:   "Slack debug output",
-			EnvVars: []string{"MICRO_SLACK_DEBUG"},
+			EnvVars: []string{"GOMS_SLACK_DEBUG"},
 		},
 		&cli.StringFlag{
 			Name:    "slack_token",
 			Usage:   "Slack token",
-			EnvVars: []string{"MICRO_SLACK_TOKEN"},
+			EnvVars: []string{"GOMS_SLACK_TOKEN"},
 		},
 	}
 }

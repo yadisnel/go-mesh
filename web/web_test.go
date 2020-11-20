@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/micro/cli/v2"
+	"github.com/yadisnel/go-ms-cli/v2"
 	"github.com/yadisnel/go-ms/v1"
 	"github.com/yadisnel/go-ms/v1/logger"
 	"github.com/yadisnel/go-ms/v1/web"

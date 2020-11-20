@@ -1,4 +1,4 @@
-module github.com/yadisnel/go-ms/v1
+module github.com/yadisnel/go-ms/v2
 
 go 1.13
 
@@ -46,7 +46,6 @@ require (
 	github.com/kr/pretty v0.1.0
 	github.com/lib/pq v1.3.0
 	github.com/lucas-clemente/quic-go v0.14.1
-	github.com/yadisnel/go-ms-cli/v2 v2.0.0
 	github.com/miekg/dns v1.1.27
 	github.com/mitchellh/hashstructure v1.0.0
 	github.com/nats-io/nats-server/v2 v2.1.6 // indirect
@@ -60,6 +59,7 @@ require (
 	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
 	github.com/tmc/grpc-websocket-proxy v0.0.0-20200122045848-3419fae592fc // indirect
 	github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 // indirect
+	github.com/yadisnel/go-ms-cli/v2 v2.0.0
 	go.etcd.io/bbolt v1.3.4
 	go.uber.org/zap v1.13.0
 	golang.org/x/crypto v0.0.0-20200510223506-06a226fb4e37

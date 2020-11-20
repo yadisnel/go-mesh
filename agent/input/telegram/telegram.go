@@ -5,7 +5,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/micro/cli/v2"
+	"github.com/yadisnel/go-ms-cli/v2"
 	"github.com/yadisnel/go-ms/v1/agent/input"
 	tgbotapi "gopkg.in/telegram-bot-api.v4"
 )
@@ -36,17 +36,17 @@ func (ti *telegramInput) Flags() []cli.Flag {
 	return []cli.Flag{
 		&cli.BoolFlag{
 			Name:    "telegram_debug",
-			EnvVars: []string{"MICRO_TELEGRAM_DEBUG"},
+			EnvVars: []string{"GOMS_TELEGRAM_DEBUG"},
 			Usage:   "Telegram debug output",
 		},
 		&cli.StringFlag{
 			Name:    "telegram_token",
-			EnvVars: []string{"MICRO_TELEGRAM_TOKEN"},
+			EnvVars: []string{"GOMS_TELEGRAM_TOKEN"},
 			Usage:   "Telegram token",
 		},
 		&cli.StringFlag{
 			Name:    "telegram_whitelist",
-			EnvVars: []string{"MICRO_TELEGRAM_WHITELIST"},
+			EnvVars: []string{"GOMS_TELEGRAM_WHITELIST"},
 			Usage:   "Telegram bot's users (comma-separated values)",
 		},
 	}
