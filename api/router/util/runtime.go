@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/yadisnel/go-ms/v1/logger"
+	"github.com/yadisnel/go-ms/v2/logger"
 )
 
 var (

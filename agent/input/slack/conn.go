@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/nlopes/slack"
-	"github.com/yadisnel/go-ms/v1/agent/input"
+	"github.com/yadisnel/go-ms/v2/agent/input"
 	"strings"
 	"sync"
 	"time"

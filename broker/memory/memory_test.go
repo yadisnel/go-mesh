@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/yadisnel/go-ms/v1/broker"
+	"github.com/yadisnel/go-ms/v2/broker"
 )
 
 func TestMemoryBroker(t *testing.T) {

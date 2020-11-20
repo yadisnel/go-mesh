@@ -1,7 +1,7 @@
 package basic
 
 import (
-	"github.com/yadisnel/go-ms/v1/auth/provider"
+	"github.com/yadisnel/go-ms/v2/auth/provider"
 )
 
 // NewProvider returns an initialised basic provider

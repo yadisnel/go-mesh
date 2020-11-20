@@ -4,7 +4,7 @@ package process
 import (
 	"io"
 
-	"github.com/yadisnel/go-ms/v1/runtime/local/build"
+	"github.com/yadisnel/go-ms/v2/runtime/local/build"
 )
 
 // Process manages a running process

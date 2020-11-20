@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/store"
+	"github.com/yadisnel/go-ms/v2/store"
 	bolt "go.etcd.io/bbolt"
 )
 

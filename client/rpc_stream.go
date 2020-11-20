@@ -5,7 +5,7 @@ import (
 	"io"
 	"sync"
 
-	"github.com/yadisnel/go-ms/v1/codec"
+	"github.com/yadisnel/go-ms/v2/codec"
 )
 
 // Implements the streamer interface

@@ -3,7 +3,7 @@ package nats
 import (
 	"context"
 
-	"github.com/yadisnel/go-ms/v1/broker"
+	"github.com/yadisnel/go-ms/v2/broker"
 )
 
 // setBrokerOption returns a function to setup a context with given value

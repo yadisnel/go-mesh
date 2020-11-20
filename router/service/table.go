@@ -3,9 +3,9 @@ package service
 import (
 	"context"
 
-	"github.com/yadisnel/go-ms/v1/client"
-	"github.com/yadisnel/go-ms/v1/router"
-	pb "github.com/yadisnel/go-ms/v1/router/service/proto"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/router"
+	pb "github.com/yadisnel/go-ms/v2/router/service/proto"
 )
 
 type table struct {

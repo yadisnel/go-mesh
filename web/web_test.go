@@ -8,9 +8,9 @@ import (
 	"time"
 
 	"github.com/yadisnel/go-ms-cli/v2"
-	"github.com/yadisnel/go-ms/v1"
-	"github.com/yadisnel/go-ms/v1/logger"
-	"github.com/yadisnel/go-ms/v1/web"
+	"github.com/yadisnel/go-ms/v2"
+	"github.com/yadisnel/go-ms/v2/logger"
+	"github.com/yadisnel/go-ms/v2/web"
 )
 
 func TestWeb(t *testing.T) {

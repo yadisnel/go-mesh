@@ -6,7 +6,7 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/yadisnel/go-ms/v1/runtime/local/build"
+	"github.com/yadisnel/go-ms/v2/runtime/local/build"
 )
 
 type Builder struct {

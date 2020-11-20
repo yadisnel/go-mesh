@@ -1,5 +1,5 @@
 // Package log is a global internal logger
-// DEPRECATED: this is frozen package, use github.com/yadisnel/go-ms/v1/logger
+// DEPRECATED: this is frozen package, use github.com/yadisnel/go-ms/v2/logger
 package log
 
 import (
@@ -7,8 +7,8 @@ import (
 	"os"
 	"sync/atomic"
 
-	dlog "github.com/yadisnel/go-ms/v1/debug/log"
-	nlog "github.com/yadisnel/go-ms/v1/logger"
+	dlog "github.com/yadisnel/go-ms/v2/debug/log"
+	nlog "github.com/yadisnel/go-ms/v2/logger"
 )
 
 // level is a log level

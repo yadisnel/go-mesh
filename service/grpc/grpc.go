@@ -1,11 +1,11 @@
 package grpc
 
 import (
-	"github.com/yadisnel/go-ms/v1/client"
-	gclient "github.com/yadisnel/go-ms/v1/client/grpc"
-	"github.com/yadisnel/go-ms/v1/server"
-	gserver "github.com/yadisnel/go-ms/v1/server/grpc"
-	"github.com/yadisnel/go-ms/v1/service"
+	"github.com/yadisnel/go-ms/v2/client"
+	gclient "github.com/yadisnel/go-ms/v2/client/grpc"
+	"github.com/yadisnel/go-ms/v2/server"
+	gserver "github.com/yadisnel/go-ms/v2/server/grpc"
+	"github.com/yadisnel/go-ms/v2/service"
 )
 
 type grpcService struct {

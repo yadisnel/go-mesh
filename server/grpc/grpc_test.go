@@ -5,19 +5,19 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/yadisnel/go-ms/v1"
-	bmemory "github.com/yadisnel/go-ms/v1/broker/memory"
-	"github.com/yadisnel/go-ms/v1/client"
-	gcli "github.com/yadisnel/go-ms/v1/client/grpc"
-	"github.com/yadisnel/go-ms/v1/errors"
-	rmemory "github.com/yadisnel/go-ms/v1/registry/memory"
-	"github.com/yadisnel/go-ms/v1/server"
-	gsrv "github.com/yadisnel/go-ms/v1/server/grpc"
-	tgrpc "github.com/yadisnel/go-ms/v1/transport/grpc"
+	"github.com/yadisnel/go-ms/v2"
+	bmemory "github.com/yadisnel/go-ms/v2/broker/memory"
+	"github.com/yadisnel/go-ms/v2/client"
+	gcli "github.com/yadisnel/go-ms/v2/client/grpc"
+	"github.com/yadisnel/go-ms/v2/errors"
+	rmemory "github.com/yadisnel/go-ms/v2/registry/memory"
+	"github.com/yadisnel/go-ms/v2/server"
+	gsrv "github.com/yadisnel/go-ms/v2/server/grpc"
+	tgrpc "github.com/yadisnel/go-ms/v2/transport/grpc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/status"
 
-	pb "github.com/yadisnel/go-ms/v1/server/grpc/proto"
+	pb "github.com/yadisnel/go-ms/v2/server/grpc/proto"
 )
 
 // server is used to implement helloworld.GreeterServer.

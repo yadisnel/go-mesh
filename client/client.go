@@ -5,7 +5,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/codec"
+	"github.com/yadisnel/go-ms/v2/codec"
 )
 
 // Client is the interface used to make requests to services.

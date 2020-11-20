@@ -5,7 +5,7 @@ var (
 package main
 
 import (
-	"github.com/yadisnel/go-ms/v1/plugin"
+	"github.com/yadisnel/go-ms/v2/plugin"
 
 	"{{.Path}}"
 )

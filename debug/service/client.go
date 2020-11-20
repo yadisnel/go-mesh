@@ -5,9 +5,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/client"
-	"github.com/yadisnel/go-ms/v1/debug/log"
-	pb "github.com/yadisnel/go-ms/v1/debug/service/proto"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/debug/log"
+	pb "github.com/yadisnel/go-ms/v2/debug/service/proto"
 )
 
 // Debug provides debug service client

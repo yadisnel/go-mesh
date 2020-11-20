@@ -4,8 +4,8 @@ package memory
 import (
 	"fmt"
 
-	"github.com/yadisnel/go-ms/v1/debug/log"
-	"github.com/yadisnel/go-ms/v1/util/ring"
+	"github.com/yadisnel/go-ms/v2/debug/log"
+	"github.com/yadisnel/go-ms/v2/util/ring"
 )
 
 var (

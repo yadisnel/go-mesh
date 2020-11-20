@@ -3,7 +3,7 @@ package scope
 import (
 	"fmt"
 
-	"github.com/yadisnel/go-ms/v1/store"
+	"github.com/yadisnel/go-ms/v2/store"
 )
 
 // Scope extends the store, applying a prefix to each request

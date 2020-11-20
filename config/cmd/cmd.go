@@ -7,80 +7,80 @@ import (
 	"strings"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/auth"
-	"github.com/yadisnel/go-ms/v1/auth/provider"
-	"github.com/yadisnel/go-ms/v1/broker"
-	"github.com/yadisnel/go-ms/v1/client"
-	"github.com/yadisnel/go-ms/v1/client/grpc"
-	"github.com/yadisnel/go-ms/v1/client/selector"
-	"github.com/yadisnel/go-ms/v1/config"
-	configSrc "github.com/yadisnel/go-ms/v1/config/source"
-	configSrv "github.com/yadisnel/go-ms/v1/config/source/service"
-	"github.com/yadisnel/go-ms/v1/debug/profile"
-	"github.com/yadisnel/go-ms/v1/debug/profile/http"
-	"github.com/yadisnel/go-ms/v1/debug/profile/pprof"
-	"github.com/yadisnel/go-ms/v1/debug/trace"
-	"github.com/yadisnel/go-ms/v1/logger"
-	"github.com/yadisnel/go-ms/v1/registry"
-	registrySrv "github.com/yadisnel/go-ms/v1/registry/service"
-	"github.com/yadisnel/go-ms/v1/runtime"
-	"github.com/yadisnel/go-ms/v1/server"
-	"github.com/yadisnel/go-ms/v1/store"
-	"github.com/yadisnel/go-ms/v1/transport"
-	authutil "github.com/yadisnel/go-ms/v1/util/auth"
-	"github.com/yadisnel/go-ms/v1/util/wrapper"
+	"github.com/yadisnel/go-ms/v2/auth"
+	"github.com/yadisnel/go-ms/v2/auth/provider"
+	"github.com/yadisnel/go-ms/v2/broker"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/client/grpc"
+	"github.com/yadisnel/go-ms/v2/client/selector"
+	"github.com/yadisnel/go-ms/v2/config"
+	configSrc "github.com/yadisnel/go-ms/v2/config/source"
+	configSrv "github.com/yadisnel/go-ms/v2/config/source/service"
+	"github.com/yadisnel/go-ms/v2/debug/profile"
+	"github.com/yadisnel/go-ms/v2/debug/profile/http"
+	"github.com/yadisnel/go-ms/v2/debug/profile/pprof"
+	"github.com/yadisnel/go-ms/v2/debug/trace"
+	"github.com/yadisnel/go-ms/v2/logger"
+	"github.com/yadisnel/go-ms/v2/registry"
+	registrySrv "github.com/yadisnel/go-ms/v2/registry/service"
+	"github.com/yadisnel/go-ms/v2/runtime"
+	"github.com/yadisnel/go-ms/v2/server"
+	"github.com/yadisnel/go-ms/v2/store"
+	"github.com/yadisnel/go-ms/v2/transport"
+	authutil "github.com/yadisnel/go-ms/v2/util/auth"
+	"github.com/yadisnel/go-ms/v2/util/wrapper"
 
 	// clients
-	cgrpc "github.com/yadisnel/go-ms/v1/client/grpc"
-	cmucp "github.com/yadisnel/go-ms/v1/client/mucp"
+	cgrpc "github.com/yadisnel/go-ms/v2/client/grpc"
+	cmucp "github.com/yadisnel/go-ms/v2/client/mucp"
 
 	// servers
 	"github.com/yadisnel/go-ms-cli/v2"
 
-	sgrpc "github.com/yadisnel/go-ms/v1/server/grpc"
-	smucp "github.com/yadisnel/go-ms/v1/server/mucp"
+	sgrpc "github.com/yadisnel/go-ms/v2/server/grpc"
+	smucp "github.com/yadisnel/go-ms/v2/server/mucp"
 
 	// brokers
-	brokerHttp "github.com/yadisnel/go-ms/v1/broker/http"
-	"github.com/yadisnel/go-ms/v1/broker/memory"
-	"github.com/yadisnel/go-ms/v1/broker/nats"
-	brokerSrv "github.com/yadisnel/go-ms/v1/broker/service"
+	brokerHttp "github.com/yadisnel/go-ms/v2/broker/http"
+	"github.com/yadisnel/go-ms/v2/broker/memory"
+	"github.com/yadisnel/go-ms/v2/broker/nats"
+	brokerSrv "github.com/yadisnel/go-ms/v2/broker/service"
 
 	// registries
-	"github.com/yadisnel/go-ms/v1/registry/etcd"
-	"github.com/yadisnel/go-ms/v1/registry/mdns"
-	rmem "github.com/yadisnel/go-ms/v1/registry/memory"
-	regSrv "github.com/yadisnel/go-ms/v1/registry/service"
+	"github.com/yadisnel/go-ms/v2/registry/etcd"
+	"github.com/yadisnel/go-ms/v2/registry/mdns"
+	rmem "github.com/yadisnel/go-ms/v2/registry/memory"
+	regSrv "github.com/yadisnel/go-ms/v2/registry/service"
 
 	// runtimes
-	kRuntime "github.com/yadisnel/go-ms/v1/runtime/kubernetes"
-	lRuntime "github.com/yadisnel/go-ms/v1/runtime/local"
-	srvRuntime "github.com/yadisnel/go-ms/v1/runtime/service"
+	kRuntime "github.com/yadisnel/go-ms/v2/runtime/kubernetes"
+	lRuntime "github.com/yadisnel/go-ms/v2/runtime/local"
+	srvRuntime "github.com/yadisnel/go-ms/v2/runtime/service"
 
 	// selectors
-	"github.com/yadisnel/go-ms/v1/client/selector/dns"
-	"github.com/yadisnel/go-ms/v1/client/selector/router"
-	"github.com/yadisnel/go-ms/v1/client/selector/static"
+	"github.com/yadisnel/go-ms/v2/client/selector/dns"
+	"github.com/yadisnel/go-ms/v2/client/selector/router"
+	"github.com/yadisnel/go-ms/v2/client/selector/static"
 
 	// transports
-	thttp "github.com/yadisnel/go-ms/v1/transport/http"
-	tmem "github.com/yadisnel/go-ms/v1/transport/memory"
+	thttp "github.com/yadisnel/go-ms/v2/transport/http"
+	tmem "github.com/yadisnel/go-ms/v2/transport/memory"
 
 	// stores
-	memStore "github.com/yadisnel/go-ms/v1/store/memory"
-	svcStore "github.com/yadisnel/go-ms/v1/store/service"
+	memStore "github.com/yadisnel/go-ms/v2/store/memory"
+	svcStore "github.com/yadisnel/go-ms/v2/store/service"
 
 	// tracers
-	// jTracer "github.com/yadisnel/go-ms/v1/debug/trace/jaeger"
-	memTracer "github.com/yadisnel/go-ms/v1/debug/trace/memory"
+	// jTracer "github.com/yadisnel/go-ms/v2/debug/trace/jaeger"
+	memTracer "github.com/yadisnel/go-ms/v2/debug/trace/memory"
 
 	// auth
-	jwtAuth "github.com/yadisnel/go-ms/v1/auth/jwt"
-	svcAuth "github.com/yadisnel/go-ms/v1/auth/service"
+	jwtAuth "github.com/yadisnel/go-ms/v2/auth/jwt"
+	svcAuth "github.com/yadisnel/go-ms/v2/auth/service"
 
 	// auth providers
-	"github.com/yadisnel/go-ms/v1/auth/provider/basic"
-	"github.com/yadisnel/go-ms/v1/auth/provider/oauth"
+	"github.com/yadisnel/go-ms/v2/auth/provider/basic"
+	"github.com/yadisnel/go-ms/v2/auth/provider/oauth"
 )
 
 type Cmd interface {

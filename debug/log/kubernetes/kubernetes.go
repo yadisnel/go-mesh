@@ -1,4 +1,4 @@
-// Package kubernetes is a logger implementing (github.com/yadisnel/go-ms/v1/debug/log).Log
+// Package kubernetes is a logger implementing (github.com/yadisnel/go-ms/v2/debug/log).Log
 package kubernetes
 
 import (
@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/debug/log"
-	"github.com/yadisnel/go-ms/v1/util/kubernetes/client"
+	"github.com/yadisnel/go-ms/v2/debug/log"
+	"github.com/yadisnel/go-ms/v2/util/kubernetes/client"
 )
 
 type klog struct {

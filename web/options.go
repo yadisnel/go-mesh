@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/yadisnel/go-ms-cli/v2"
-	"github.com/yadisnel/go-ms/v1"
-	"github.com/yadisnel/go-ms/v1/registry"
+	"github.com/yadisnel/go-ms/v2"
+	"github.com/yadisnel/go-ms/v2/registry"
 )
 
 //Options for web

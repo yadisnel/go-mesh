@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/yadisnel/go-ms/v1/auth"
-	"github.com/yadisnel/go-ms/v1/auth/token"
+	"github.com/yadisnel/go-ms/v2/auth"
+	"github.com/yadisnel/go-ms/v2/auth/token"
 )
 
 // authClaims to be encoded in the JWT

@@ -4,7 +4,7 @@ package host
 import (
 	"net/http"
 
-	"github.com/yadisnel/go-ms/v1/api/resolver"
+	"github.com/yadisnel/go-ms/v2/api/resolver"
 )
 
 type Resolver struct {

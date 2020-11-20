@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/yadisnel/go-ms/v1/registry"
-	pb "github.com/yadisnel/go-ms/v1/registry/service/proto"
+	"github.com/yadisnel/go-ms/v2/registry"
+	pb "github.com/yadisnel/go-ms/v2/registry/service/proto"
 )
 
 type serviceWatcher struct {

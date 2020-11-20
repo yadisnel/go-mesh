@@ -7,11 +7,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/auth"
-	"github.com/yadisnel/go-ms/v1/client"
-	"github.com/yadisnel/go-ms/v1/errors"
-	"github.com/yadisnel/go-ms/v1/metadata"
-	"github.com/yadisnel/go-ms/v1/server"
+	"github.com/yadisnel/go-ms/v2/auth"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/errors"
+	"github.com/yadisnel/go-ms/v2/metadata"
+	"github.com/yadisnel/go-ms/v2/server"
 )
 
 func TestWrapper(t *testing.T) {

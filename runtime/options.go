@@ -4,7 +4,7 @@ import (
 	"context"
 	"io"
 
-	"github.com/yadisnel/go-ms/v1/client"
+	"github.com/yadisnel/go-ms/v2/client"
 )
 
 type Option func(o *Options)

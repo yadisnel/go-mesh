@@ -2,7 +2,7 @@
 package http
 
 import (
-	"github.com/yadisnel/go-ms/v1/broker"
+	"github.com/yadisnel/go-ms/v2/broker"
 )
 
 // NewBroker returns a new http broker

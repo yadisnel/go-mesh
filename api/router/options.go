@@ -1,9 +1,9 @@
 package router
 
 import (
-	"github.com/yadisnel/go-ms/v1/api/resolver"
-	"github.com/yadisnel/go-ms/v1/api/resolver/vpath"
-	"github.com/yadisnel/go-ms/v1/registry"
+	"github.com/yadisnel/go-ms/v2/api/resolver"
+	"github.com/yadisnel/go-ms/v2/api/resolver/vpath"
+	"github.com/yadisnel/go-ms/v2/registry"
 )
 
 type Options struct {

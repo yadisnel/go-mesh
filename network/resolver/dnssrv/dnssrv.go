@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/yadisnel/go-ms/v1/network/resolver"
+	"github.com/yadisnel/go-ms/v2/network/resolver"
 )
 
 // Resolver is a DNS network resolve

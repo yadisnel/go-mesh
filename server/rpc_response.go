@@ -3,8 +3,8 @@ package server
 import (
 	"net/http"
 
-	"github.com/yadisnel/go-ms/v1/codec"
-	"github.com/yadisnel/go-ms/v1/transport"
+	"github.com/yadisnel/go-ms/v2/codec"
+	"github.com/yadisnel/go-ms/v2/transport"
 )
 
 type rpcResponse struct {

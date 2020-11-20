@@ -10,9 +10,9 @@ import (
 	"net/url"
 	"path"
 
-	"github.com/yadisnel/go-ms/v1/errors"
-	"github.com/yadisnel/go-ms/v1/proxy"
-	"github.com/yadisnel/go-ms/v1/server"
+	"github.com/yadisnel/go-ms/v2/errors"
+	"github.com/yadisnel/go-ms/v2/proxy"
+	"github.com/yadisnel/go-ms/v2/server"
 )
 
 // Proxy will proxy rpc requests as http POST requests. It is a server.Proxy

@@ -12,9 +12,9 @@ import (
 
 import (
 	context "context"
-	api "github.com/yadisnel/go-ms/v1/api"
-	client "github.com/yadisnel/go-ms/v1/client"
-	server "github.com/yadisnel/go-ms/v1/server"
+	api "github.com/yadisnel/go-ms/v2/api"
+	client "github.com/yadisnel/go-ms/v2/client"
+	server "github.com/yadisnel/go-ms/v2/server"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.

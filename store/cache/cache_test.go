@@ -4,8 +4,8 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/yadisnel/go-ms/v1/store"
-	"github.com/yadisnel/go-ms/v1/store/memory"
+	"github.com/yadisnel/go-ms/v2/store"
+	"github.com/yadisnel/go-ms/v2/store/memory"
 	"github.com/stretchr/testify/assert"
 )
 

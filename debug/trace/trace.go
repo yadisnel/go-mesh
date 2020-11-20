@@ -5,7 +5,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/metadata"
+	"github.com/yadisnel/go-ms/v2/metadata"
 )
 
 // Tracer is an interface for distributed tracing

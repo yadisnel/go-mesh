@@ -4,8 +4,8 @@ import (
 	"context"
 	"crypto/tls"
 
-	"github.com/yadisnel/go-ms/v1/codec"
-	"github.com/yadisnel/go-ms/v1/registry"
+	"github.com/yadisnel/go-ms/v2/codec"
+	"github.com/yadisnel/go-ms/v2/registry"
 )
 
 type Options struct {

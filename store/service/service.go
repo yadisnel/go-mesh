@@ -8,11 +8,11 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/client"
-	"github.com/yadisnel/go-ms/v1/errors"
-	"github.com/yadisnel/go-ms/v1/metadata"
-	"github.com/yadisnel/go-ms/v1/store"
-	pb "github.com/yadisnel/go-ms/v1/store/service/proto"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/errors"
+	"github.com/yadisnel/go-ms/v2/metadata"
+	"github.com/yadisnel/go-ms/v2/store"
+	pb "github.com/yadisnel/go-ms/v2/store/service/proto"
 )
 
 type serviceStore struct {

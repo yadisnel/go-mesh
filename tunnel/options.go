@@ -4,9 +4,9 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/yadisnel/go-ms/v1/logger"
-	"github.com/yadisnel/go-ms/v1/transport"
-	"github.com/yadisnel/go-ms/v1/transport/quic"
+	"github.com/yadisnel/go-ms/v2/logger"
+	"github.com/yadisnel/go-ms/v2/transport"
+	"github.com/yadisnel/go-ms/v2/transport/quic"
 )
 
 var (

@@ -2,7 +2,7 @@
 package local
 
 import (
-	"github.com/yadisnel/go-ms/v1/runtime"
+	"github.com/yadisnel/go-ms/v2/runtime"
 )
 
 // NewRuntime returns a new local runtime

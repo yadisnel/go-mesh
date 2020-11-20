@@ -7,8 +7,8 @@ import (
 	"net"
 	"os"
 
-	"github.com/yadisnel/go-ms/v1/api/server/acme"
-	"github.com/yadisnel/go-ms/v1/logger"
+	"github.com/yadisnel/go-ms/v2/api/server/acme"
+	"github.com/yadisnel/go-ms/v2/logger"
 	"golang.org/x/crypto/acme/autocert"
 )
 

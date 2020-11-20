@@ -4,8 +4,8 @@ package transport
 import (
 	"context"
 
-	"github.com/yadisnel/go-ms/v1/transport"
-	"github.com/yadisnel/go-ms/v1/tunnel"
+	"github.com/yadisnel/go-ms/v2/transport"
+	"github.com/yadisnel/go-ms/v2/tunnel"
 )
 
 type tunTransport struct {

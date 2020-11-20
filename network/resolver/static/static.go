@@ -2,7 +2,7 @@
 package registry
 
 import (
-	"github.com/yadisnel/go-ms/v1/network/resolver"
+	"github.com/yadisnel/go-ms/v2/network/resolver"
 )
 
 // Resolver returns a static list of nodes. In the event the node list

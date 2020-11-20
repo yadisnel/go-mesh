@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	"github.com/yadisnel/go-ms/v1/client"
-	"github.com/yadisnel/go-ms/v1/registry"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/registry"
 )
 
 type clientKey struct{}

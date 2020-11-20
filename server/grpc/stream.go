@@ -3,7 +3,7 @@ package grpc
 import (
 	"context"
 
-	"github.com/yadisnel/go-ms/v1/server"
+	"github.com/yadisnel/go-ms/v2/server"
 	"google.golang.org/grpc"
 )
 

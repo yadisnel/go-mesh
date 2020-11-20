@@ -13,16 +13,16 @@ import (
 	"time"
 
 	"github.com/yadisnel/go-ms-cli/v2"
-	"github.com/yadisnel/go-ms/v1"
-	"github.com/yadisnel/go-ms/v1/logger"
-	"github.com/yadisnel/go-ms/v1/registry"
-	maddr "github.com/yadisnel/go-ms/v1/util/addr"
-	authutil "github.com/yadisnel/go-ms/v1/util/auth"
-	"github.com/yadisnel/go-ms/v1/util/backoff"
-	mhttp "github.com/yadisnel/go-ms/v1/util/http"
-	mnet "github.com/yadisnel/go-ms/v1/util/net"
-	signalutil "github.com/yadisnel/go-ms/v1/util/signal"
-	mls "github.com/yadisnel/go-ms/v1/util/tls"
+	"github.com/yadisnel/go-ms/v2"
+	"github.com/yadisnel/go-ms/v2/logger"
+	"github.com/yadisnel/go-ms/v2/registry"
+	maddr "github.com/yadisnel/go-ms/v2/util/addr"
+	authutil "github.com/yadisnel/go-ms/v2/util/auth"
+	"github.com/yadisnel/go-ms/v2/util/backoff"
+	mhttp "github.com/yadisnel/go-ms/v2/util/http"
+	mnet "github.com/yadisnel/go-ms/v2/util/net"
+	signalutil "github.com/yadisnel/go-ms/v2/util/signal"
+	mls "github.com/yadisnel/go-ms/v2/util/tls"
 )
 
 type service struct {

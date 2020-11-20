@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/yadisnel/go-ms/v1/config/source"
-	proto "github.com/yadisnel/go-ms/v1/config/source/service/proto"
+	"github.com/yadisnel/go-ms/v2/config/source"
+	proto "github.com/yadisnel/go-ms/v2/config/source/service/proto"
 )
 
 type watcher struct {

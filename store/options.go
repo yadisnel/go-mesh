@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/client"
+	"github.com/yadisnel/go-ms/v2/client"
 )
 
 // Options contains configuration for the Store

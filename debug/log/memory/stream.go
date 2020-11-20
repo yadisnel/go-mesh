@@ -1,7 +1,7 @@
 package memory
 
 import (
-	"github.com/yadisnel/go-ms/v1/debug/log"
+	"github.com/yadisnel/go-ms/v2/debug/log"
 )
 
 type logStream struct {

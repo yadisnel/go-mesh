@@ -1,6 +1,6 @@
 # Log
 
-DEPRECATED: use github.com/yadisnel/go-ms/v1/logger interface
+DEPRECATED: use github.com/yadisnel/go-ms/v2/logger interface
 
 This is the global logger for all micro based libraries.
 

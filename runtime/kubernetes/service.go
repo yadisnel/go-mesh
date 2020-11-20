@@ -5,10 +5,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/logger"
-	"github.com/yadisnel/go-ms/v1/runtime"
-	"github.com/yadisnel/go-ms/v1/util/kubernetes/api"
-	"github.com/yadisnel/go-ms/v1/util/kubernetes/client"
+	"github.com/yadisnel/go-ms/v2/logger"
+	"github.com/yadisnel/go-ms/v2/runtime"
+	"github.com/yadisnel/go-ms/v2/util/kubernetes/api"
+	"github.com/yadisnel/go-ms/v2/util/kubernetes/client"
 )
 
 type service struct {

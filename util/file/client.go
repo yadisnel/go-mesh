@@ -9,8 +9,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/yadisnel/go-ms/v1/client"
-	proto "github.com/yadisnel/go-ms/v1/util/file/proto"
+	"github.com/yadisnel/go-ms/v2/client"
+	proto "github.com/yadisnel/go-ms/v2/util/file/proto"
 )
 
 // Client is the client interface to access files

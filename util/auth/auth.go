@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/auth"
-	"github.com/yadisnel/go-ms/v1/logger"
+	"github.com/yadisnel/go-ms/v2/auth"
+	"github.com/yadisnel/go-ms/v2/logger"
 )
 
 // Generate generates a service account for and continually

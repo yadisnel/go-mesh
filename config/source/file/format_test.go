@@ -3,7 +3,7 @@ package file
 import (
 	"testing"
 
-	"github.com/yadisnel/go-ms/v1/config/source"
+	"github.com/yadisnel/go-ms/v2/config/source"
 )
 
 func TestFormat(t *testing.T) {

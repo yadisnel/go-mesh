@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/yadisnel/go-ms/v1/transport"
+	"github.com/yadisnel/go-ms/v2/transport"
 )
 
 func TestMemoryTransport(t *testing.T) {

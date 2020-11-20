@@ -4,10 +4,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/auth"
-	"github.com/yadisnel/go-ms/v1/auth/rules"
-	"github.com/yadisnel/go-ms/v1/auth/token"
-	jwtToken "github.com/yadisnel/go-ms/v1/auth/token/jwt"
+	"github.com/yadisnel/go-ms/v2/auth"
+	"github.com/yadisnel/go-ms/v2/auth/rules"
+	"github.com/yadisnel/go-ms/v2/auth/token"
+	jwtToken "github.com/yadisnel/go-ms/v2/auth/token/jwt"
 )
 
 // NewAuth returns a new instance of the Auth service

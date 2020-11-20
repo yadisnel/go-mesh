@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/yadisnel/go-ms/v1/config/source"
+	"github.com/yadisnel/go-ms/v2/config/source"
 )
 
 func TestValues(t *testing.T) {

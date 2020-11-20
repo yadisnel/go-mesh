@@ -3,7 +3,7 @@ package memory
 import (
 	"errors"
 
-	"github.com/yadisnel/go-ms/v1/registry"
+	"github.com/yadisnel/go-ms/v2/registry"
 )
 
 type memoryWatcher struct {

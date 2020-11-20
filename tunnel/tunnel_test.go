@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/transport"
+	"github.com/yadisnel/go-ms/v2/transport"
 )
 
 func testBrokenTunAccept(t *testing.T, tun Tunnel, wait chan bool, wg *sync.WaitGroup) {

@@ -4,8 +4,8 @@ package micro
 import (
 	"context"
 
-	"github.com/yadisnel/go-ms/v1/client"
-	"github.com/yadisnel/go-ms/v1/server"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/server"
 )
 
 type serviceKey struct{}

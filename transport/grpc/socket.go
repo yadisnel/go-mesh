@@ -1,8 +1,8 @@
 package grpc
 
 import (
-	"github.com/yadisnel/go-ms/v1/transport"
-	pb "github.com/yadisnel/go-ms/v1/transport/grpc/proto"
+	"github.com/yadisnel/go-ms/v2/transport"
+	pb "github.com/yadisnel/go-ms/v2/transport/grpc/proto"
 	"google.golang.org/grpc"
 )
 

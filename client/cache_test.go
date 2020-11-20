@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/metadata"
+	"github.com/yadisnel/go-ms/v2/metadata"
 )
 
 func TestCache(t *testing.T) {

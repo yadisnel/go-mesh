@@ -7,7 +7,7 @@ import (
 	"time"
 
 	cetcd "github.com/coreos/etcd/clientv3"
-	"github.com/yadisnel/go-ms/v1/config/source"
+	"github.com/yadisnel/go-ms/v2/config/source"
 )
 
 type watcher struct {

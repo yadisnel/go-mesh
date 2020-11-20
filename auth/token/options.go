@@ -3,7 +3,7 @@ package token
 import (
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/store"
+	"github.com/yadisnel/go-ms/v2/store"
 )
 
 type Options struct {

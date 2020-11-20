@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/debug/profile"
+	"github.com/yadisnel/go-ms/v2/debug/profile"
 )
 
 type profiler struct {

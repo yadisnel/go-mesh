@@ -8,13 +8,13 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/yadisnel/go-ms/v1/api"
-	"github.com/yadisnel/go-ms/v1/api/router"
-	"github.com/yadisnel/go-ms/v1/api/router/util"
-	"github.com/yadisnel/go-ms/v1/logger"
-	"github.com/yadisnel/go-ms/v1/metadata"
-	"github.com/yadisnel/go-ms/v1/registry"
-	rutil "github.com/yadisnel/go-ms/v1/util/registry"
+	"github.com/yadisnel/go-ms/v2/api"
+	"github.com/yadisnel/go-ms/v2/api/router"
+	"github.com/yadisnel/go-ms/v2/api/router/util"
+	"github.com/yadisnel/go-ms/v2/logger"
+	"github.com/yadisnel/go-ms/v2/metadata"
+	"github.com/yadisnel/go-ms/v2/registry"
+	rutil "github.com/yadisnel/go-ms/v2/util/registry"
 )
 
 type endpoint struct {

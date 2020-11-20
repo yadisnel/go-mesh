@@ -9,8 +9,8 @@ import (
 
 	"github.com/imdario/mergo"
 	"github.com/yadisnel/go-ms-cli/v2"
-	"github.com/yadisnel/go-ms/v1/config/cmd"
-	"github.com/yadisnel/go-ms/v1/config/source"
+	"github.com/yadisnel/go-ms/v2/config/cmd"
+	"github.com/yadisnel/go-ms/v2/config/source"
 )
 
 type cliSource struct {

@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/yadisnel/go-ms/v1/transport"
+	"github.com/yadisnel/go-ms/v2/transport"
 )
 
 // Handle registers the handler for the given pattern.

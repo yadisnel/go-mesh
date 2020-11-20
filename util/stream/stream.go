@@ -5,10 +5,10 @@ import (
 	"context"
 	"sync"
 
-	"github.com/yadisnel/go-ms/v1/client"
-	"github.com/yadisnel/go-ms/v1/codec"
-	"github.com/yadisnel/go-ms/v1/metadata"
-	"github.com/yadisnel/go-ms/v1/server"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/codec"
+	"github.com/yadisnel/go-ms/v2/metadata"
+	"github.com/yadisnel/go-ms/v2/server"
 )
 
 type Stream interface {

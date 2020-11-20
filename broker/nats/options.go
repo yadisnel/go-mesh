@@ -1,7 +1,7 @@
 package nats
 
 import (
-	"github.com/yadisnel/go-ms/v1/broker"
+	"github.com/yadisnel/go-ms/v2/broker"
 	nats "github.com/nats-io/nats.go"
 )
 

@@ -5,12 +5,12 @@ import (
 	"context"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/client"
-	"github.com/yadisnel/go-ms/v1/debug/log"
-	proto "github.com/yadisnel/go-ms/v1/debug/service/proto"
-	"github.com/yadisnel/go-ms/v1/debug/stats"
-	"github.com/yadisnel/go-ms/v1/debug/trace"
-	"github.com/yadisnel/go-ms/v1/server"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/debug/log"
+	proto "github.com/yadisnel/go-ms/v2/debug/service/proto"
+	"github.com/yadisnel/go-ms/v2/debug/stats"
+	"github.com/yadisnel/go-ms/v2/debug/trace"
+	"github.com/yadisnel/go-ms/v2/server"
 )
 
 // NewHandler returns an instance of the Debug Handler

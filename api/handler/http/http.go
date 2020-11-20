@@ -8,9 +8,9 @@ import (
 	"net/http/httputil"
 	"net/url"
 
-	"github.com/yadisnel/go-ms/v1/api"
-	"github.com/yadisnel/go-ms/v1/api/handler"
-	"github.com/yadisnel/go-ms/v1/client/selector"
+	"github.com/yadisnel/go-ms/v2/api"
+	"github.com/yadisnel/go-ms/v2/api/handler"
+	"github.com/yadisnel/go-ms/v2/client/selector"
 )
 
 const (

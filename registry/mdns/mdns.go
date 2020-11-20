@@ -4,7 +4,7 @@ package mdns
 import (
 	"context"
 
-	"github.com/yadisnel/go-ms/v1/registry"
+	"github.com/yadisnel/go-ms/v2/registry"
 )
 
 // NewRegistry returns a new mdns registry

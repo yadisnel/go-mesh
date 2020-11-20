@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	dlog "github.com/yadisnel/go-ms/v1/debug/log"
+	dlog "github.com/yadisnel/go-ms/v2/debug/log"
 )
 
 func init() {

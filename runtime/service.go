@@ -8,10 +8,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/logger"
-	"github.com/yadisnel/go-ms/v1/runtime/local/build"
-	"github.com/yadisnel/go-ms/v1/runtime/local/process"
-	proc "github.com/yadisnel/go-ms/v1/runtime/local/process/os"
+	"github.com/yadisnel/go-ms/v2/logger"
+	"github.com/yadisnel/go-ms/v2/runtime/local/build"
+	"github.com/yadisnel/go-ms/v2/runtime/local/process"
+	proc "github.com/yadisnel/go-ms/v2/runtime/local/process/os"
 )
 
 type service struct {

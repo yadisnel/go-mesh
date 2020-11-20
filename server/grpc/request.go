@@ -1,8 +1,8 @@
 package grpc
 
 import (
-	"github.com/yadisnel/go-ms/v1/codec"
-	"github.com/yadisnel/go-ms/v1/codec/bytes"
+	"github.com/yadisnel/go-ms/v2/codec"
+	"github.com/yadisnel/go-ms/v2/codec/bytes"
 )
 
 type rpcRequest struct {

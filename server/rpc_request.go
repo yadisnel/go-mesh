@@ -3,9 +3,9 @@ package server
 import (
 	"bytes"
 
-	"github.com/yadisnel/go-ms/v1/codec"
-	"github.com/yadisnel/go-ms/v1/transport"
-	"github.com/yadisnel/go-ms/v1/util/buf"
+	"github.com/yadisnel/go-ms/v2/codec"
+	"github.com/yadisnel/go-ms/v2/transport"
+	"github.com/yadisnel/go-ms/v2/util/buf"
 )
 
 type rpcRequest struct {

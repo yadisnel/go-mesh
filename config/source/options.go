@@ -3,9 +3,9 @@ package source
 import (
 	"context"
 
-	"github.com/yadisnel/go-ms/v1/client"
-	"github.com/yadisnel/go-ms/v1/config/encoder"
-	"github.com/yadisnel/go-ms/v1/config/encoder/json"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/config/encoder"
+	"github.com/yadisnel/go-ms/v2/config/encoder/json"
 )
 
 type Options struct {

@@ -5,12 +5,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/auth"
-	"github.com/yadisnel/go-ms/v1/auth/rules"
-	pb "github.com/yadisnel/go-ms/v1/auth/service/proto"
-	"github.com/yadisnel/go-ms/v1/auth/token"
-	"github.com/yadisnel/go-ms/v1/auth/token/jwt"
-	"github.com/yadisnel/go-ms/v1/client"
+	"github.com/yadisnel/go-ms/v2/auth"
+	"github.com/yadisnel/go-ms/v2/auth/rules"
+	pb "github.com/yadisnel/go-ms/v2/auth/service/proto"
+	"github.com/yadisnel/go-ms/v2/auth/token"
+	"github.com/yadisnel/go-ms/v2/auth/token/jwt"
+	"github.com/yadisnel/go-ms/v2/client"
 )
 
 // svc is the service implementation of the Auth interface

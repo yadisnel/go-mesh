@@ -3,7 +3,7 @@
 package secretbox
 
 import (
-	"github.com/yadisnel/go-ms/v1/config/secrets"
+	"github.com/yadisnel/go-ms/v2/config/secrets"
 	"github.com/pkg/errors"
 	"golang.org/x/crypto/nacl/secretbox"
 

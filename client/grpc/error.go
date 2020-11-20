@@ -1,7 +1,7 @@
 package grpc
 
 import (
-	"github.com/yadisnel/go-ms/v1/errors"
+	"github.com/yadisnel/go-ms/v2/errors"
 	"google.golang.org/grpc/status"
 )
 

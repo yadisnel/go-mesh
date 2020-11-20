@@ -1,7 +1,7 @@
 package registry
 
 import (
-	"github.com/yadisnel/go-ms/v1/registry"
+	"github.com/yadisnel/go-ms/v2/registry"
 )
 
 func addNodes(old, neu []*registry.Node) []*registry.Node {

@@ -6,7 +6,7 @@ import (
 	"sync"
 
 	"github.com/yadisnel/go-ms-cli/v2"
-	"github.com/yadisnel/go-ms/v1/agent/input"
+	"github.com/yadisnel/go-ms/v2/agent/input"
 	tgbotapi "gopkg.in/telegram-bot-api.v4"
 )
 

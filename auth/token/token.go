@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/yadisnel/go-ms/v1/auth"
+	"github.com/yadisnel/go-ms/v2/auth"
 )
 
 var (

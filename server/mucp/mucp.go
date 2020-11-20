@@ -2,7 +2,7 @@
 package mucp
 
 import (
-	"github.com/yadisnel/go-ms/v1/server"
+	"github.com/yadisnel/go-ms/v2/server"
 )
 
 // NewServer returns a micro server interface

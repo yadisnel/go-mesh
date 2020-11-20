@@ -4,7 +4,7 @@ package io
 import (
 	"io"
 
-	"github.com/yadisnel/go-ms/v1/transport"
+	"github.com/yadisnel/go-ms/v2/transport"
 )
 
 type rwc struct {

@@ -6,10 +6,10 @@ import (
 	"testing"
 
 	"github.com/yadisnel/go-ms-cli/v2"
-	"github.com/yadisnel/go-ms/v1"
-	"github.com/yadisnel/go-ms/v1/config"
-	"github.com/yadisnel/go-ms/v1/config/cmd"
-	"github.com/yadisnel/go-ms/v1/config/source"
+	"github.com/yadisnel/go-ms/v2"
+	"github.com/yadisnel/go-ms/v2/config"
+	"github.com/yadisnel/go-ms/v2/config/cmd"
+	"github.com/yadisnel/go-ms/v2/config/source"
 )
 
 func TestCliSourceDefault(t *testing.T) {

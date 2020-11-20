@@ -3,7 +3,7 @@ package registry
 import (
 	"testing"
 
-	"github.com/yadisnel/go-ms/v1/registry"
+	"github.com/yadisnel/go-ms/v2/registry"
 	"github.com/stretchr/testify/assert"
 )
 

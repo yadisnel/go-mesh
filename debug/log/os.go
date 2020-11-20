@@ -4,7 +4,7 @@ import (
 	"sync"
 
 	"github.com/google/uuid"
-	"github.com/yadisnel/go-ms/v1/util/ring"
+	"github.com/yadisnel/go-ms/v2/util/ring"
 )
 
 // Should stream from OS

@@ -9,9 +9,9 @@ import (
 	"sync"
 
 	"github.com/gorilla/handlers"
-	"github.com/yadisnel/go-ms/v1/api/server"
-	"github.com/yadisnel/go-ms/v1/api/server/cors"
-	"github.com/yadisnel/go-ms/v1/logger"
+	"github.com/yadisnel/go-ms/v2/api/server"
+	"github.com/yadisnel/go-ms/v2/api/server/cors"
+	"github.com/yadisnel/go-ms/v2/logger"
 )
 
 type httpServer struct {

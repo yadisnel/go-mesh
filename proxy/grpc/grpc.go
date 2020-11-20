@@ -6,11 +6,11 @@ import (
 	"io"
 	"strings"
 
-	"github.com/yadisnel/go-ms/v1/client"
-	"github.com/yadisnel/go-ms/v1/client/grpc"
-	"github.com/yadisnel/go-ms/v1/codec"
-	"github.com/yadisnel/go-ms/v1/proxy"
-	"github.com/yadisnel/go-ms/v1/server"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/client/grpc"
+	"github.com/yadisnel/go-ms/v2/codec"
+	"github.com/yadisnel/go-ms/v2/proxy"
+	"github.com/yadisnel/go-ms/v2/server"
 )
 
 // Proxy will transparently proxy requests to the backend.

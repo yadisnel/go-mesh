@@ -2,8 +2,8 @@
 package static
 
 import (
-	"github.com/yadisnel/go-ms/v1/client/selector"
-	"github.com/yadisnel/go-ms/v1/registry"
+	"github.com/yadisnel/go-ms/v2/client/selector"
+	"github.com/yadisnel/go-ms/v2/registry"
 )
 
 // staticSelector is a static selector

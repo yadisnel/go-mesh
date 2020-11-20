@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	pb "github.com/yadisnel/go-ms/v1/network/service/proto"
+	pb "github.com/yadisnel/go-ms/v2/network/service/proto"
 )
 
 var (

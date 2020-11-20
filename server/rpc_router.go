@@ -18,8 +18,8 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/yadisnel/go-ms/v1/codec"
-	merrors "github.com/yadisnel/go-ms/v1/errors"
+	"github.com/yadisnel/go-ms/v2/codec"
+	merrors "github.com/yadisnel/go-ms/v2/errors"
 )
 
 var (

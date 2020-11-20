@@ -1,7 +1,7 @@
 package selector
 
 import (
-	"github.com/yadisnel/go-ms/v1/registry"
+	"github.com/yadisnel/go-ms/v2/registry"
 )
 
 // FilterEndpoint is an endpoint based Select Filter which will

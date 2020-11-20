@@ -2,11 +2,11 @@
 package mucp
 
 import (
-	"github.com/yadisnel/go-ms/v1/client"
-	cmucp "github.com/yadisnel/go-ms/v1/client/mucp"
-	"github.com/yadisnel/go-ms/v1/server"
-	smucp "github.com/yadisnel/go-ms/v1/server/mucp"
-	"github.com/yadisnel/go-ms/v1/service"
+	"github.com/yadisnel/go-ms/v2/client"
+	cmucp "github.com/yadisnel/go-ms/v2/client/mucp"
+	"github.com/yadisnel/go-ms/v2/server"
+	smucp "github.com/yadisnel/go-ms/v2/server/mucp"
+	"github.com/yadisnel/go-ms/v2/service"
 )
 
 type mucpService struct {
