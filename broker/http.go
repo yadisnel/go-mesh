@@ -316,7 +316,7 @@ func (h *httpBroker) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	topic := m.Header["Micro-Topic"]
+	topic := m.Header["Goms-Topic"]
 	//delete(m.Header, ":topic")
 
 	if len(topic) == 0 {
@@ -520,7 +520,7 @@ func (h *httpBroker) Publish(topic string, msg *Message, opts ...PublishOption) 
 		m.Header[k] = v
 	}
 
-	m.Header["Micro-Topic"] = topic
+	m.Header["Goms-Topic"] = topic
 
 	// encode the message
 	b, err := h.opts.Codec.Marshal(m)

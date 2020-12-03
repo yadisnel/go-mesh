@@ -598,7 +598,7 @@ func (g *grpcClient) Publish(ctx context.Context, p client.Message, opts ...clie
 		md = make(map[string]string)
 	}
 	md["Content-Type"] = p.ContentType()
-	md["Micro-Topic"] = p.Topic()
+	md["Goms-Topic"] = p.Topic()
 
 	cf, err := g.newGRPCCodec(p.ContentType())
 	if err != nil {

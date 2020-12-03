@@ -97,11 +97,11 @@ func (s *rpcServer) HandleEvent(e broker.Event) error {
 	ctx := metadata.NewContext(context.Background(), hdr)
 
 	// TODO: inspect message header
-	// Micro-Service means a request
-	// Micro-Topic means a message
+	// Goms-Service means a request
+	// Goms-Topic means a message
 
 	rpcMsg := &rpcMessage{
-		topic:       msg.Header["Micro-Topic"],
+		topic:       msg.Header["Goms-Topic"],
 		contentType: ct,
 		payload:     &raw.Frame{Data: msg.Body},
 		codec:       cf,
@@ -133,7 +133,7 @@ func (s *rpcServer) HandleEvent(e broker.Event) error {
 func (s *rpcServer) ServeConn(sock transport.Socket) {
 	// global error tracking
 	var gerr error
-	// streams are multiplexed on Micro-Stream or Micro-Id header
+	// streams are multiplexed on Goms-Stream or Goms-Id header
 	pool := socket.NewPool()
 
 	// get global waitgroup
@@ -180,14 +180,14 @@ func (s *rpcServer) ServeConn(sock transport.Socket) {
 		}
 
 		// check the message header for
-		// Micro-Service is a request
-		// Micro-Topic is a message
-		if t := msg.Header["Micro-Topic"]; len(t) > 0 {
+		// Goms-Service is a request
+		// Goms-Topic is a message
+		if t := msg.Header["Goms-Topic"]; len(t) > 0 {
 			// process the event
 			ev := newEvent(msg)
 			// TODO: handle the error event
 			if err := s.HandleEvent(ev); err != nil {
-				msg.Header["Micro-Error"] = err.Error()
+				msg.Header["Goms-Error"] = err.Error()
 			}
 			// write back some 200
 			if err := sock.Send(&transport.Message{
@@ -202,21 +202,21 @@ func (s *rpcServer) ServeConn(sock transport.Socket) {
 
 		// business as usual
 
-		// use Micro-Stream as the stream identifier
+		// use Goms-Stream as the stream identifier
 		// in the event its blank we'll always process
 		// on the same socket
-		id := msg.Header["Micro-Stream"]
+		id := msg.Header["Goms-Stream"]
 
 		// if there's no stream id then its a standard request
-		// use the Micro-Id
+		// use the Goms-Id
 		if len(id) == 0 {
-			id = msg.Header["Micro-Id"]
+			id = msg.Header["Goms-Id"]
 		}
 
 		// check stream id
 		var stream bool
 
-		if v := getHeader("Micro-Stream", msg.Header); len(v) > 0 {
+		if v := getHeader("Goms-Stream", msg.Header); len(v) > 0 {
 			stream = true
 		}
 
@@ -226,7 +226,7 @@ func (s *rpcServer) ServeConn(sock transport.Socket) {
 		// if we don't have a socket and its a stream
 		if !ok && stream {
 			// check if its a last stream EOS error
-			err := msg.Header["Micro-Error"]
+			err := msg.Header["Goms-Error"]
 			if err == lastStreamResponseError.Error() {
 				pool.Release(psock)
 				continue
@@ -326,9 +326,9 @@ func (s *rpcServer) ServeConn(sock transport.Socket) {
 
 		// internal request
 		request := &rpcRequest{
-			service:     getHeader("Micro-Service", msg.Header),
-			method:      getHeader("Micro-Method", msg.Header),
-			endpoint:    getHeader("Micro-Endpoint", msg.Header),
+			service:     getHeader("Goms-Service", msg.Header),
+			method:      getHeader("Goms-Method", msg.Header),
+			endpoint:    getHeader("Goms-Endpoint", msg.Header),
 			contentType: ct,
 			codec:       rcodec,
 			header:      msg.Header,

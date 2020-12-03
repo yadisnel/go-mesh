@@ -41,9 +41,9 @@ var (
 // Mode of the session
 type Mode uint8
 
-// Tunnel creates a gre tunnel on top of the go-micro/transport.
-// It establishes multiple streams using the Micro-Tunnel-Channel header
-// and Micro-Tunnel-Session header. The tunnel id is a hash of
+// Tunnel creates a gre tunnel on top of the go-ms/transport.
+// It establishes multiple streams using the Goms-Tunnel-Channel header
+// and Goms-Tunnel-Session header. The tunnel id is a hash of
 // the address being requested.
 type Tunnel interface {
 	// Init initializes tunnel with options

@@ -465,7 +465,7 @@ func (s *session) Recv(m *transport.Message) error {
 	// TODO: decruft, this is only for multicast
 	// since the session is now a single session
 	// likely provide as part of message.Link()
-	msg.data.Header["Micro-Link"] = msg.link
+	msg.data.Header["Goms-Link"] = msg.link
 
 	// set message
 	*m = *msg.data

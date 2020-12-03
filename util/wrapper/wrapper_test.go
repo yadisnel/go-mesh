@@ -189,7 +189,7 @@ func TestAuthHandler(t *testing.T) {
 		if err != nil {
 			t.Errorf("Expected nil error but got %v", err)
 		}
-		if ns, _ := metadata.Get(inCtx, "Micro-Namespace"); ns != a.namespace {
+		if ns, _ := metadata.Get(inCtx, "Goms-Namespace"); ns != a.namespace {
 			t.Errorf("Expected namespace to be set to %v but was %v", a.namespace, ns)
 		}
 	})
@@ -200,7 +200,7 @@ func TestAuthHandler(t *testing.T) {
 		})
 
 		inNs := "reqnamespace"
-		inCtx := metadata.Set(context.TODO(), "Micro-Namespace", inNs)
+		inCtx := metadata.Set(context.TODO(), "Goms-Namespace", inNs)
 		h := func(ctx context.Context, req server.Request, rsp interface{}) error {
 			inCtx = ctx
 			return nil
@@ -210,7 +210,7 @@ func TestAuthHandler(t *testing.T) {
 		if err != nil {
 			t.Errorf("Expected nil error but got %v", err)
 		}
-		if ns, _ := metadata.Get(inCtx, "Micro-Namespace"); ns != inNs {
+		if ns, _ := metadata.Get(inCtx, "Goms-Namespace"); ns != inNs {
 			t.Errorf("Expected namespace to remain as %v but was set to %v", inNs, ns)
 		}
 	})

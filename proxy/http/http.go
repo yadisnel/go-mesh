@@ -27,16 +27,16 @@ type Proxy struct {
 }
 
 func getMethod(hdr map[string]string) string {
-	switch hdr["Micro-Method"] {
+	switch hdr["Goms-Method"] {
 	case "GET", "HEAD", "POST", "PUT", "DELETE", "CONNECT", "OPTIONS", "TRACE", "PATCH":
-		return hdr["Micro-Method"]
+		return hdr["Goms-Method"]
 	default:
 		return "POST"
 	}
 }
 
 func getEndpoint(hdr map[string]string) string {
-	ep := hdr["Micro-Endpoint"]
+	ep := hdr["Goms-Endpoint"]
 	if len(ep) > 0 && ep[0] == '/' {
 		return ep
 	}
@@ -44,11 +44,11 @@ func getEndpoint(hdr map[string]string) string {
 }
 
 func getTopic(hdr map[string]string) string {
-	ep := hdr["Micro-Topic"]
+	ep := hdr["Goms-Topic"]
 	if len(ep) > 0 && ep[0] == '/' {
 		return ep
 	}
-	return "/" + hdr["Micro-Topic"]
+	return "/" + hdr["Goms-Topic"]
 }
 
 // ProcessMessage handles incoming asynchronous messages

@@ -50,11 +50,11 @@ func (s *serviceStore) Context() context.Context {
 	ctx := context.Background()
 	md := make(metadata.Metadata)
 	if len(s.Database) > 0 {
-		md["Micro-Database"] = s.Database
+		md["Goms-Database"] = s.Database
 	}
 
 	if len(s.Table) > 0 {
-		md["Micro-Table"] = s.Table
+		md["Goms-Table"] = s.Table
 	}
 	return metadata.NewContext(ctx, md)
 }

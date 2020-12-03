@@ -22,7 +22,7 @@ type fromServiceWrapper struct {
 }
 
 var (
-	HeaderPrefix = "Micro-"
+	HeaderPrefix = "Goms-"
 )
 
 func (f *fromServiceWrapper) setHeaders(ctx context.Context) context.Context {
@@ -157,8 +157,8 @@ func (a *authWrapper) Call(ctx context.Context, req client.Request, rsp interfac
 	}
 
 	// set the namespace header if it has not been set (e.g. on a service to service request)
-	if _, ok := metadata.Get(ctx, "Micro-Namespace"); !ok {
-		ctx = metadata.Set(ctx, "Micro-Namespace", aa.Options().Namespace)
+	if _, ok := metadata.Get(ctx, "Goms-Namespace"); !ok {
+		ctx = metadata.Set(ctx, "Goms-Namespace", aa.Options().Namespace)
 	}
 
 	// check to see if we have a valid access token
@@ -203,10 +203,10 @@ func AuthHandler(fn func() auth.Auth) server.HandlerWrapper {
 			}
 
 			// Extract the namespace header
-			ns, ok := metadata.Get(ctx, "Micro-Namespace")
+			ns, ok := metadata.Get(ctx, "Goms-Namespace")
 			if !ok {
 				ns = a.Options().Namespace
-				ctx = metadata.Set(ctx, "Micro-Namespace", ns)
+				ctx = metadata.Set(ctx, "Goms-Namespace", ns)
 			}
 
 			// Check the issuer matches the services namespace. TODO: Stop allowing go.micro to access

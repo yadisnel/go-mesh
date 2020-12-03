@@ -73,9 +73,9 @@ func (r *rpcClient) call(ctx context.Context, node *registry.Node, req Request, 
 	md, ok := metadata.FromContext(ctx)
 	if ok {
 		for k, v := range md {
-			// don't copy Micro-Topic header, that used for pub/sub
+			// don't copy Goms-Topic header, that used for pub/sub
 			// this fix case then client uses the same context that received in subscriber
-			if k == "Micro-Topic" {
+			if k == "Goms-Topic" {
 				continue
 			}
 			msg.Header[k] = v
@@ -575,8 +575,8 @@ func (r *rpcClient) Publish(ctx context.Context, msg Message, opts ...PublishOpt
 
 	id := uuid.New().String()
 	md["Content-Type"] = msg.ContentType()
-	md["Micro-Topic"] = msg.Topic()
-	md["Micro-Id"] = id
+	md["Goms-Topic"] = msg.Topic()
+	md["Goms-Id"] = id
 
 	// set the topic
 	topic := msg.Topic()
@@ -605,8 +605,8 @@ func (r *rpcClient) Publish(ctx context.Context, msg Message, opts ...PublishOpt
 			Target: topic,
 			Type:   codec.Event,
 			Header: map[string]string{
-				"Micro-Id":    id,
-				"Micro-Topic": msg.Topic(),
+				"Goms-Id":    id,
+				"Goms-Topic": msg.Topic(),
 			},
 		}, msg.Payload()); err != nil {
 			return errors.InternalServerError("go.micro.client", err.Error())

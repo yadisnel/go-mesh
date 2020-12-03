@@ -74,7 +74,7 @@ type Publisher = Event
 type Option func(*Options)
 
 var (
-	HeaderPrefix = "Micro-"
+	HeaderPrefix = "Goms-"
 )
 
 // NewService creates and returns a new Service based on the packages within.

@@ -49,14 +49,14 @@ type Span struct {
 }
 
 const (
-	traceIDKey = "Micro-Trace-Id"
-	spanIDKey  = "Micro-Span-Id"
+	traceIDKey = "Goms-Trace-Id"
+	spanIDKey  = "Goms-Span-Id"
 )
 
 // FromContext returns a span from context
 func FromContext(ctx context.Context) (traceID string, parentSpanID string, isFound bool) {
 	traceID, traceOk := metadata.Get(ctx, traceIDKey)
-	microID, microOk := metadata.Get(ctx, "Micro-Id")
+	microID, microOk := metadata.Get(ctx, "Goms-Id")
 	if !traceOk && !microOk {
 		isFound = false
 		return

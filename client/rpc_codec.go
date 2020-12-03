@@ -96,16 +96,16 @@ func getHeaders(m *codec.Message) {
 	}
 
 	// check error in header
-	m.Error = set(m.Error, "Micro-Error")
+	m.Error = set(m.Error, "Goms-Error")
 
 	// check endpoint in header
-	m.Endpoint = set(m.Endpoint, "Micro-Endpoint")
+	m.Endpoint = set(m.Endpoint, "Goms-Endpoint")
 
 	// check method in header
-	m.Method = set(m.Method, "Micro-Method")
+	m.Method = set(m.Method, "Goms-Method")
 
 	// set the request id
-	m.Id = set(m.Id, "Micro-Id")
+	m.Id = set(m.Id, "Goms-Id")
 }
 
 func setHeaders(m *codec.Message, stream string) {
@@ -116,14 +116,14 @@ func setHeaders(m *codec.Message, stream string) {
 		m.Header[hdr] = v
 	}
 
-	set("Micro-Id", m.Id)
-	set("Micro-Service", m.Target)
-	set("Micro-Method", m.Method)
-	set("Micro-Endpoint", m.Endpoint)
-	set("Micro-Error", m.Error)
+	set("Goms-Id", m.Id)
+	set("Goms-Service", m.Target)
+	set("Goms-Method", m.Method)
+	set("Goms-Endpoint", m.Endpoint)
+	set("Goms-Error", m.Error)
 
 	if len(stream) > 0 {
-		set("Micro-Stream", stream)
+		set("Goms-Stream", stream)
 	}
 }
 
@@ -137,7 +137,7 @@ func setupProtocol(msg *transport.Message, node *registry.Node) codec.NewCodec {
 	}
 
 	// processing topic publishing
-	if len(msg.Header["Micro-Topic"]) > 0 {
+	if len(msg.Header["Goms-Topic"]) > 0 {
 		return nil
 	}
 
