@@ -1,29 +1,29 @@
 # GRPC Server
 
-The grpc server is a [micro.Server](https://godoc.org/github.com/micro/go-micro/server#Server) compatible server.
+The grpc server is a [go-ms.Server](https://godoc.org/github.com/yadisnel/go-ms/server#Server) compatible server.
 
 ## Overview
 
 The server makes use of the [google.golang.org/grpc](google.golang.org/grpc) framework for the underlying server 
-but continues to use micro handler signatures and protoc-gen-micro generated code.
+but continues to use go-ms handler signatures and protoc-gen-go-ms generated code.
 
 ## Usage
 
-Specify the server to your micro service
+Specify the server to your go-ms service
 
 ```go
 import (
-        "github.com/micro/go-micro"
-        "github.com/micro/go-plugins/server/grpc"
+        "github.com/yadisnel/go-ms"
+        "github.com/yadisnel/go-ms-plugins/server/grpc"
 )
 
 func main() {
-        service := micro.NewService(
+        service := goms.NewService(
                 // This needs to be first as it replaces the underlying server
                 // which causes any configuration set before it
                 // to be discarded
-                micro.Server(grpc.NewServer()),
-                micro.Name("greeter"),
+                goms.Server(grpc.NewServer()),
+                goms.Name("greeter"),
         )
 }
 ```

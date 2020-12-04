@@ -1,4 +1,4 @@
-// Package proxy is a transparent proxy built on the go-micro/server
+// Package proxy is a transparent proxy built on the go-ms/server
 package proxy
 
 import (

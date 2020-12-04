@@ -25,7 +25,7 @@ func (e *event) Error() error {
 }
 
 func (e *event) Topic() string {
-	return e.message.Header["Micro-Topic"]
+	return e.message.Header["Goms-Topic"]
 }
 
 func newEvent(msg transport.Message) *event {

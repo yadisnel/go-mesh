@@ -1,7 +1,7 @@
-// Package debug provides micro debug packages
+// Package debug provides go-ms debug packages
 package debug
 
 var (
 	// DefaultName is the name of debug service
-	DefaultName = "go.micro.debug"
+	DefaultName = "go.ms.debug"
 )

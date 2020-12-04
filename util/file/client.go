@@ -27,7 +27,7 @@ type File interface {
 	DownloadAt(filename, saveFile string, blockId int) error
 }
 
-// NewClient returns a new Client which uses a micro Client
+// NewClient returns a new Client which uses a go-ms Client
 func New(service string, c client.Client) File {
 	return &fc{proto.NewFileService(service, c)}
 }

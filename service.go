@@ -1,4 +1,4 @@
-package micro
+package goms
 
 import (
 	"os"
@@ -129,7 +129,7 @@ func (s *service) Server() server.Server {
 }
 
 func (s *service) String() string {
-	return "micro"
+	return "go-ms"
 }
 
 func (s *service) Start() error {

@@ -19,8 +19,8 @@ import (
 // DefaultDatabase is the namespace that the sql store
 // will use if no namespace is provided.
 var (
-	DefaultDatabase = "micro"
-	DefaultTable    = "micro"
+	DefaultDatabase = "go-ms"
+	DefaultTable    = "go-ms"
 )
 
 var (
@@ -473,7 +473,7 @@ func (s *sqlStore) String() string {
 	return "cockroach"
 }
 
-// NewStore returns a new micro Store backed by sql
+// NewStore returns a new go-ms Store backed by sql
 func NewStore(opts ...store.Option) store.Store {
 	options := store.Options{
 		Database: DefaultDatabase,

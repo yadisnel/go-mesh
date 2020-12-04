@@ -10,13 +10,13 @@ import (
 	"google.golang.org/grpc/peer"
 )
 
-// microTransport satisfies the pb.TransportServer inteface
-type microTransport struct {
+// gomsTransport satisfies the pb.TransportServer inteface
+type gomsTransport struct {
 	addr string
 	fn   func(transport.Socket)
 }
 
-func (m *microTransport) Stream(ts pb.Transport_StreamServer) (err error) {
+func (m *gomsTransport) Stream(ts pb.Transport_StreamServer) (err error) {
 
 	sock := &grpcTransportSocket{
 		stream: ts,
@@ -32,7 +32,7 @@ func (m *microTransport) Stream(ts pb.Transport_StreamServer) (err error) {
 		if r := recover(); r != nil {
 			logger.Error(r, string(debug.Stack()))
 			sock.Close()
-			err = errors.InternalServerError("go.micro.transport", "panic recovered: %v", r)
+			err = errors.InternalServerError("go.ms.transport", "panic recovered: %v", r)
 		}
 	}()
 

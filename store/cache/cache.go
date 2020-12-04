@@ -1,4 +1,4 @@
-// Package cache implements a faulting style read cache on top of multiple micro stores
+// Package cache implements a faulting style read cache on top of multiple go-ms stores
 package cache
 
 import (

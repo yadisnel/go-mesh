@@ -102,8 +102,8 @@ func TestAuthHandler(t *testing.T) {
 		return nil
 	}
 
-	debugReq := testRequest{service: "go.micro.service.foo", endpoint: "Debug.Foo"}
-	serviceReq := testRequest{service: "go.micro.service.foo", endpoint: "Foo.Bar"}
+	debugReq := testRequest{service: "go.ms.service.foo", endpoint: "Debug.Foo"}
+	serviceReq := testRequest{service: "go.ms.service.foo", endpoint: "Foo.Bar"}
 
 	// Debug endpoints should be excluded from auth so auth.Verify should never get called
 	t.Run("DebugEndpoint", func(t *testing.T) {
@@ -189,7 +189,7 @@ func TestAuthHandler(t *testing.T) {
 		if err != nil {
 			t.Errorf("Expected nil error but got %v", err)
 		}
-		if ns, _ := metadata.Get(inCtx, "Micro-Namespace"); ns != a.namespace {
+		if ns, _ := metadata.Get(inCtx, "Goms-Namespace"); ns != a.namespace {
 			t.Errorf("Expected namespace to be set to %v but was %v", a.namespace, ns)
 		}
 	})
@@ -200,7 +200,7 @@ func TestAuthHandler(t *testing.T) {
 		})
 
 		inNs := "reqnamespace"
-		inCtx := metadata.Set(context.TODO(), "Micro-Namespace", inNs)
+		inCtx := metadata.Set(context.TODO(), "Goms-Namespace", inNs)
 		h := func(ctx context.Context, req server.Request, rsp interface{}) error {
 			inCtx = ctx
 			return nil
@@ -210,7 +210,7 @@ func TestAuthHandler(t *testing.T) {
 		if err != nil {
 			t.Errorf("Expected nil error but got %v", err)
 		}
-		if ns, _ := metadata.Get(inCtx, "Micro-Namespace"); ns != inNs {
+		if ns, _ := metadata.Get(inCtx, "Goms-Namespace"); ns != inNs {
 			t.Errorf("Expected namespace to remain as %v but was set to %v", inNs, ns)
 		}
 	})
@@ -387,7 +387,7 @@ type testRsp struct {
 }
 
 func TestCacheWrapper(t *testing.T) {
-	req := client.NewRequest("go.micro.service.foo", "Foo.Bar", nil)
+	req := client.NewRequest("go.ms.service.foo", "Foo.Bar", nil)
 
 	t.Run("NilCache", func(t *testing.T) {
 		cli := new(testClient)

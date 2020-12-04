@@ -188,7 +188,7 @@ func (l *link) process() {
 			pk := &packet{message: m, err: err}
 
 			// this is our link state packet
-			if m.Header["Micro-Method"] == "link" {
+			if m.Header["Goms-Method"] == "link" {
 				// process link state message
 				select {
 				case l.state <- pk:
@@ -243,8 +243,8 @@ func (l *link) manage() {
 	send := func(b []byte) error {
 		return l.Send(&transport.Message{
 			Header: map[string]string{
-				"Micro-Method":  "link",
-				"Micro-Link-Id": linkId,
+				"Goms-Method":  "link",
+				"Goms-Link-Id": linkId,
 			}, Body: b,
 		})
 	}

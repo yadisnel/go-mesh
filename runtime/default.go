@@ -31,8 +31,8 @@ type runtime struct {
 	start chan *service
 	// indicates if we're running
 	running bool
-	// namespaces stores services grouped by namespace, e.g. namespaces["foo"]["go.micro.auth:latest"]
-	// would return the latest version of go.micro.auth from the foo namespace
+	// namespaces stores services grouped by namespace, e.g. namespaces["foo"]["go.ms.auth:latest"]
+	// would return the latest version of go.ms.auth from the foo namespace
 	namespaces map[string]map[string]*service
 }
 
@@ -47,7 +47,7 @@ func NewRuntime(opts ...Option) Runtime {
 	}
 
 	// make the logs directory
-	path := filepath.Join(os.TempDir(), "micro", "logs")
+	path := filepath.Join(os.TempDir(), "go-ms", "logs")
 	_ = os.MkdirAll(path, 0755)
 
 	return &runtime{
@@ -66,7 +66,7 @@ func (r *runtime) checkoutSourceIfNeeded(s *Service) error {
 		return nil
 	}
 	// @todo make this come from config
-	cpath := filepath.Join(os.TempDir(), "micro", "uploads", s.Source)
+	cpath := filepath.Join(os.TempDir(), "go-ms", "uploads", s.Source)
 	path := strings.ReplaceAll(cpath, ".tar.gz", "")
 	if ex, _ := exists(cpath); ex {
 		err := os.RemoveAll(path)
@@ -320,7 +320,7 @@ func (r *runtime) run(events <-chan Event) {
 func logFile(serviceName string) string {
 	// make the directory
 	name := strings.Replace(serviceName, "/", "-", -1)
-	path := filepath.Join(os.TempDir(), "micro", "logs")
+	path := filepath.Join(os.TempDir(), "go-ms", "logs")
 	return filepath.Join(path, fmt.Sprintf("%v.log", name))
 }
 

@@ -126,10 +126,10 @@ func TestGRPCServer(t *testing.T) {
 	h := &testServer{}
 	pb.RegisterTestHandler(s, h)
 
-	if err := micro.RegisterSubscriber("test_topic", s, h.Handle); err != nil {
+	if err := goms.RegisterSubscriber("test_topic", s, h.Handle); err != nil {
 		t.Fatal(err)
 	}
-	if err := micro.RegisterSubscriber("error_topic", s, h.HandleError); err != nil {
+	if err := goms.RegisterSubscriber("error_topic", s, h.HandleError); err != nil {
 		t.Fatal(err)
 	}
 
@@ -149,8 +149,8 @@ func TestGRPCServer(t *testing.T) {
 		}
 	}()
 
-	pub := micro.NewEvent("test_topic", c)
-	pubErr := micro.NewEvent("error_topic", c)
+	pub := goms.NewEvent("test_topic", c)
+	pubErr := goms.NewEvent("error_topic", c)
 	cnt := 4
 	for i := 0; i < cnt; i++ {
 		if err = pub.Publish(ctx, &pb.Request{Name: fmt.Sprintf("msg %d", i)}); err != nil {
@@ -170,7 +170,7 @@ func TestGRPCServer(t *testing.T) {
 		t.Fatalf("failed to dial server: %v", err)
 	}
 
-	testMethods := []string{"/test.Test/Call", "/go.micro.test.Test/Call"}
+	testMethods := []string{"/test.Test/Call", "/go.ms.test.Test/Call"}
 
 	for _, method := range testMethods {
 		rsp := pb.Response{}

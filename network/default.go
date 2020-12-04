@@ -490,7 +490,7 @@ func (n *network) handleNetConn(s tunnel.Session, msg chan *message) {
 		}
 
 		// check if peer is set
-		peer := m.Header["Micro-Peer"]
+		peer := m.Header["Goms-Peer"]
 
 		// check who the message is intended for
 		if len(peer) > 0 && peer != n.options.Id {
@@ -525,7 +525,7 @@ func (n *network) handleCtrlConn(s tunnel.Session, msg chan *message) {
 		}
 
 		// check if peer is set
-		peer := m.Header["Micro-Peer"]
+		peer := m.Header["Goms-Peer"]
 
 		// check who the message is intended for
 		if len(peer) > 0 && peer != n.options.Id {
@@ -646,7 +646,7 @@ func (n *network) processCtrlChan(listener tunnel.Listener) {
 		select {
 		case m := <-recv:
 			// switch on type of message and take action
-			switch m.msg.Header["Micro-Method"] {
+			switch m.msg.Header["Goms-Method"] {
 			case "advert":
 				pbRtrAdvert := &pbRtr.Advert{}
 
@@ -776,7 +776,7 @@ func (n *network) processNetChan(listener tunnel.Listener) {
 		select {
 		case m := <-recv:
 			// switch on type of message and take action
-			switch m.msg.Header["Micro-Method"] {
+			switch m.msg.Header["Goms-Method"] {
 			case "connect":
 				// mark the time the message has been received
 				now := time.Now()
@@ -797,7 +797,7 @@ func (n *network) processNetChan(listener tunnel.Listener) {
 				peer := &node{
 					id:       pbNetConnect.Node.Id,
 					address:  pbNetConnect.Node.Address,
-					link:     m.msg.Header["Micro-Link"],
+					link:     m.msg.Header["Goms-Link"],
 					peers:    make(map[string]*node),
 					status:   newStatus(),
 					lastSeen: now,
@@ -866,7 +866,7 @@ func (n *network) processNetChan(listener tunnel.Listener) {
 				peer := &node{
 					id:       pbNetPeer.Node.Id,
 					address:  pbNetPeer.Node.Address,
-					link:     m.msg.Header["Micro-Link"],
+					link:     m.msg.Header["Goms-Link"],
 					peers:    make(map[string]*node),
 					status:   newPeerStatus(pbNetPeer),
 					lastSeen: now,
@@ -921,7 +921,7 @@ func (n *network) processNetChan(listener tunnel.Listener) {
 				// NOTE: we don't unpack MaxDepth toplogy
 				peer = UnpackPeerTopology(pbNetPeer, now, MaxDepth-1)
 				// update the link
-				peer.link = m.msg.Header["Micro-Link"]
+				peer.link = m.msg.Header["Goms-Link"]
 
 				logger.Tracef("Network updating topology of node: %s", n.node.id)
 				if err := n.node.UpdatePeer(peer); err != nil {
@@ -955,7 +955,7 @@ func (n *network) processNetChan(listener tunnel.Listener) {
 				peer := &node{
 					id:       pbNetSync.Peer.Node.Id,
 					address:  pbNetSync.Peer.Node.Address,
-					link:     m.msg.Header["Micro-Link"],
+					link:     m.msg.Header["Goms-Link"],
 					peers:    make(map[string]*node),
 					status:   newPeerStatus(pbNetSync.Peer),
 					lastSeen: now,
@@ -1479,14 +1479,14 @@ func (n *network) sendTo(method, channel string, peer *node, msg proto.Message) 
 	}
 	tmsg := &transport.Message{
 		Header: map[string]string{
-			"Micro-Method": method,
+			"Goms-Method": method,
 		},
 		Body: body,
 	}
 
 	// setting the peer header
 	if len(peer.id) > 0 {
-		tmsg.Header["Micro-Peer"] = peer.id
+		tmsg.Header["Goms-Peer"] = peer.id
 	}
 
 	if err := c.Send(tmsg); err != nil {
@@ -1535,7 +1535,7 @@ func (n *network) sendMsg(method, channel string, msg proto.Message) error {
 
 	return client.Send(&transport.Message{
 		Header: map[string]string{
-			"Micro-Method": method,
+			"Goms-Method": method,
 		},
 		Body: body,
 	})

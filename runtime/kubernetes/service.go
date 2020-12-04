@@ -56,8 +56,8 @@ func newService(s *runtime.Service, c runtime.CreateOptions) *service {
 	kdeploy.Metadata.Annotations["source"] = s.Source
 
 	// associate owner:group to be later augmented
-	kdeploy.Metadata.Annotations["owner"] = "micro"
-	kdeploy.Metadata.Annotations["group"] = "micro"
+	kdeploy.Metadata.Annotations["owner"] = "go-ms"
+	kdeploy.Metadata.Annotations["group"] = "go-ms"
 
 	// update the deployment is a custom source is provided
 	if len(c.Image) > 0 {

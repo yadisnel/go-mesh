@@ -1,4 +1,4 @@
-// Package kubernetes taken from https://github.com/micro/go-micro/blob/master/debug/log/kubernetes/kubernetes.go
+// Package kubernetes taken from https://github.com/yadisnel/go-ms/blob/master/debug/log/kubernetes/kubernetes.go
 // There are some modifications compared to the other files as
 // this package doesn't provide write functionality.
 // With the write functionality gone, structured logs also go away.
@@ -72,8 +72,8 @@ func (k *klog) getMatchingPods() ([]string, error) {
 	l := make(map[string]string)
 
 	l["name"] = client.Format(k.serviceName)
-	// TODO: specify micro:service
-	// l["micro"] = "service"
+	// TODO: specify go-ms:service
+	// l["go-ms"] = "service"
 
 	opts := []client.GetOption{
 		client.GetLabels(l),

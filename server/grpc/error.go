@@ -7,7 +7,7 @@ import (
 	"google.golang.org/grpc/codes"
 )
 
-func microError(err *errors.Error) codes.Code {
+func gomsError(err *errors.Error) codes.Code {
 	switch err {
 	case nil:
 		return codes.OK

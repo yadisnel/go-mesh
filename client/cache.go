@@ -48,7 +48,7 @@ func (c *Cache) List() map[string]string {
 
 // key returns a hash for the context and request
 func key(ctx context.Context, req *Request) string {
-	ns, _ := metadata.Get(ctx, "Micro-Namespace")
+	ns, _ := metadata.Get(ctx, "Goms-Namespace")
 
 	bytes, _ := json.Marshal(map[string]interface{}{
 		"namespace": ns,

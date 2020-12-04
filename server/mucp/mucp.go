@@ -5,7 +5,7 @@ import (
 	"github.com/yadisnel/go-ms/v2/server"
 )
 
-// NewServer returns a micro server interface
+// NewServer returns a go-ms server interface
 func NewServer(opts ...server.Option) server.Server {
 	return server.NewServer(opts...)
 }

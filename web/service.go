@@ -371,19 +371,19 @@ func (s *service) Init(opts ...Option) error {
 		o(&s.opts)
 	}
 
-	serviceOpts := []micro.Option{}
+	serviceOpts := []goms.Option{}
 
 	if len(s.opts.Flags) > 0 {
-		serviceOpts = append(serviceOpts, micro.Flags(s.opts.Flags...))
+		serviceOpts = append(serviceOpts, goms.Flags(s.opts.Flags...))
 	}
 
 	if s.opts.Registry != nil {
-		serviceOpts = append(serviceOpts, micro.Registry(s.opts.Registry))
+		serviceOpts = append(serviceOpts, goms.Registry(s.opts.Registry))
 	}
 
 	s.Unlock()
 
-	serviceOpts = append(serviceOpts, micro.Action(func(ctx *cli.Context) error {
+	serviceOpts = append(serviceOpts, goms.Action(func(ctx *cli.Context) error {
 		s.Lock()
 		defer s.Unlock()
 
@@ -425,9 +425,9 @@ func (s *service) Init(opts ...Option) error {
 	s.RLock()
 	// pass in own name and version
 	if s.opts.Service.Name() == "" {
-		serviceOpts = append(serviceOpts, micro.Name(s.opts.Name))
+		serviceOpts = append(serviceOpts, goms.Name(s.opts.Name))
 	}
-	serviceOpts = append(serviceOpts, micro.Version(s.opts.Version))
+	serviceOpts = append(serviceOpts, goms.Version(s.opts.Version))
 	s.RUnlock()
 
 	s.opts.Service.Init(serviceOpts...)

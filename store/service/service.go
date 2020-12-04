@@ -50,11 +50,11 @@ func (s *serviceStore) Context() context.Context {
 	ctx := context.Background()
 	md := make(metadata.Metadata)
 	if len(s.Database) > 0 {
-		md["Micro-Database"] = s.Database
+		md["Goms-Database"] = s.Database
 	}
 
 	if len(s.Table) > 0 {
-		md["Micro-Table"] = s.Table
+		md["Goms-Table"] = s.Table
 	}
 	return metadata.NewContext(ctx, md)
 }
@@ -251,7 +251,7 @@ func NewStore(opts ...store.Option) store.Store {
 		Database: options.Database,
 		Table:    options.Table,
 		Nodes:    options.Nodes,
-		Client:   pb.NewStoreService("go.micro.store", options.Client),
+		Client:   pb.NewStoreService("go.ms.store", options.Client),
 	}
 
 	return service

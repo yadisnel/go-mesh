@@ -1,6 +1,6 @@
 # Registry Cache 
 
-Cache is a library that provides a caching layer for the go-micro [registry](https://godoc.org/github.com/micro/go-micro/registry#Registry).
+Cache is a library that provides a caching layer for the go-ms [registry](https://godoc.org/github.com/yadisnel/go-ms/registry#Registry).
 
 If you're looking for caching in your microservices use the [selector](https://micro.mu/docs/fault-tolerance.html#caching-discovery).
 
@@ -20,8 +20,8 @@ type Cache interface {
 
 ```
 import (
-	"github.com/micro/go-micro/registry"
-	"github.com/micro/go-micro/registry/cache"
+	"github.com/yadisnel/go-ms/registry"
+	"github.com/yadisnel/go-ms/registry/cache"
 )
 
 r := registry.NewRegistry()

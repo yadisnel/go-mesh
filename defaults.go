@@ -1,4 +1,4 @@
-package micro
+package goms
 
 import (
 	"github.com/yadisnel/go-ms/v2/client"

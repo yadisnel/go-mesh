@@ -1,4 +1,4 @@
-// Package rpc is a go-micro rpc handler.
+// Package rpc is a go-ms rpc handler.
 package rpc
 
 import (
@@ -91,13 +91,13 @@ func (h *rpcHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		// try get service from router
 		s, err := h.opts.Router.Route(r)
 		if err != nil {
-			writeError(w, r, errors.InternalServerError("go.micro.api", err.Error()))
+			writeError(w, r, errors.InternalServerError("go.ms.api", err.Error()))
 			return
 		}
 		service = s
 	} else {
 		// we have no way of routing the request
-		writeError(w, r, errors.InternalServerError("go.micro.api", "no route found"))
+		writeError(w, r, errors.InternalServerError("go.ms.api", "no route found"))
 		return
 	}
 
@@ -108,7 +108,7 @@ func (h *rpcHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		ct = ct[:idx]
 	}
 
-	// micro client
+	// go-ms client
 	c := h.opts.Client
 
 	// create context
@@ -452,7 +452,7 @@ func writeError(w http.ResponseWriter, r *http.Request, err error) {
 	case 0:
 		// assuming it's totally screwed
 		ce.Code = 500
-		ce.Id = "go.micro.api"
+		ce.Id = "go.ms.api"
 		ce.Status = http.StatusText(500)
 		ce.Detail = "error during request: " + ce.Detail
 		w.WriteHeader(500)

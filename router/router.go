@@ -9,9 +9,9 @@ var (
 	// DefaultAddress is default router address
 	DefaultAddress = ":9093"
 	// DefaultName is default router service name
-	DefaultName = "go.micro.router"
-	// DefaultNetwork is default micro network
-	DefaultNetwork = "go.micro"
+	DefaultName = "go.ms.router"
+	// DefaultNetwork is default go-ms network
+	DefaultNetwork = "go.ms"
 	// DefaultRouter is default network router
 	DefaultRouter = NewRouter()
 )

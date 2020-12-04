@@ -87,7 +87,7 @@ func Proxy(service string, address []string) (string, []string, bool) {
 	if prx := os.Getenv("GOMS_PROXY"); len(prx) > 0 {
 		// default name
 		if prx == "service" {
-			prx = "go.micro.proxy"
+			prx = "go.ms.proxy"
 			address = nil
 		}
 
@@ -105,7 +105,7 @@ func Proxy(service string, address []string) (string, []string, bool) {
 	if prx := os.Getenv("GOMS_NETWORK"); len(prx) > 0 {
 		// default name
 		if prx == "service" {
-			prx = "go.micro.network"
+			prx = "go.ms.network"
 		}
 		service = prx
 		hasProxy = true

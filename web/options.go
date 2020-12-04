@@ -36,7 +36,7 @@ type Options struct {
 	Context context.Context
 
 	Registry registry.Registry
-	Service  micro.Service
+	Service  goms.Service
 
 	Secure      bool
 	TLSConfig   *tls.Config
@@ -60,7 +60,7 @@ func newOptions(opts ...Option) Options {
 		RegisterTTL:      DefaultRegisterTTL,
 		RegisterInterval: DefaultRegisterInterval,
 		StaticDir:        DefaultStaticDir,
-		Service:          micro.NewService(),
+		Service:          goms.NewService(),
 		Context:          context.TODO(),
 		Signal:           true,
 	}
@@ -172,8 +172,8 @@ func Server(srv *http.Server) Option {
 	}
 }
 
-// MicroService sets the micro.Service used internally
-func MicroService(s micro.Service) Option {
+// MicroService sets the go-ms.Service used internally
+func MicroService(s goms.Service) Option {
 	return func(o *Options) {
 		o.Service = s
 	}

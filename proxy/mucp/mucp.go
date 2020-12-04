@@ -1,4 +1,4 @@
-// Package mucp transparently forwards the incoming request using a go-micro client.
+// Package mucp transparently forwards the incoming request using a go-ms client.
 package mucp
 
 import (
@@ -120,7 +120,7 @@ func (p *Proxy) filterRoutes(ctx context.Context, routes []router.Route) []route
 	// filter the routes based on our headers
 	for _, route := range routes {
 		// process only routes for this id
-		if id, ok := md.Get("Micro-Router"); ok && len(id) > 0 {
+		if id, ok := md.Get("Goms-Router"); ok && len(id) > 0 {
 			if route.Router != id {
 				// skip routes that don't mwatch
 				continue
@@ -128,7 +128,7 @@ func (p *Proxy) filterRoutes(ctx context.Context, routes []router.Route) []route
 		}
 
 		// only process routes with this network
-		if net, ok := md.Get("Micro-Network"); ok && len(net) > 0 {
+		if net, ok := md.Get("Goms-Network"); ok && len(net) > 0 {
 			if route.Network != net {
 				// skip routes that don't mwatch
 				continue
@@ -136,7 +136,7 @@ func (p *Proxy) filterRoutes(ctx context.Context, routes []router.Route) []route
 		}
 
 		// process only this gateway
-		if gw, ok := md.Get("Micro-Gateway"); ok && len(gw) > 0 {
+		if gw, ok := md.Get("Goms-Gateway"); ok && len(gw) > 0 {
 			// if the gateway matches our address
 			// special case, take the routes with no gateway
 			// TODO: should we strip the gateway from the context?
@@ -154,7 +154,7 @@ func (p *Proxy) filterRoutes(ctx context.Context, routes []router.Route) []route
 		}
 
 		// TODO: address based filtering
-		// address := md["Micro-Address"]
+		// address := md["Goms-Address"]
 
 		// TODO: label based filtering
 		// requires new field in routing table : route.Labels
@@ -176,7 +176,7 @@ func (p *Proxy) getLink(r router.Route) (client.Client, error) {
 	}
 	l, ok := p.Links[r.Link]
 	if !ok {
-		return nil, errors.InternalServerError("go.micro.proxy", "link not found")
+		return nil, errors.InternalServerError("go.ms.proxy", "link not found")
 	}
 	return l, nil
 }
@@ -353,7 +353,7 @@ func (p *Proxy) ServeRequest(ctx context.Context, req server.Request, rsp server
 	endpoint := req.Endpoint()
 
 	if len(service) == 0 {
-		return errors.BadRequest("go.micro.proxy", "service name is blank")
+		return errors.BadRequest("go.ms.proxy", "service name is blank")
 	}
 
 	if logger.V(logger.TraceLevel, logger.DefaultLogger) {
@@ -427,7 +427,7 @@ func (p *Proxy) ServeRequest(ctx context.Context, req server.Request, rsp server
 
 	// we're assuming we need routes to operate on
 	if len(routes) == 0 {
-		return errors.InternalServerError("go.micro.proxy", "route not found")
+		return errors.InternalServerError("go.ms.proxy", "route not found")
 	}
 
 	var gerr error

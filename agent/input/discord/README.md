@@ -1,5 +1,5 @@
-# Discord input for micro-bot
-[Discord](https://discordapp.com) support for micro bot based on [discordgo](github.com/bwmarrin/discordgo).
+# Discord input for go-ms-bot
+[Discord](https://discordapp.com) support for go-ms bot based on [discordgo](github.com/bwmarrin/discordgo).
 
 This was originally written by Aleksandr Tihomirov (@zet4) and can be found at https://github.com/zet4/micro-misc/.
 

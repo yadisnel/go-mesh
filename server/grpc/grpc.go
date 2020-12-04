@@ -205,7 +205,7 @@ func (g *grpcServer) handler(srv interface{}, stream grpc.ServerStream) error {
 		gmd = metadata.MD{}
 	}
 
-	// copy the metadata to go-micro.metadata
+	// copy the metadata to go-ms.metadata
 	md := meta.Metadata{}
 	for k, v := range gmd {
 		md[k] = strings.Join(v, ", ")
@@ -249,7 +249,7 @@ func (g *grpcServer) handler(srv interface{}, stream grpc.ServerStream) error {
 	if g.opts.Router != nil {
 		cc, err := g.newGRPCCodec(ct)
 		if err != nil {
-			return errors.InternalServerError("go.micro.server", err.Error())
+			return errors.InternalServerError("go.ms.server", err.Error())
 		}
 		codec := &grpcCodec{
 			method:   fmt.Sprintf("%s.%s", serviceName, methodName),
@@ -349,7 +349,7 @@ func (g *grpcServer) processRequest(stream grpc.ServerStream, service *service, 
 
 		cc, err := g.newGRPCCodec(ct)
 		if err != nil {
-			return errors.InternalServerError("go.micro.server", err.Error())
+			return errors.InternalServerError("go.ms.server", err.Error())
 		}
 		b, err := cc.Marshal(argv.Interface())
 		if err != nil {
@@ -373,7 +373,7 @@ func (g *grpcServer) processRequest(stream grpc.ServerStream, service *service, 
 						logger.Error("panic recovered: ", r)
 						logger.Error(string(debug.Stack()))
 					}
-					err = errors.InternalServerError("go.micro.server", "panic recovered: %v", r)
+					err = errors.InternalServerError("go.ms.server", "panic recovered: %v", r)
 				}
 			}()
 			returnValues = function.Call([]reflect.Value{service.rcvr, mtype.prepareContext(ctx), reflect.ValueOf(argv.Interface()), reflect.ValueOf(rsp)})
@@ -397,8 +397,8 @@ func (g *grpcServer) processRequest(stream grpc.ServerStream, service *service, 
 			var errStatus *status.Status
 			switch verr := appErr.(type) {
 			case *errors.Error:
-				// micro.Error now proto based and we can attach it to grpc status
-				statusCode = microError(verr)
+				// goms.Error now proto based and we can attach it to grpc status
+				statusCode = gomsError(verr)
 				statusDesc = verr.Error()
 				errStatus, err = status.New(statusCode, statusDesc).WithDetails(verr)
 				if err != nil {
@@ -469,8 +469,8 @@ func (g *grpcServer) processStream(stream grpc.ServerStream, service *service, m
 		var errStatus *status.Status
 		switch verr := appErr.(type) {
 		case *errors.Error:
-			// micro.Error now proto based and we can attach it to grpc status
-			statusCode = microError(verr)
+			// goms.Error now proto based and we can attach it to grpc status
+			statusCode = gomsError(verr)
 			statusDesc = verr.Error()
 			errStatus, err = status.New(statusCode, statusDesc).WithDetails(verr)
 			if err != nil {
@@ -834,7 +834,7 @@ func (g *grpcServer) Start() error {
 
 	config := g.Options()
 
-	// micro: config.Transport.Listen(config.Address)
+	// goms: config.Transport.Listen(config.Address)
 	var ts net.Listener
 
 	if l := g.getListener(); l != nil {
@@ -889,7 +889,7 @@ func (g *grpcServer) Start() error {
 		}
 	}
 
-	// micro: go ts.Accept(s.accept)
+	// goms: go ts.Accept(s.accept)
 	go func() {
 		if err := g.srv.Serve(ts); err != nil {
 			if logger.V(logger.ErrorLevel, logger.DefaultLogger) {

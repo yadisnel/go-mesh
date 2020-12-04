@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.22.0
 // 	protoc        v3.11.4
-// source: github.com/micro/go-micro/store/service/proto/store.proto
+// source: github.com/yadisnel/go-ms/store/service/proto/store.proto
 
-package go_micro_store
+package go_ms_store
 
 import (
 	proto "github.com/golang/protobuf/proto"
@@ -1163,47 +1163,47 @@ func file_github_com_micro_go_micro_store_service_proto_store_proto_rawDescGZIP(
 
 var file_github_com_micro_go_micro_store_service_proto_store_proto_msgTypes = make([]protoimpl.MessageInfo, 19)
 var file_github_com_micro_go_micro_store_service_proto_store_proto_goTypes = []interface{}{
-	(*Field)(nil),             // 0: go.micro.store.Field
-	(*Record)(nil),            // 1: go.micro.store.Record
-	(*ReadOptions)(nil),       // 2: go.micro.store.ReadOptions
-	(*ReadRequest)(nil),       // 3: go.micro.store.ReadRequest
-	(*ReadResponse)(nil),      // 4: go.micro.store.ReadResponse
-	(*WriteOptions)(nil),      // 5: go.micro.store.WriteOptions
-	(*WriteRequest)(nil),      // 6: go.micro.store.WriteRequest
-	(*WriteResponse)(nil),     // 7: go.micro.store.WriteResponse
-	(*DeleteOptions)(nil),     // 8: go.micro.store.DeleteOptions
-	(*DeleteRequest)(nil),     // 9: go.micro.store.DeleteRequest
-	(*DeleteResponse)(nil),    // 10: go.micro.store.DeleteResponse
-	(*ListOptions)(nil),       // 11: go.micro.store.ListOptions
-	(*ListRequest)(nil),       // 12: go.micro.store.ListRequest
-	(*ListResponse)(nil),      // 13: go.micro.store.ListResponse
-	(*DatabasesRequest)(nil),  // 14: go.micro.store.DatabasesRequest
-	(*DatabasesResponse)(nil), // 15: go.micro.store.DatabasesResponse
-	(*TablesRequest)(nil),     // 16: go.micro.store.TablesRequest
-	(*TablesResponse)(nil),    // 17: go.micro.store.TablesResponse
-	nil,                       // 18: go.micro.store.Record.MetadataEntry
+	(*Field)(nil),             // 0: go.ms.store.Field
+	(*Record)(nil),            // 1: go.ms.store.Record
+	(*ReadOptions)(nil),       // 2: go.ms.store.ReadOptions
+	(*ReadRequest)(nil),       // 3: go.ms.store.ReadRequest
+	(*ReadResponse)(nil),      // 4: go.ms.store.ReadResponse
+	(*WriteOptions)(nil),      // 5: go.ms.store.WriteOptions
+	(*WriteRequest)(nil),      // 6: go.ms.store.WriteRequest
+	(*WriteResponse)(nil),     // 7: go.ms.store.WriteResponse
+	(*DeleteOptions)(nil),     // 8: go.ms.store.DeleteOptions
+	(*DeleteRequest)(nil),     // 9: go.ms.store.DeleteRequest
+	(*DeleteResponse)(nil),    // 10: go.ms.store.DeleteResponse
+	(*ListOptions)(nil),       // 11: go.ms.store.ListOptions
+	(*ListRequest)(nil),       // 12: go.ms.store.ListRequest
+	(*ListResponse)(nil),      // 13: go.ms.store.ListResponse
+	(*DatabasesRequest)(nil),  // 14: go.ms.store.DatabasesRequest
+	(*DatabasesResponse)(nil), // 15: go.ms.store.DatabasesResponse
+	(*TablesRequest)(nil),     // 16: go.ms.store.TablesRequest
+	(*TablesResponse)(nil),    // 17: go.ms.store.TablesResponse
+	nil,                       // 18: go.ms.store.Record.MetadataEntry
 }
 var file_github_com_micro_go_micro_store_service_proto_store_proto_depIdxs = []int32{
-	18, // 0: go.micro.store.Record.metadata:type_name -> go.micro.store.Record.MetadataEntry
-	2,  // 1: go.micro.store.ReadRequest.options:type_name -> go.micro.store.ReadOptions
-	1,  // 2: go.micro.store.ReadResponse.records:type_name -> go.micro.store.Record
-	1,  // 3: go.micro.store.WriteRequest.record:type_name -> go.micro.store.Record
-	5,  // 4: go.micro.store.WriteRequest.options:type_name -> go.micro.store.WriteOptions
-	8,  // 5: go.micro.store.DeleteRequest.options:type_name -> go.micro.store.DeleteOptions
-	11, // 6: go.micro.store.ListRequest.options:type_name -> go.micro.store.ListOptions
-	0,  // 7: go.micro.store.Record.MetadataEntry.value:type_name -> go.micro.store.Field
-	3,  // 8: go.micro.store.Store.Read:input_type -> go.micro.store.ReadRequest
-	6,  // 9: go.micro.store.Store.Write:input_type -> go.micro.store.WriteRequest
-	9,  // 10: go.micro.store.Store.Delete:input_type -> go.micro.store.DeleteRequest
-	12, // 11: go.micro.store.Store.List:input_type -> go.micro.store.ListRequest
-	14, // 12: go.micro.store.Store.Databases:input_type -> go.micro.store.DatabasesRequest
-	16, // 13: go.micro.store.Store.Tables:input_type -> go.micro.store.TablesRequest
-	4,  // 14: go.micro.store.Store.Read:output_type -> go.micro.store.ReadResponse
-	7,  // 15: go.micro.store.Store.Write:output_type -> go.micro.store.WriteResponse
-	10, // 16: go.micro.store.Store.Delete:output_type -> go.micro.store.DeleteResponse
-	13, // 17: go.micro.store.Store.List:output_type -> go.micro.store.ListResponse
-	15, // 18: go.micro.store.Store.Databases:output_type -> go.micro.store.DatabasesResponse
-	17, // 19: go.micro.store.Store.Tables:output_type -> go.micro.store.TablesResponse
+	18, // 0: go.ms.store.Record.metadata:type_name -> go.ms.store.Record.MetadataEntry
+	2,  // 1: go.ms.store.ReadRequest.options:type_name -> go.ms.store.ReadOptions
+	1,  // 2: go.ms.store.ReadResponse.records:type_name -> go.ms.store.Record
+	1,  // 3: go.ms.store.WriteRequest.record:type_name -> go.ms.store.Record
+	5,  // 4: go.ms.store.WriteRequest.options:type_name -> go.ms.store.WriteOptions
+	8,  // 5: go.ms.store.DeleteRequest.options:type_name -> go.ms.store.DeleteOptions
+	11, // 6: go.ms.store.ListRequest.options:type_name -> go.ms.store.ListOptions
+	0,  // 7: go.ms.store.Record.MetadataEntry.value:type_name -> go.ms.store.Field
+	3,  // 8: go.ms.store.Store.Read:input_type -> go.ms.store.ReadRequest
+	6,  // 9: go.ms.store.Store.Write:input_type -> go.ms.store.WriteRequest
+	9,  // 10: go.ms.store.Store.Delete:input_type -> go.ms.store.DeleteRequest
+	12, // 11: go.ms.store.Store.List:input_type -> go.ms.store.ListRequest
+	14, // 12: go.ms.store.Store.Databases:input_type -> go.ms.store.DatabasesRequest
+	16, // 13: go.ms.store.Store.Tables:input_type -> go.ms.store.TablesRequest
+	4,  // 14: go.ms.store.Store.Read:output_type -> go.ms.store.ReadResponse
+	7,  // 15: go.ms.store.Store.Write:output_type -> go.ms.store.WriteResponse
+	10, // 16: go.ms.store.Store.Delete:output_type -> go.ms.store.DeleteResponse
+	13, // 17: go.ms.store.Store.List:output_type -> go.ms.store.ListResponse
+	15, // 18: go.ms.store.Store.Databases:output_type -> go.ms.store.DatabasesResponse
+	17, // 19: go.ms.store.Store.Tables:output_type -> go.ms.store.TablesResponse
 	14, // [14:20] is the sub-list for method output_type
 	8,  // [8:14] is the sub-list for method input_type
 	8,  // [8:8] is the sub-list for extension type_name

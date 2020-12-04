@@ -47,7 +47,7 @@ func TestService(t *testing.T) {
 	}
 
 	service := NewService(
-		Name("go.micro.web.test"),
+		Name("go.ms.web.test"),
 		Registry(reg),
 		BeforeStart(beforeStart),
 		AfterStart(afterStart),
@@ -67,7 +67,7 @@ func TestService(t *testing.T) {
 
 	eventually(func() bool {
 		var err error
-		s, err = reg.GetService("go.micro.web.test")
+		s, err = reg.GetService("go.ms.web.test")
 		return err == nil
 	}, t.Fatal)
 
@@ -138,7 +138,7 @@ func TestService(t *testing.T) {
 	}
 
 	eventually(func() bool {
-		_, err := reg.GetService("go.micro.web.test")
+		_, err := reg.GetService("go.ms.web.test")
 		return err == registry.ErrNotFound
 	}, t.Error)
 
@@ -242,7 +242,7 @@ func TestTLS(t *testing.T) {
 	)
 
 	service := NewService(
-		Name("go.micro.web.test"),
+		Name("go.ms.web.test"),
 		Secure(secure),
 		Registry(reg),
 	)
@@ -259,7 +259,7 @@ func TestTLS(t *testing.T) {
 
 	eventually(func() bool {
 		var err error
-		s, err = reg.GetService("go.micro.web.test")
+		s, err = reg.GetService("go.ms.web.test")
 		return err == nil
 	}, t.Fatal)
 

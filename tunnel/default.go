@@ -42,7 +42,7 @@ type tun struct {
 	// close channel
 	closed chan bool
 
-	// a map of sessions based on Micro-Tunnel-Channel
+	// a map of sessions based on Goms-Tunnel-Channel
 	sessions map[string]*session
 
 	// outbound links
@@ -82,7 +82,7 @@ func (t *tun) Init(opts ...Option) error {
 }
 
 // getSession returns a session from the internal session map.
-// It does this based on the Micro-Tunnel-Channel and Micro-Tunnel-Session
+// It does this based on the Goms-Tunnel-Channel and Goms-Tunnel-Session
 func (t *tun) getSession(channel, session string) (*session, bool) {
 	// get the session
 	t.RLock()
@@ -168,11 +168,11 @@ func (t *tun) announce(channel, session string, link *link) {
 	// create the "announce" response message for a discover request
 	msg := &transport.Message{
 		Header: map[string]string{
-			"Micro-Tunnel":         "announce",
-			"Micro-Tunnel-Id":      t.id,
-			"Micro-Tunnel-Channel": channel,
-			"Micro-Tunnel-Session": session,
-			"Micro-Tunnel-Link":    link.id,
+			"Goms-Tunnel":         "announce",
+			"Goms-Tunnel-Id":      t.id,
+			"Goms-Tunnel-Channel": channel,
+			"Goms-Tunnel-Session": session,
+			"Goms-Tunnel-Link":    link.id,
 		},
 	}
 
@@ -189,7 +189,7 @@ func (t *tun) announce(channel, session string, link *link) {
 		// create a list of channels as comma separated list
 		channel = strings.Join(channels, ",")
 		// set channels as header
-		msg.Header["Micro-Tunnel-Channel"] = channel
+		msg.Header["Goms-Tunnel-Channel"] = channel
 	} else {
 		// otherwise look for a single channel mapping
 		// looking for existing mapping as a listener
@@ -500,13 +500,13 @@ func (t *tun) sendTo(links []*link, msg *message) error {
 	}
 
 	// set message head
-	newMsg.Header["Micro-Tunnel"] = msg.typ
+	newMsg.Header["Goms-Tunnel"] = msg.typ
 	// set the tunnel id on the outgoing message
-	newMsg.Header["Micro-Tunnel-Id"] = msg.tunnel
+	newMsg.Header["Goms-Tunnel-Id"] = msg.tunnel
 	// set the tunnel channel on the outgoing message
-	newMsg.Header["Micro-Tunnel-Channel"] = msg.channel
+	newMsg.Header["Goms-Tunnel-Channel"] = msg.channel
 	// set the session id
-	newMsg.Header["Micro-Tunnel-Session"] = msg.session
+	newMsg.Header["Goms-Tunnel-Session"] = msg.session
 
 	// error channel for call
 	errChan := make(chan error, len(links))
@@ -621,13 +621,13 @@ func (t *tun) listen(link *link) {
 		// having rogue actors spamming the network
 
 		// message type
-		mtype := msg.Header["Micro-Tunnel"]
+		mtype := msg.Header["Goms-Tunnel"]
 		// the tunnel id
-		id := msg.Header["Micro-Tunnel-Id"]
+		id := msg.Header["Goms-Tunnel-Id"]
 		// the tunnel channel
-		channel := msg.Header["Micro-Tunnel-Channel"]
+		channel := msg.Header["Goms-Tunnel-Channel"]
 		// the session id
-		sessionId := msg.Header["Micro-Tunnel-Session"]
+		sessionId := msg.Header["Goms-Tunnel-Session"]
 
 		// if its not connected throw away the link
 		// the first message we process needs to be connect
@@ -795,7 +795,7 @@ func (t *tun) listen(link *link) {
 
 		// strip tunnel message header
 		for k := range msg.Header {
-			if strings.HasPrefix(k, "Micro-Tunnel") {
+			if strings.HasPrefix(k, "Goms-Tunnel") {
 				delete(msg.Header, k)
 			}
 		}
@@ -891,8 +891,8 @@ func (t *tun) listen(link *link) {
 func (t *tun) sendMsg(method string, link *link) error {
 	return link.Send(&transport.Message{
 		Header: map[string]string{
-			"Micro-Tunnel":    method,
-			"Micro-Tunnel-Id": t.id,
+			"Goms-Tunnel":    method,
+			"Goms-Tunnel-Id": t.id,
 		},
 	})
 }
@@ -1059,8 +1059,8 @@ func (t *tun) close() error {
 	for node, link := range t.links {
 		link.Send(&transport.Message{
 			Header: map[string]string{
-				"Micro-Tunnel":    "close",
-				"Micro-Tunnel-Id": t.id,
+				"Goms-Tunnel":    "close",
+				"Goms-Tunnel-Id": t.id,
 			},
 		})
 		link.Close()

@@ -84,7 +84,7 @@ func (c *cliSource) String() string {
 	return "cli"
 }
 
-// NewSource returns a config source for integrating parsed flags from a micro/cli.Context.
+// NewSource returns a config source for integrating parsed flags from a go-ms/cli.Context.
 // Hyphens are delimiters for nesting, and all keys are lowercased. The assumption is that
 // command line flags have already been parsed.
 //

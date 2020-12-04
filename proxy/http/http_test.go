@@ -55,12 +55,12 @@ func TestHTTPProxy(t *testing.T) {
 	var wg sync.WaitGroup
 	wg.Add(1)
 
-	// new micro service
-	service := micro.NewService(
-		micro.Context(ctx),
-		micro.Name("foobar"),
-		micro.Registry(memory.NewRegistry()),
-		micro.AfterStart(func() error {
+	// new microservice
+	service := goms.NewService(
+		goms.Context(ctx),
+		goms.Name("foobar"),
+		goms.Registry(memory.NewRegistry()),
+		goms.AfterStart(func() error {
 			wg.Done()
 			return nil
 		}),

@@ -1,6 +1,6 @@
 # GRPC Client
 
-The grpc client is a [micro.Client](https://godoc.org/github.com/micro/go-micro/client#Client) compatible client.
+The grpc client is a [goms.Client](https://godoc.org/github.com/yadisnel/go-ms/client#Client) compatible client.
 
 ## Overview
 
@@ -8,18 +8,18 @@ The client makes use of the [google.golang.org/grpc](google.golang.org/grpc) fra
 
 ## Usage
 
-Specify the client to your micro service
+Specify the client to your go-ms service
 
 ```go
 import (
-	"github.com/micro/go-micro"
-	"github.com/micro/go-plugins/client/grpc"
+	"github.com/yadisnel/go-ms"
+	"github.com/yadisnel/go-ms-plugins/client/grpc"
 )
 
 func main() {
-	service := micro.NewService(
-		micro.Name("greeter"),
-		micro.Client(grpc.NewClient()),
+	service := goms.NewService(
+		goms.Name("greeter"),
+		goms.Client(grpc.NewClient()),
 	)
 }
 ```

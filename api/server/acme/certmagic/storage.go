@@ -22,7 +22,7 @@ type File struct {
 	Contents []byte
 }
 
-// storage is an implementation of certmagic.Storage using micro's sync.Map and store.Store interfaces.
+// storage is an implementation of certmagic.Storage using go-ms's sync.Map and store.Store interfaces.
 // As certmagic storage expects a filesystem (with stat() abilities) we have to implement
 // the bare minimum of metadata.
 type storage struct {
@@ -138,7 +138,7 @@ func (s *storage) Stat(key string) (certmagic.KeyInfo, error) {
 	}, nil
 }
 
-// NewStorage returns a certmagic.Storage backed by a go-micro/lock and go-micro/store
+// NewStorage returns a certmagic.Storage backed by a go-ms/lock and go-ms/store
 func NewStorage(lock sync.Sync, store store.Store) certmagic.Storage {
 	return &storage{
 		lock:  lock,

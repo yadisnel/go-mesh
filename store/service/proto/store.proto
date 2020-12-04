@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package go.micro.store;
+package go.ms.store;
 
 service Store {
 	rpc Read(ReadRequest) returns (ReadResponse) {};
