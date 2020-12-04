@@ -251,7 +251,7 @@ func NewStore(opts ...store.Option) store.Store {
 		Database: options.Database,
 		Table:    options.Table,
 		Nodes:    options.Nodes,
-		Client:   pb.NewStoreService("go.micro.store", options.Client),
+		Client:   pb.NewStoreService("go.ms.store", options.Client),
 	}
 
 	return service

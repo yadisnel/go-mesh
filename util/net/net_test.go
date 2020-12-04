@@ -56,7 +56,7 @@ func TestProxyEnv(t *testing.T) {
 		os.Unsetenv(key)
 	}
 
-	test("GOMS_PROXY", "service", "go.micro.proxy", "")
-	test("GOMS_NETWORK", "service", "go.micro.network", "")
+	test("GOMS_PROXY", "service", "go.ms.proxy", "")
+	test("GOMS_NETWORK", "service", "go.ms.network", "")
 	test("GOMS_NETWORK_ADDRESS", "10.0.0.1:8081", "", "10.0.0.1:8081")
 }

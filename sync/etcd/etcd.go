@@ -171,7 +171,7 @@ func NewSync(opts ...sync.Option) sync.Sync {
 	}
 
 	return &etcdSync{
-		path:    "/micro/sync",
+		path:    "/go-ms/sync",
 		client:  c,
 		options: options,
 		locks:   make(map[string]*etcdLock),

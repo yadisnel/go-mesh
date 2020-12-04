@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package go.micro.transport.grpc;
+package go.ms.transport.grpc;
 
 service Transport {
 	rpc Stream(stream Message) returns (stream Message) {}

@@ -24,11 +24,11 @@ func testFunc() {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Millisecond*250)
 	defer cancel()
 
-	s := micro.NewService(
-		micro.Name("test"),
-		micro.Context(ctx),
-		micro.HandleSignal(false),
-		micro.Flags(
+	s := goms.NewService(
+		goms.Name("test"),
+		goms.Context(ctx),
+		goms.HandleSignal(false),
+		goms.Flags(
 			&cli.StringFlag{
 				Name: "test.timeout",
 			},
@@ -57,7 +57,7 @@ func testFunc() {
 		defer wg.Done()
 		err := s.Run()
 		if err != nil {
-			logger.Errorf("micro run error: %v", err)
+			logger.Errorf("go-ms run error: %v", err)
 		}
 	}()
 	go func() {

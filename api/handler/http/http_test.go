@@ -84,33 +84,33 @@ func TestHttpHandler(t *testing.T) {
 	}{
 		{
 			"/test/foo",
-			"go.micro.api.test",
-			"go.micro.api",
+			"go.ms.api.test",
+			"go.ms.api",
 		},
 		{
 			"/test/foo/baz",
-			"go.micro.api.test",
-			"go.micro.api",
+			"go.ms.api.test",
+			"go.ms.api",
 		},
 		{
 			"/v1/foo",
-			"go.micro.api.v1.foo",
-			"go.micro.api",
+			"go.ms.api.v1.foo",
+			"go.ms.api",
 		},
 		{
 			"/v1/foo/bar",
-			"go.micro.api.v1.foo",
-			"go.micro.api",
+			"go.ms.api.v1.foo",
+			"go.ms.api",
 		},
 		{
 			"/v2/baz",
-			"go.micro.api.v2.baz",
-			"go.micro.api",
+			"go.ms.api.v2.baz",
+			"go.ms.api",
 		},
 		{
 			"/v2/baz/bar",
-			"go.micro.api.v2.baz",
-			"go.micro.api",
+			"go.ms.api.v2.baz",
+			"go.ms.api",
 		},
 		{
 			"/v2/baz/bar",

@@ -14,7 +14,7 @@ import (
 
 var (
 	// The default service name
-	DefaultService = "go.micro.registry"
+	DefaultService = "go.ms.registry"
 )
 
 type serviceRegistry struct {

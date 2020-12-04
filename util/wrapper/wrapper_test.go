@@ -102,8 +102,8 @@ func TestAuthHandler(t *testing.T) {
 		return nil
 	}
 
-	debugReq := testRequest{service: "go.micro.service.foo", endpoint: "Debug.Foo"}
-	serviceReq := testRequest{service: "go.micro.service.foo", endpoint: "Foo.Bar"}
+	debugReq := testRequest{service: "go.ms.service.foo", endpoint: "Debug.Foo"}
+	serviceReq := testRequest{service: "go.ms.service.foo", endpoint: "Foo.Bar"}
 
 	// Debug endpoints should be excluded from auth so auth.Verify should never get called
 	t.Run("DebugEndpoint", func(t *testing.T) {
@@ -387,7 +387,7 @@ type testRsp struct {
 }
 
 func TestCacheWrapper(t *testing.T) {
-	req := client.NewRequest("go.micro.service.foo", "Foo.Bar", nil)
+	req := client.NewRequest("go.ms.service.foo", "Foo.Bar", nil)
 
 	t.Run("NilCache", func(t *testing.T) {
 		cli := new(testClient)

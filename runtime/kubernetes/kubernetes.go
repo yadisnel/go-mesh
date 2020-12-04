@@ -1,4 +1,4 @@
-// Package kubernetes implements kubernetes micro runtime
+// Package kubernetes implements kubernetes go-ms runtime
 package kubernetes
 
 import (
@@ -63,7 +63,7 @@ func (k *kubernetes) createNamespace(namespace string) error {
 	return err
 }
 
-// getService queries kubernetes for micro service
+// getService queries kubernetes for go-ms service
 // NOTE: this function is not thread-safe
 func (k *kubernetes) getService(labels map[string]string, opts ...client.GetOption) ([]*service, error) {
 	// get the service status
@@ -124,7 +124,7 @@ func (k *kubernetes) getService(labels map[string]string, opts ...client.GetOpti
 		port := kservice.Spec.Ports[0]
 		srv.Service.Metadata["address"] = fmt.Sprintf("%s:%d", address, port.Port)
 		// set the type of service
-		srv.Service.Metadata["type"] = kservice.Metadata.Labels["micro"]
+		srv.Service.Metadata["type"] = kservice.Metadata.Labels["go-ms"]
 
 		// copy annotations metadata into service metadata
 		for k, v := range kservice.Metadata.Annotations {
@@ -259,7 +259,7 @@ func (k *kubernetes) run(events <-chan runtime.Event) {
 
 				// set the default labels
 				labels := map[string]string{
-					"micro": k.options.Type,
+					"go-ms": k.options.Type,
 					"name":  name,
 				}
 
@@ -457,7 +457,7 @@ func (k *kubernetes) Read(opts ...runtime.ReadOption) ([]*runtime.Service, error
 	}
 
 	if len(options.Type) > 0 {
-		labels["micro"] = options.Type
+		labels["go-ms"] = options.Type
 	}
 
 	srvs, err := k.getService(labels, client.GetNamespace(options.Namespace))
@@ -538,7 +538,7 @@ func (k *kubernetes) Delete(s *runtime.Service, opts ...runtime.DeleteOption) er
 	k.Lock()
 	defer k.Unlock()
 
-	// create new kubernetes micro service
+	// create new kubernetes go-ms service
 	service := newService(s, runtime.CreateOptions{
 		Type:      k.options.Type,
 		Namespace: options.Namespace,
@@ -612,7 +612,7 @@ func (k *kubernetes) String() string {
 func NewRuntime(opts ...runtime.Option) runtime.Runtime {
 	// get default options
 	options := runtime.Options{
-		// Create labels with type "micro": "service"
+		// Create labels with type "go-ms": "service"
 		Type: "service",
 	}
 

@@ -16,8 +16,8 @@ import (
 func NewStore(opts ...store.Option) store.Store {
 	s := &memoryStore{
 		options: store.Options{
-			Database: "micro",
-			Table:    "micro",
+			Database: "go-ms",
+			Table:    "go-ms",
 		},
 		store: cache.New(cache.NoExpiration, 5*time.Minute),
 	}

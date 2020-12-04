@@ -1,5 +1,5 @@
-# Telegram Messenger input for micro bot
-[Telegram](https://telegram.org) support for micro bot based on [telegram-bot-api](https://github.com/go-telegram-bot-api/telegram-bot-api).
+# Telegram Messenger input for go-ms bot
+[Telegram](https://telegram.org) support for go-ms bot based on [telegram-bot-api](https://github.com/go-telegram-bot-api/telegram-bot-api).
 
 ## Options
 ### --telegram_token (required)

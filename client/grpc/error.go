@@ -5,7 +5,7 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-func microError(err error) error {
+func gomsError(err error) error {
 	// no error
 	switch err {
 	case nil:
@@ -24,14 +24,14 @@ func microError(err error) error {
 
 	// return first error from details
 	if details := s.Details(); len(details) > 0 {
-		return microError(details[0].(error))
+		return gomsError(details[0].(error))
 	}
 
-	// try to decode micro *errors.Error
+	// try to decode go-ms *errors.Error
 	if e := errors.Parse(s.Message()); e.Code > 0 {
-		return e // actually a micro error
+		return e // actually a go-ms error
 	}
 
 	// fallback
-	return errors.InternalServerError("go.micro.client", s.Message())
+	return errors.InternalServerError("go.ms.client", s.Message())
 }

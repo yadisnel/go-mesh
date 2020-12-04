@@ -1,3 +1,3 @@
-package micro
+package goms
 
 //go:generate ./.github/generate.sh

@@ -67,7 +67,7 @@ func TestCSR(t *testing.T) {
 		Subject(
 			pkix.Name{
 				CommonName:         "testnode",
-				Organization:       []string{"microtest"},
+				Organization:       []string{"go-ms-test"},
 				OrganizationalUnit: []string{"super-testers"},
 			},
 		),
@@ -83,7 +83,7 @@ func TestCSR(t *testing.T) {
 	assert.NoError(t, err)
 	expected := pkix.Name{
 		CommonName:         "testnode",
-		Organization:       []string{"microtest"},
+		Organization:       []string{"go-ms-test"},
 		OrganizationalUnit: []string{"super-testers"},
 	}
 	assert.Equal(t, decodedcsr.Subject.String(), expected.String())

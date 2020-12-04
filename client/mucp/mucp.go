@@ -5,7 +5,7 @@ import (
 	"github.com/yadisnel/go-ms/v2/client"
 )
 
-// NewClient returns a new micro client interface
+// NewClient returns a new go-ms client interface
 func NewClient(opts ...client.Option) client.Client {
 	return client.NewClient(opts...)
 }

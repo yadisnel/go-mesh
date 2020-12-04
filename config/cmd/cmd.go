@@ -107,7 +107,7 @@ var (
 		&cli.StringFlag{
 			Name:    "client",
 			EnvVars: []string{"GOMS_CLIENT"},
-			Usage:   "Client for go-micro; rpc",
+			Usage:   "Client for go-ms; rpc",
 		},
 		&cli.StringFlag{
 			Name:    "client_request_timeout",
@@ -145,12 +145,12 @@ var (
 		&cli.StringFlag{
 			Name:    "server",
 			EnvVars: []string{"GOMS_SERVER"},
-			Usage:   "Server for go-micro; rpc",
+			Usage:   "Server for go-ms; rpc",
 		},
 		&cli.StringFlag{
 			Name:    "server_name",
 			EnvVars: []string{"GOMS_SERVER_NAME"},
-			Usage:   "Name of the server. go.micro.srv.example",
+			Usage:   "Name of the server. go.ms.srv.example",
 		},
 		&cli.StringFlag{
 			Name:    "server_version",
@@ -211,9 +211,9 @@ var (
 		},
 		&cli.StringFlag{
 			Name:    "runtime_source",
-			Usage:   "Runtime source for building and running services e.g github.com/micro/service",
+			Usage:   "Runtime source for building and running services e.g github.com/go-ms-runtime/service",
 			EnvVars: []string{"GOMS_RUNTIME_SOURCE"},
-			Value:   "github.com/micro/services",
+			Value:   "github.com/go-ms-runtime/service",
 		},
 		&cli.StringFlag{
 			Name:    "selector",
@@ -279,7 +279,7 @@ var (
 			Name:    "auth_namespace",
 			EnvVars: []string{"GOMS_AUTH_NAMESPACE"},
 			Usage:   "Namespace for the services auth account",
-			Value:   "go.micro",
+			Value:   "go.ms",
 		},
 		&cli.StringFlag{
 			Name:    "auth_public_key",
@@ -437,7 +437,7 @@ func newCmd(opts ...Option) Cmd {
 	}
 
 	if len(options.Description) == 0 {
-		options.Description = "a go-micro service"
+		options.Description = "a go-ms service"
 	}
 
 	cmd := new(cmd)
@@ -477,8 +477,8 @@ func (c *cmd) Before(ctx *cli.Context) error {
 	// some of the headers set by the auth client.
 	authFn := func() auth.Auth { return *c.opts.Auth }
 	cacheFn := func() *client.Cache { return (*c.opts.Client).Options().Cache }
-	microClient := wrapper.CacheClient(cacheFn, grpc.NewClient())
-	microClient = wrapper.AuthClient(authFn, microClient)
+	gomsClient := wrapper.CacheClient(cacheFn, grpc.NewClient())
+	gomsClient = wrapper.AuthClient(authFn, gomsClient)
 
 	// Set the store
 	if name := ctx.String("store"); len(name) > 0 {
@@ -487,7 +487,7 @@ func (c *cmd) Before(ctx *cli.Context) error {
 			return fmt.Errorf("Unsupported store: %s", name)
 		}
 
-		*c.opts.Store = s(store.WithClient(microClient))
+		*c.opts.Store = s(store.WithClient(gomsClient))
 	}
 
 	// Set the runtime
@@ -497,7 +497,7 @@ func (c *cmd) Before(ctx *cli.Context) error {
 			return fmt.Errorf("Unsupported runtime: %s", name)
 		}
 
-		*c.opts.Runtime = r(runtime.WithClient(microClient))
+		*c.opts.Runtime = r(runtime.WithClient(gomsClient))
 	}
 
 	// Set the tracer
@@ -527,7 +527,7 @@ func (c *cmd) Before(ctx *cli.Context) error {
 	}
 
 	// Setup auth
-	authOpts := []auth.Option{auth.WithClient(microClient)}
+	authOpts := []auth.Option{auth.WithClient(gomsClient)}
 
 	if len(ctx.String("auth_id")) > 0 || len(ctx.String("auth_secret")) > 0 {
 		authOpts = append(authOpts, auth.Credentials(
@@ -587,7 +587,7 @@ func (c *cmd) Before(ctx *cli.Context) error {
 			return fmt.Errorf("Registry %s not found", name)
 		}
 
-		*c.opts.Registry = r(registrySrv.WithClient(microClient))
+		*c.opts.Registry = r(registrySrv.WithClient(gomsClient))
 		serverOpts = append(serverOpts, server.Registry(*c.opts.Registry))
 		clientOpts = append(clientOpts, client.Registry(*c.opts.Registry))
 
@@ -742,7 +742,7 @@ func (c *cmd) Before(ctx *cli.Context) error {
 	}
 
 	if ctx.String("config") == "service" {
-		opt := config.WithSource(configSrv.NewSource(configSrc.WithClient(microClient)))
+		opt := config.WithSource(configSrv.NewSource(configSrc.WithClient(gomsClient)))
 		if err := (*c.opts.Config).Init(opt); err != nil {
 			logger.Fatalf("Error configuring config: %v", err)
 		}

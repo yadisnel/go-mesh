@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package go.micro.registry;
+package go.ms.registry;
 
 service Registry {
 	rpc GetService(GetRequest) returns (GetResponse) {};
@@ -10,7 +10,7 @@ service Registry {
 	rpc Watch(WatchRequest) returns (stream Result) {};
 }
 
-// Service represents a go-micro service
+// Service represents a go-ms service
 message Service {
         string name = 1;
         string version = 2;

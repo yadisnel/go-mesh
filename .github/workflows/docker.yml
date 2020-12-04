@@ -7,7 +7,6 @@ on:
       - master
     tags:
       - v2.*
-      - v3.*
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,7 +16,7 @@ jobs:
       - uses: elgohr/Publish-Docker-Github-Action@2.12
         name: Build and Push Docker Image
         with:
-          name: micro/go-micro
+          name: yadisnel/go-ms
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tag_names: true

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package go.micro.router;
+package go.ms.router;
 
 option go_package = "github.com/yadisnel/go-ms/v2/router/service/proto;router";
 // Router service is used by the proxy to lookup routes

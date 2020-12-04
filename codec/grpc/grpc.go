@@ -96,7 +96,7 @@ func (c *Codec) Write(m *codec.Message, b interface{}) error {
 		//		m.Header["grpc-message"] = ""
 	case codec.Error:
 		m.Header["Trailer"] = "grpc-status, grpc-message"
-		// micro end of stream
+		// go-ms end of stream
 		if m.Error == "EOS" {
 			m.Header["grpc-status"] = "0"
 		} else {

@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.22.0
 // 	protoc        v3.11.4
-// source: github.com/micro/go-micro/store/service/proto/store.proto
+// source: github.com/yadisnel/go-ms/store/service/proto/store.proto
 
-package go_micro_store
+package go_ms_store
 
 import (
 	proto "github.com/golang/protobuf/proto"

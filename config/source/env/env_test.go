@@ -54,9 +54,9 @@ func TestEnvvar_Prefixes(t *testing.T) {
 		prefixOpts   []source.Option
 		expectedKeys []string
 	}{
-		{[]source.Option{WithPrefix("APP", "GOMS")}, []string{"app", "micro"}},
-		{[]source.Option{WithPrefix("GOMS"), WithStrippedPrefix("APP")}, []string{"database", "micro"}},
-		{[]source.Option{WithPrefix("GOMS"), WithStrippedPrefix("APP")}, []string{"database", "micro"}},
+		{[]source.Option{WithPrefix("APP", "GOMS")}, []string{"app", "go-ms"}},
+		{[]source.Option{WithPrefix("GOMS"), WithStrippedPrefix("APP")}, []string{"database", "go-ms"}},
+		{[]source.Option{WithPrefix("GOMS"), WithStrippedPrefix("APP")}, []string{"database", "go-ms"}},
 	}
 
 	for _, pt := range prefixtests {

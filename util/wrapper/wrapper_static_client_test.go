@@ -30,7 +30,7 @@ func (h *TestFoo) Bar(ctx context.Context, req *TestReq, rsp *TestRsp) error {
 func TestStaticClientWrapper(t *testing.T) {
 	var err error
 
-	req := client.NewRequest("go.micro.service.foo", "TestFoo.Bar", &TestReq{}, client.WithContentType("application/json"))
+	req := client.NewRequest("go.ms.service.foo", "TestFoo.Bar", &TestReq{}, client.WithContentType("application/json"))
 	rsp := &TestRsp{}
 
 	reg := rmemory.NewRegistry()
@@ -40,7 +40,7 @@ func TestStaticClientWrapper(t *testing.T) {
 	srv := server.NewServer(
 		server.Broker(brk),
 		server.Registry(reg),
-		server.Name("go.micro.service.foo"),
+		server.Name("go.ms.service.foo"),
 		server.Address("127.0.0.1:0"),
 		server.Transport(tr),
 	)

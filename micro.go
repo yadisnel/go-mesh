@@ -1,5 +1,5 @@
-// Package micro is a pluggable framework for microservices
-package micro
+// Package go-ms is a pluggable framework for microservices
+package goms
 
 import (
 	"context"
@@ -11,7 +11,7 @@ import (
 type serviceKey struct{}
 
 // Service is an interface that wraps the lower level libraries
-// within go-micro. Its a convenience method for building
+// within go-ms. Its a convenience method for building
 // and initialising services.
 type Service interface {
 	// The service name

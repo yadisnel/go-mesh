@@ -18,7 +18,7 @@ type serviceBroker struct {
 }
 
 var (
-	DefaultName = "go.micro.broker"
+	DefaultName = "go.ms.broker"
 )
 
 func (b *serviceBroker) Address() string {

@@ -209,9 +209,9 @@ func AuthHandler(fn func() auth.Auth) server.HandlerWrapper {
 				ctx = metadata.Set(ctx, "Goms-Namespace", ns)
 			}
 
-			// Check the issuer matches the services namespace. TODO: Stop allowing go.micro to access
+			// Check the issuer matches the services namespace. TODO: Stop allowing go.ms to access
 			// any namespace and instead check for the server issuer.
-			if account != nil && account.Issuer != ns && account.Issuer != "go.micro" {
+			if account != nil && account.Issuer != ns && account.Issuer != "go.ms" {
 				return errors.Forbidden(req.Service(), "Account was not issued by %v", ns)
 			}
 

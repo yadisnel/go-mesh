@@ -380,7 +380,7 @@ type Advert struct {
 	// id of the advertising router
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// type of advertisement
-	Type AdvertType `protobuf:"varint,2,opt,name=type,proto3,enum=go.micro.router.AdvertType" json:"type,omitempty"`
+	Type AdvertType `protobuf:"varint,2,opt,name=type,proto3,enum=go.ms.router.AdvertType" json:"type,omitempty"`
 	// unix timestamp of the advertisement
 	Timestamp int64 `protobuf:"varint,3,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 	// TTL of the Advert
@@ -585,7 +585,7 @@ type Event struct {
 	// the unique event id
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// type of event
-	Type EventType `protobuf:"varint,2,opt,name=type,proto3,enum=go.micro.router.EventType" json:"type,omitempty"`
+	Type EventType `protobuf:"varint,2,opt,name=type,proto3,enum=go.ms.router.EventType" json:"type,omitempty"`
 	// unix timestamp of event
 	Timestamp int64 `protobuf:"varint,3,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 	// service route
@@ -803,24 +803,24 @@ func (m *Route) GetMetric() int64 {
 }
 
 func init() {
-	proto.RegisterEnum("go.micro.router.AdvertType", AdvertType_name, AdvertType_value)
-	proto.RegisterEnum("go.micro.router.EventType", EventType_name, EventType_value)
-	proto.RegisterType((*Request)(nil), "go.micro.router.Request")
-	proto.RegisterType((*Response)(nil), "go.micro.router.Response")
-	proto.RegisterType((*ListResponse)(nil), "go.micro.router.ListResponse")
-	proto.RegisterType((*LookupRequest)(nil), "go.micro.router.LookupRequest")
-	proto.RegisterType((*LookupResponse)(nil), "go.micro.router.LookupResponse")
-	proto.RegisterType((*QueryRequest)(nil), "go.micro.router.QueryRequest")
-	proto.RegisterType((*QueryResponse)(nil), "go.micro.router.QueryResponse")
-	proto.RegisterType((*WatchRequest)(nil), "go.micro.router.WatchRequest")
-	proto.RegisterType((*Advert)(nil), "go.micro.router.Advert")
-	proto.RegisterType((*ProcessResponse)(nil), "go.micro.router.ProcessResponse")
-	proto.RegisterType((*CreateResponse)(nil), "go.micro.router.CreateResponse")
-	proto.RegisterType((*DeleteResponse)(nil), "go.micro.router.DeleteResponse")
-	proto.RegisterType((*UpdateResponse)(nil), "go.micro.router.UpdateResponse")
-	proto.RegisterType((*Event)(nil), "go.micro.router.Event")
-	proto.RegisterType((*Query)(nil), "go.micro.router.Query")
-	proto.RegisterType((*Route)(nil), "go.micro.router.Route")
+	proto.RegisterEnum("go.ms.router.AdvertType", AdvertType_name, AdvertType_value)
+	proto.RegisterEnum("go.ms.router.EventType", EventType_name, EventType_value)
+	proto.RegisterType((*Request)(nil), "go.ms.router.Request")
+	proto.RegisterType((*Response)(nil), "go.ms.router.Response")
+	proto.RegisterType((*ListResponse)(nil), "go.ms.router.ListResponse")
+	proto.RegisterType((*LookupRequest)(nil), "go.ms.router.LookupRequest")
+	proto.RegisterType((*LookupResponse)(nil), "go.ms.router.LookupResponse")
+	proto.RegisterType((*QueryRequest)(nil), "go.ms.router.QueryRequest")
+	proto.RegisterType((*QueryResponse)(nil), "go.ms.router.QueryResponse")
+	proto.RegisterType((*WatchRequest)(nil), "go.ms.router.WatchRequest")
+	proto.RegisterType((*Advert)(nil), "go.ms.router.Advert")
+	proto.RegisterType((*ProcessResponse)(nil), "go.ms.router.ProcessResponse")
+	proto.RegisterType((*CreateResponse)(nil), "go.ms.router.CreateResponse")
+	proto.RegisterType((*DeleteResponse)(nil), "go.ms.router.DeleteResponse")
+	proto.RegisterType((*UpdateResponse)(nil), "go.ms.router.UpdateResponse")
+	proto.RegisterType((*Event)(nil), "go.ms.router.Event")
+	proto.RegisterType((*Query)(nil), "go.ms.router.Query")
+	proto.RegisterType((*Route)(nil), "go.ms.router.Route")
 }
 
 func init() { proto.RegisterFile("router/service/proto/router.proto", fileDescriptor_3123ad01af3cc940) }
@@ -900,7 +900,7 @@ func NewRouterClient(cc *grpc.ClientConn) RouterClient {
 
 func (c *routerClient) Lookup(ctx context.Context, in *LookupRequest, opts ...grpc.CallOption) (*LookupResponse, error) {
 	out := new(LookupResponse)
-	err := c.cc.Invoke(ctx, "/go.micro.router.Router/Lookup", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/go.ms.router.Router/Lookup", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -908,7 +908,7 @@ func (c *routerClient) Lookup(ctx context.Context, in *LookupRequest, opts ...gr
 }
 
 func (c *routerClient) Watch(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (Router_WatchClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_Router_serviceDesc.Streams[0], "/go.micro.router.Router/Watch", opts...)
+	stream, err := c.cc.NewStream(ctx, &_Router_serviceDesc.Streams[0], "/go.ms.router.Router/Watch", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -940,7 +940,7 @@ func (x *routerWatchClient) Recv() (*Event, error) {
 }
 
 func (c *routerClient) Advertise(ctx context.Context, in *Request, opts ...grpc.CallOption) (Router_AdvertiseClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_Router_serviceDesc.Streams[1], "/go.micro.router.Router/Advertise", opts...)
+	stream, err := c.cc.NewStream(ctx, &_Router_serviceDesc.Streams[1], "/go.ms.router.Router/Advertise", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -973,7 +973,7 @@ func (x *routerAdvertiseClient) Recv() (*Advert, error) {
 
 func (c *routerClient) Process(ctx context.Context, in *Advert, opts ...grpc.CallOption) (*ProcessResponse, error) {
 	out := new(ProcessResponse)
-	err := c.cc.Invoke(ctx, "/go.micro.router.Router/Process", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/go.ms.router.Router/Process", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1019,7 +1019,7 @@ func _Router_Lookup_Handler(srv interface{}, ctx context.Context, dec func(inter
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/go.micro.router.Router/Lookup",
+		FullMethod: "/go.ms.router.Router/Lookup",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RouterServer).Lookup(ctx, req.(*LookupRequest))
@@ -1079,7 +1079,7 @@ func _Router_Process_Handler(srv interface{}, ctx context.Context, dec func(inte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/go.micro.router.Router/Process",
+		FullMethod: "/go.ms.router.Router/Process",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RouterServer).Process(ctx, req.(*Advert))
@@ -1088,7 +1088,7 @@ func _Router_Process_Handler(srv interface{}, ctx context.Context, dec func(inte
 }
 
 var _Router_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "go.micro.router.Router",
+	ServiceName: "go.ms.router.Router",
 	HandlerType: (*RouterServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -1136,7 +1136,7 @@ func NewTableClient(cc *grpc.ClientConn) TableClient {
 
 func (c *tableClient) Create(ctx context.Context, in *Route, opts ...grpc.CallOption) (*CreateResponse, error) {
 	out := new(CreateResponse)
-	err := c.cc.Invoke(ctx, "/go.micro.router.Table/Create", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/go.ms.router.Table/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1145,7 +1145,7 @@ func (c *tableClient) Create(ctx context.Context, in *Route, opts ...grpc.CallOp
 
 func (c *tableClient) Delete(ctx context.Context, in *Route, opts ...grpc.CallOption) (*DeleteResponse, error) {
 	out := new(DeleteResponse)
-	err := c.cc.Invoke(ctx, "/go.micro.router.Table/Delete", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/go.ms.router.Table/Delete", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1154,7 +1154,7 @@ func (c *tableClient) Delete(ctx context.Context, in *Route, opts ...grpc.CallOp
 
 func (c *tableClient) Update(ctx context.Context, in *Route, opts ...grpc.CallOption) (*UpdateResponse, error) {
 	out := new(UpdateResponse)
-	err := c.cc.Invoke(ctx, "/go.micro.router.Table/Update", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/go.ms.router.Table/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1163,7 +1163,7 @@ func (c *tableClient) Update(ctx context.Context, in *Route, opts ...grpc.CallOp
 
 func (c *tableClient) List(ctx context.Context, in *Request, opts ...grpc.CallOption) (*ListResponse, error) {
 	out := new(ListResponse)
-	err := c.cc.Invoke(ctx, "/go.micro.router.Table/List", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/go.ms.router.Table/List", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1172,7 +1172,7 @@ func (c *tableClient) List(ctx context.Context, in *Request, opts ...grpc.CallOp
 
 func (c *tableClient) Query(ctx context.Context, in *QueryRequest, opts ...grpc.CallOption) (*QueryResponse, error) {
 	out := new(QueryResponse)
-	err := c.cc.Invoke(ctx, "/go.micro.router.Table/Query", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/go.ms.router.Table/Query", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1222,7 +1222,7 @@ func _Table_Create_Handler(srv interface{}, ctx context.Context, dec func(interf
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/go.micro.router.Table/Create",
+		FullMethod: "/go.ms.router.Table/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TableServer).Create(ctx, req.(*Route))
@@ -1240,7 +1240,7 @@ func _Table_Delete_Handler(srv interface{}, ctx context.Context, dec func(interf
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/go.micro.router.Table/Delete",
+		FullMethod: "/go.ms.router.Table/Delete",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TableServer).Delete(ctx, req.(*Route))
@@ -1258,7 +1258,7 @@ func _Table_Update_Handler(srv interface{}, ctx context.Context, dec func(interf
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/go.micro.router.Table/Update",
+		FullMethod: "/go.ms.router.Table/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TableServer).Update(ctx, req.(*Route))
@@ -1276,7 +1276,7 @@ func _Table_List_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/go.micro.router.Table/List",
+		FullMethod: "/go.ms.router.Table/List",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TableServer).List(ctx, req.(*Request))
@@ -1294,7 +1294,7 @@ func _Table_Query_Handler(srv interface{}, ctx context.Context, dec func(interfa
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/go.micro.router.Table/Query",
+		FullMethod: "/go.ms.router.Table/Query",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TableServer).Query(ctx, req.(*QueryRequest))
@@ -1303,7 +1303,7 @@ func _Table_Query_Handler(srv interface{}, ctx context.Context, dec func(interfa
 }
 
 var _Table_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "go.micro.router.Table",
+	ServiceName: "go.ms.router.Table",
 	HandlerType: (*TableServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

@@ -104,7 +104,7 @@ func (el *elog) Stream() (dlog.Stream, error) {
 	return el.dlog.Stream()
 }
 
-// Log makes use of github.com/micro/debug/log
+// Log makes use of github.com/yadisnel/go-ms-debug/log
 func Log(v ...interface{}) {
 	if len(prefix) > 0 {
 		v = append([]interface{}{prefix, " "}, v...)
@@ -112,7 +112,7 @@ func Log(v ...interface{}) {
 	nlog.DefaultLogger.Log(levelToLevel(level), v)
 }
 
-// Logf makes use of github.com/micro/debug/log
+// Logf makes use of github.com/yadisnel/go-ms-debug/log
 func Logf(format string, v ...interface{}) {
 	if len(prefix) > 0 {
 		format = prefix + " " + format

@@ -6,21 +6,21 @@ This source supports etcd version 3 and beyond.
 
 ## Etcd Format
 
-The etcd source expects keys under the default prefix `/micro/config` (prefix can be changed)
+The etcd source expects keys under the default prefix `/go-ms/config` (prefix can be changed)
 
 Values are expected to be JSON
 
 ```
 // set database
-etcdctl put /micro/config/database '{"address": "10.0.0.1", "port": 3306}'
+etcdctl put /go-ms/config/database '{"address": "10.0.0.1", "port": 3306}'
 // set cache
-etcdctl put /micro/config/cache '{"address": "10.0.0.2", "port": 6379}'
+etcdctl put /go-ms/config/cache '{"address": "10.0.0.2", "port": 6379}'
 ```
 
 Keys are split on `/` so access becomes
 
 ```
-conf.Get("micro", "config", "database")
+conf.Get("go-ms", "config", "database")
 ```
 
 ## New Source
@@ -31,7 +31,7 @@ Specify source with data
 etcdSource := etcd.NewSource(
 	// optionally specify etcd address; default to localhost:8500
 	etcd.WithAddress("10.0.0.10:8500"),
-	// optionally specify prefix; defaults to /micro/config
+	// optionally specify prefix; defaults to /go-ms/config
 	etcd.WithPrefix("/my/prefix"),
 	// optionally strip the provided prefix from the keys, defaults to false
 	etcd.StripPrefix(true),

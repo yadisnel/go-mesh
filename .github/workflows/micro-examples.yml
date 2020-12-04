@@ -1,4 +1,4 @@
-name: Build all github.com/micro/examples
+name: Build all github.com/yadisnel/go-ms-examples
 on:
   push:
     branches:
@@ -20,14 +20,14 @@ jobs:
       - name: Check out this code
         uses: actions/checkout@v2
         with:
-          path: 'go-micro'
+          path: 'yadisnel'
 
       - name: Check out code examples
         uses: actions/checkout@v2
         with:
-          repository: 'micro/examples'
+          repository: 'yadisnel/go-ms-examples'
           path: 'examples'
 
       - name: Build all
-        run: $GITHUB_WORKSPACE/go-micro/.github/workflows/scripts/build-all-examples.sh $GITHUB_SHA
+        run: $GITHUB_WORKSPACE/go-ms/.github/workflows/scripts/build-all-examples.sh $GITHUB_SHA
         working-directory: examples

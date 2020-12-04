@@ -13,7 +13,7 @@ var (
 	// DefaultAddress is default tunnel bind address
 	DefaultAddress = ":0"
 	// The shared default token
-	DefaultToken = "go.micro.tunnel"
+	DefaultToken = "go.ms.tunnel"
 	log          = logger.NewHelper(logger.DefaultLogger).WithFields(map[string]interface{}{"service": "tunnel"})
 )
 
