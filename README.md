@@ -44,7 +44,7 @@ leadership are built in as a Sync interface. When using an eventually consistent
 
 - **Pluggable Interfaces** - go-ms makes use of Go interfaces for each distributed system abstraction. Because of this these interfaces 
 are pluggable and allows go-ms to be runtime agnostic. You can plugin any underlying technology. Find plugins in 
-[github.com/micro/go-plugins](https://github.com/yadisnel/go-ms-plugins).
+[github.com/yadisnel/go-ms-plugins](https://github.com/yadisnel/go-ms-plugins).
 
 ## Getting Started
 
