@@ -48,7 +48,7 @@ are pluggable and allows go-ms to be runtime agnostic. You can plugin any underl
 
 ## Getting Started
 
-To make use of go-ms see the [docs](https://yadisnel.github.io/go-ms) 
+To make use of go-ms see the [docs](https://yadisnel.github.io/go-ms-docs/) 
 for detailed architecture information, see the go-ms quick start, installation and usage guides.
 
 ## License
