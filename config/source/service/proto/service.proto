@@ -1,4 +1,5 @@
 syntax = "proto3";
+//go get github.com/golang/protobuf/protoc-gen-go@v1.3.2
 
 service Config {
 	rpc Create (CreateRequest) returns (CreateResponse) {}
