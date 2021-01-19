@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"context"
-	proto "github.com/micro/go-micro/examples/stream/server/proto"
-	"github.com/micro/go-micro/v2"
+	proto "github.com/yadisnel/go-ms/v2examples/stream/server/proto"
+	"github.com/yadisnel/go-ms/v2"
 )
 
 func bidirectional(cl proto.StreamerService) {

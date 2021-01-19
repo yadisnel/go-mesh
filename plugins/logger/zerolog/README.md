@@ -1,6 +1,6 @@
 # Zerolog
 
-[Zerolog](https://github.com/rs/zerolog) logger implementation for __go-micro__ [meta logger](https://github.com/micro/go-micro/tree/master/logger).
+[Zerolog](https://github.com/rs/zerolog) logger implementation for __go-micro__ [meta logger](https://github.com/yadisnel/go-ms/v2tree/master/logger).
 
 ## Usage
 

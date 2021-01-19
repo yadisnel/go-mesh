@@ -1,8 +1,8 @@
 package http
 
 import (
-	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/codec"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/codec"
 )
 
 type httpRequest struct {

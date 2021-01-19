@@ -1,11 +1,11 @@
 package main
 
 import (
-	proto "github.com/micro/go-micro/examples/pubsub/srv/proto"
-	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/metadata"
-	"github.com/micro/go-micro/v2/server"
-	"github.com/micro/go-micro/v2/util/log"
+	proto "github.com/yadisnel/go-ms/v2examples/pubsub/srv/proto"
+	"github.com/yadisnel/go-ms/v2"
+	"github.com/yadisnel/go-ms/v2/metadata"
+	"github.com/yadisnel/go-ms/v2/server"
+	"github.com/yadisnel/go-ms/v2/util/log"
 
 	"context"
 )

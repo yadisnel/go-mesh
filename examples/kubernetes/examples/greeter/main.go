@@ -4,9 +4,9 @@ import (
 	"context"
 	"log"
 
-	hello "github.com/micro/go-micro/examples/greeter/srv/proto/hello"
-	k8s "github.com/micro/go-micro/examples/kubernetes/go/micro"
-	"github.com/micro/go-micro/v2"
+	hello "github.com/yadisnel/go-ms/v2examples/greeter/srv/proto/hello"
+	k8s "github.com/yadisnel/go-ms/v2examples/kubernetes/go/micro"
+	"github.com/yadisnel/go-ms/v2"
 )
 
 type Say struct{}

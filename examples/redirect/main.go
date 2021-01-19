@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"context"
-	"github.com/micro/go-micro/v2"
+	"github.com/yadisnel/go-ms/v2"
 	api "github.com/micro/micro/v2/api/proto"
 )
 

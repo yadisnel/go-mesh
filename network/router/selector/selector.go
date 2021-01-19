@@ -5,9 +5,9 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/micro/go-micro/v2/network/router"
-	"github.com/micro/go-micro/v2/registry"
-	"github.com/micro/go-micro/v2/selector"
+	"github.com/yadisnel/go-ms/v2/network/router"
+	"github.com/yadisnel/go-ms/v2/registry"
+	"github.com/yadisnel/go-ms/v2/selector"
 )
 
 type routerSelector struct {

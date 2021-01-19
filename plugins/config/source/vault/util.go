@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/micro/go-micro/v2/config/source"
+	"github.com/yadisnel/go-ms/v2/config/source"
 )
 
 func makeMap(kv map[string]interface{}, secretName string) (map[string]interface{}, error) {

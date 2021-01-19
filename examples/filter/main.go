@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/micro/go-micro/examples/filter/version"
-	proto "github.com/micro/go-micro/examples/service/proto"
-	"github.com/micro/go-micro/v2"
+	"github.com/yadisnel/go-ms/v2examples/filter/version"
+	proto "github.com/yadisnel/go-ms/v2examples/service/proto"
+	"github.com/yadisnel/go-ms/v2"
 )
 
 func main() {

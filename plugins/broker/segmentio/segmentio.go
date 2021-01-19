@@ -8,10 +8,10 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/micro/go-micro/v2/broker"
-	"github.com/micro/go-micro/v2/codec/json"
-	"github.com/micro/go-micro/v2/cmd"
-	"github.com/micro/go-micro/v2/logger"
+	"github.com/yadisnel/go-ms/v2/broker"
+	"github.com/yadisnel/go-ms/v2/codec/json"
+	"github.com/yadisnel/go-ms/v2/cmd"
+	"github.com/yadisnel/go-ms/v2/logger"
 	kafka "github.com/segmentio/kafka-go"
 )
 

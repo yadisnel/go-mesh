@@ -3,7 +3,7 @@ package handler
 import (
 	"context"
 
-	example "github.com/micro/go-micro/examples/template/fnc/proto/example"
+	example "github.com/yadisnel/go-ms/v2examples/template/fnc/proto/example"
 )
 
 type Example struct{}

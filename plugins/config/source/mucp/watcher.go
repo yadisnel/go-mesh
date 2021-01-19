@@ -1,8 +1,8 @@
 package mucp
 
 import (
-	"github.com/micro/go-micro/v2/config/source"
-	proto "github.com/micro/go-micro/plugins/config/source/mucp/v2/proto"
+	"github.com/yadisnel/go-ms/v2/config/source"
+	proto "github.com/yadisnel/go-ms/v2plugins/config/source/mucp/v2/proto"
 )
 
 type watcher struct {

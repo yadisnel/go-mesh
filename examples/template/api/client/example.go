@@ -3,9 +3,9 @@ package client
 import (
 	"context"
 
-	example "github.com/micro/go-micro/examples/template/srv/proto/example"
-	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/server"
+	example "github.com/yadisnel/go-ms/v2examples/template/srv/proto/example"
+	"github.com/yadisnel/go-ms/v2"
+	"github.com/yadisnel/go-ms/v2/server"
 )
 
 type exampleKey struct{}

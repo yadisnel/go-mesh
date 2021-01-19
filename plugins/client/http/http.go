@@ -14,16 +14,16 @@ import (
 	"sync"
 	"time"
 
-	"github.com/micro/go-micro/v2/broker"
-	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/selector"
-	"github.com/micro/go-micro/v2/codec"
-	raw "github.com/micro/go-micro/v2/codec/bytes"
-	"github.com/micro/go-micro/v2/cmd"
-	errors "github.com/micro/go-micro/v2/errors"
-	"github.com/micro/go-micro/v2/metadata"
-	"github.com/micro/go-micro/v2/registry"
-	"github.com/micro/go-micro/v2/transport"
+	"github.com/yadisnel/go-ms/v2/broker"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/selector"
+	"github.com/yadisnel/go-ms/v2/codec"
+	raw "github.com/yadisnel/go-ms/v2/codec/bytes"
+	"github.com/yadisnel/go-ms/v2/cmd"
+	errors "github.com/yadisnel/go-ms/v2/errors"
+	"github.com/yadisnel/go-ms/v2/metadata"
+	"github.com/yadisnel/go-ms/v2/registry"
+	"github.com/yadisnel/go-ms/v2/transport"
 )
 
 type httpClient struct {

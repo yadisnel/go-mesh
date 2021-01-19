@@ -5,11 +5,11 @@ import (
 	"time"
 
 	"context"
-	example "github.com/micro/go-micro/examples/server/proto/example"
-	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/config/cmd"
-	"github.com/micro/go-micro/v2/metadata"
-	"github.com/micro/go-micro/v2/registry"
+	example "github.com/yadisnel/go-ms/v2examples/server/proto/example"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/config/cmd"
+	"github.com/yadisnel/go-ms/v2/metadata"
+	"github.com/yadisnel/go-ms/v2/registry"
 )
 
 // wrapper example code

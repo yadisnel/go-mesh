@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 
-	"github.com/micro/go-micro/v2"
+	"github.com/yadisnel/go-ms/v2"
 )
 
 type Greeter struct{}

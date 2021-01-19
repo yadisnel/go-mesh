@@ -9,11 +9,11 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/micro/go-micro/v2/cmd"
-	"github.com/micro/go-micro/v2/broker"
-	"github.com/micro/go-micro/v2/logger"
-	maddr "github.com/micro/go-micro/v2/util/addr"
-	mnet "github.com/micro/go-micro/v2/util/net"
+	"github.com/yadisnel/go-ms/v2/cmd"
+	"github.com/yadisnel/go-ms/v2/broker"
+	"github.com/yadisnel/go-ms/v2/logger"
+	maddr "github.com/yadisnel/go-ms/v2/util/addr"
+	mnet "github.com/yadisnel/go-ms/v2/util/net"
 )
 
 func init() {

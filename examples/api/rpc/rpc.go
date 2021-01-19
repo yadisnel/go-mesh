@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	proto "github.com/micro/go-micro/examples/api/rpc/proto"
-	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/errors"
+	proto "github.com/yadisnel/go-ms/v2examples/api/rpc/proto"
+	"github.com/yadisnel/go-ms/v2"
+	"github.com/yadisnel/go-ms/v2/errors"
 
 	"context"
 )

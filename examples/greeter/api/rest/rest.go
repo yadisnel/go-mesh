@@ -6,9 +6,9 @@ import (
 
 	"github.com/emicklei/go-restful"
 
-	hello "github.com/micro/go-micro/examples/greeter/srv/proto/hello"
-	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/web"
+	hello "github.com/yadisnel/go-ms/v2examples/greeter/srv/proto/hello"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/web"
 )
 
 type Say struct{}

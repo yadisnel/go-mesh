@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/micro/go-micro/v2/selector"
+	"github.com/yadisnel/go-ms/v2/selector"
 )
 
 // Set the registry cache ttl

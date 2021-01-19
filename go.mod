@@ -1,4 +1,4 @@
-module github.com/micro/go-micro/v2
+module github.com/yadisnel/go-ms/v2
 
 go 1.14
 

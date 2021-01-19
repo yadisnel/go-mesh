@@ -3,7 +3,7 @@ package redis
 import (
 	"time"
 
-	"github.com/micro/go-micro/v2/broker"
+	"github.com/yadisnel/go-ms/v2/broker"
 )
 
 var (

@@ -10,14 +10,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/micro/go-micro/v2/broker"
-	"github.com/micro/go-micro/v2/codec"
-	"github.com/micro/go-micro/v2/codec/jsonrpc"
-	"github.com/micro/go-micro/v2/codec/protorpc"
-	"github.com/micro/go-micro/v2/cmd"
-	log "github.com/micro/go-micro/v2/logger"
-	"github.com/micro/go-micro/v2/registry"
-	"github.com/micro/go-micro/v2/server"
+	"github.com/yadisnel/go-ms/v2/broker"
+	"github.com/yadisnel/go-ms/v2/codec"
+	"github.com/yadisnel/go-ms/v2/codec/jsonrpc"
+	"github.com/yadisnel/go-ms/v2/codec/protorpc"
+	"github.com/yadisnel/go-ms/v2/cmd"
+	log "github.com/yadisnel/go-ms/v2/logger"
+	"github.com/yadisnel/go-ms/v2/registry"
+	"github.com/yadisnel/go-ms/v2/server"
 )
 
 var (

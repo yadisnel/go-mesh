@@ -6,8 +6,8 @@ import (
 	"io"
 	"log"
 
-	proto "github.com/micro/go-micro/examples/stream/server/proto"
-	"github.com/micro/go-micro/v2"
+	proto "github.com/yadisnel/go-ms/v2examples/stream/server/proto"
+	"github.com/yadisnel/go-ms/v2"
 )
 
 type Streamer struct{}

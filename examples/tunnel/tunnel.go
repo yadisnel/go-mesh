@@ -4,9 +4,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/micro/go-micro/v2/transport"
-	"github.com/micro/go-micro/v2/tunnel"
-	"github.com/micro/go-micro/v2/util/log"
+	"github.com/yadisnel/go-ms/v2/transport"
+	"github.com/yadisnel/go-ms/v2/tunnel"
+	"github.com/yadisnel/go-ms/v2/util/log"
 )
 
 // testAccept will accept connections on the transport, create a new link and tunnel on top

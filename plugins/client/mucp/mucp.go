@@ -2,8 +2,8 @@
 package mucp
 
 import (
-	"github.com/micro/go-micro/v2/cmd"
-	"github.com/micro/go-micro/v2/client"
+	"github.com/yadisnel/go-ms/v2/cmd"
+	"github.com/yadisnel/go-ms/v2/client"
 )
 
 func init() {

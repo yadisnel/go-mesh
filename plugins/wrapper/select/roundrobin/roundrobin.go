@@ -4,9 +4,9 @@ package roundrobin
 import (
 	"sync"
 
-	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/selector"
-	"github.com/micro/go-micro/v2/registry"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/selector"
+	"github.com/yadisnel/go-ms/v2/registry"
 
 	"context"
 )

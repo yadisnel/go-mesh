@@ -9,11 +9,11 @@ import (
 	"testing"
 	"time"
 
-	log "github.com/micro/go-micro/v2/logger"
-	"github.com/micro/go-micro/v2/registry"
-	"github.com/micro/go-micro/v2/router"
-	"github.com/micro/go-micro/plugins/registry/kubernetes/v2/client"
-	"github.com/micro/go-micro/plugins/registry/kubernetes/v2/client/mock"
+	log "github.com/yadisnel/go-ms/v2/logger"
+	"github.com/yadisnel/go-ms/v2/registry"
+	"github.com/yadisnel/go-ms/v2/router"
+	"github.com/yadisnel/go-ms/v2plugins/registry/kubernetes/v2/client"
+	"github.com/yadisnel/go-ms/v2plugins/registry/kubernetes/v2/client/mock"
 )
 
 var (

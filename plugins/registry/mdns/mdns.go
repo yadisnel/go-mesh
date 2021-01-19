@@ -2,9 +2,9 @@
 package mdns
 
 import (
-	"github.com/micro/go-micro/v2/cmd"
-	"github.com/micro/go-micro/v2/registry"
-	"github.com/micro/go-micro/v2/registry/mdns"
+	"github.com/yadisnel/go-ms/v2/cmd"
+	"github.com/yadisnel/go-ms/v2/registry"
+	"github.com/yadisnel/go-ms/v2/registry/mdns"
 )
 
 func init() {

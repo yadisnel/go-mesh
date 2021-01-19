@@ -4,12 +4,12 @@ import (
 	"context"
 	"strings"
 
-	"github.com/micro/go-micro/v2/auth"
-	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/debug/stats"
-	"github.com/micro/go-micro/v2/debug/trace"
-	"github.com/micro/go-micro/v2/metadata"
-	"github.com/micro/go-micro/v2/server"
+	"github.com/yadisnel/go-ms/v2/auth"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/debug/stats"
+	"github.com/yadisnel/go-ms/v2/debug/trace"
+	"github.com/yadisnel/go-ms/v2/metadata"
+	"github.com/yadisnel/go-ms/v2/server"
 )
 
 type fromServiceWrapper struct {

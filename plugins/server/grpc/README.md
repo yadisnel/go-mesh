@@ -1,6 +1,6 @@
 # GRPC Server
 
-The grpc server is a [micro.Server](https://godoc.org/github.com/micro/go-micro/server#Server) compatible server.
+The grpc server is a [micro.Server](https://godoc.org/github.com/yadisnel/go-ms/v2server#Server) compatible server.
 
 ## Overview
 

@@ -9,10 +9,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/micro/go-micro/v2/codec/json"
-	"github.com/micro/go-micro/v2/cmd"
-	"github.com/micro/go-micro/v2/server"
-	"github.com/micro/go-micro/v2/transport"
+	"github.com/yadisnel/go-ms/v2/codec/json"
+	"github.com/yadisnel/go-ms/v2/cmd"
+	"github.com/yadisnel/go-ms/v2/server"
+	"github.com/yadisnel/go-ms/v2/transport"
 	"github.com/nats-io/nats.go"
 )
 

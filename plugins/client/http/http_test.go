@@ -10,11 +10,11 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/selector"
-	"github.com/micro/go-micro/v2/registry"
-	"github.com/micro/go-micro/v2/registry/memory"
-	"github.com/micro/go-micro/plugins/client/http/v2/test"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/selector"
+	"github.com/yadisnel/go-ms/v2/registry"
+	"github.com/yadisnel/go-ms/v2/registry/memory"
+	"github.com/yadisnel/go-ms/v2plugins/client/http/v2/test"
 )
 
 func TestHTTPClient(t *testing.T) {

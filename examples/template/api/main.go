@@ -1,13 +1,13 @@
 package main
 
 import (
-	"github.com/micro/go-micro/v2/util/log"
+	"github.com/yadisnel/go-ms/v2/util/log"
 
-	"github.com/micro/go-micro/examples/template/api/client"
-	"github.com/micro/go-micro/examples/template/api/handler"
-	"github.com/micro/go-micro/v2"
+	"github.com/yadisnel/go-ms/v2examples/template/api/client"
+	"github.com/yadisnel/go-ms/v2examples/template/api/handler"
+	"github.com/yadisnel/go-ms/v2"
 
-	example "github.com/micro/go-micro/examples/template/api/proto/example"
+	example "github.com/yadisnel/go-ms/v2examples/template/api/proto/example"
 )
 
 func main() {

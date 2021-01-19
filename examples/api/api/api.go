@@ -6,10 +6,10 @@ import (
 	"log"
 	"strings"
 
-	proto "github.com/micro/go-micro/examples/api/api/proto"
-	"github.com/micro/go-micro/v2"
-	api "github.com/micro/go-micro/v2/api/proto"
-	"github.com/micro/go-micro/v2/errors"
+	proto "github.com/yadisnel/go-ms/v2examples/api/api/proto"
+	"github.com/yadisnel/go-ms/v2"
+	api "github.com/yadisnel/go-ms/v2/api/proto"
+	"github.com/yadisnel/go-ms/v2/errors"
 )
 
 type Example struct{}

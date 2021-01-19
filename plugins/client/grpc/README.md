@@ -1,6 +1,6 @@
 # GRPC Client
 
-The grpc client is a [micro.Client](https://godoc.org/github.com/micro/go-micro/client#Client) compatible client.
+The grpc client is a [micro.Client](https://godoc.org/github.com/yadisnel/go-ms/v2client#Client) compatible client.
 
 ## Overview
 

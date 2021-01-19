@@ -7,11 +7,11 @@ import (
 	"time"
 
 	"github.com/micro/cli/v2"
-	"github.com/micro/go-micro/v2/client"
-	gcli "github.com/micro/go-micro/v2/client/grpc"
-	"github.com/micro/go-micro/v2/config/cmd"
-	proto "github.com/micro/go-micro/v2/debug/service/proto"
-	"github.com/micro/go-micro/v2/util/log"
+	"github.com/yadisnel/go-ms/v2/client"
+	gcli "github.com/yadisnel/go-ms/v2/client/grpc"
+	"github.com/yadisnel/go-ms/v2/config/cmd"
+	proto "github.com/yadisnel/go-ms/v2/debug/service/proto"
+	"github.com/yadisnel/go-ms/v2/util/log"
 	_ "github.com/micro/go-plugins/registry/kubernetes/v2"
 )
 

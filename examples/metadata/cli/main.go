@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	hello "github.com/micro/go-micro/examples/greeter/srv/proto/hello"
-	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/metadata"
+	hello "github.com/yadisnel/go-ms/v2examples/greeter/srv/proto/hello"
+	"github.com/yadisnel/go-ms/v2"
+	"github.com/yadisnel/go-ms/v2/metadata"
 
 	"context"
 )

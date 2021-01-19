@@ -5,9 +5,9 @@ import (
 	"fmt"
 
 	"github.com/micro/cli/v2"
-	proto "github.com/micro/go-micro/examples/helloworld/proto"
-	"github.com/micro/go-micro/examples/mocking/mock"
-	"github.com/micro/go-micro/v2"
+	proto "github.com/yadisnel/go-ms/v2examples/helloworld/proto"
+	"github.com/yadisnel/go-ms/v2examples/mocking/mock"
+	"github.com/yadisnel/go-ms/v2"
 )
 
 func main() {

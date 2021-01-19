@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	"github.com/go-log/log"
-	"github.com/micro/go-micro/v2/server"
-	"github.com/micro/go-micro/v2/transport"
+	"github.com/yadisnel/go-ms/v2/server"
+	"github.com/yadisnel/go-ms/v2/transport"
 	"github.com/nats-io/nats.go"
 )
 

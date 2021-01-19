@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/micro/go-micro/v2/logger"
+	"github.com/yadisnel/go-ms/v2/logger"
 	"github.com/rs/zerolog"
 )
 

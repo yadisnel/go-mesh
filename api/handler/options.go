@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"github.com/micro/go-micro/v2/api/router"
-	"github.com/micro/go-micro/v2/client"
+	"github.com/yadisnel/go-ms/v2/api/router"
+	"github.com/yadisnel/go-ms/v2/client"
 )
 
 var (

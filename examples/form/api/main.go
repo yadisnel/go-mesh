@@ -8,10 +8,10 @@ import (
 	"mime/multipart"
 	"strings"
 
-	proto "github.com/micro/go-micro/examples/form/api/proto"
-	"github.com/micro/go-micro/v2"
-	api "github.com/micro/go-micro/v2/api/proto"
-	"github.com/micro/go-micro/v2/util/log"
+	proto "github.com/yadisnel/go-ms/v2examples/form/api/proto"
+	"github.com/yadisnel/go-ms/v2"
+	api "github.com/yadisnel/go-ms/v2/api/proto"
+	"github.com/yadisnel/go-ms/v2/util/log"
 )
 
 type Form struct{}

@@ -1,8 +1,8 @@
 package http
 
 import (
-	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/server"
+	"github.com/yadisnel/go-ms/v2"
+	"github.com/yadisnel/go-ms/v2/server"
 )
 
 // WithBackend provides an option to set the http backend url

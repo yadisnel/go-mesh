@@ -6,11 +6,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/micro/go-micro/v2/broker"
-	"github.com/micro/go-micro/v2/codec"
-	"github.com/micro/go-micro/v2/debug/trace"
-	"github.com/micro/go-micro/v2/registry"
-	"github.com/micro/go-micro/v2/transport"
+	"github.com/yadisnel/go-ms/v2/broker"
+	"github.com/yadisnel/go-ms/v2/codec"
+	"github.com/yadisnel/go-ms/v2/debug/trace"
+	"github.com/yadisnel/go-ms/v2/registry"
+	"github.com/yadisnel/go-ms/v2/transport"
 )
 
 type Options struct {

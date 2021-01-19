@@ -7,10 +7,10 @@ Import the codec and set within the client/server
 package main
 
 import (
-    "github.com/micro/go-micro/plugins/codec/msgpackrpc"
-    "github.com/micro/go-micro/v2"
-    "github.com/micro/go-micro/client"
-    "github.com/micro/go-micro/server"
+    "github.com/yadisnel/go-ms/v2plugins/codec/msgpackrpc"
+    "github.com/yadisnel/go-ms/v2"
+    "github.com/yadisnel/go-ms/v2client"
+    "github.com/yadisnel/go-ms/v2server"
 )
 
 func main() {

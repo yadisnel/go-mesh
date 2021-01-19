@@ -4,14 +4,14 @@ import (
 	"encoding/json"
 	"log"
 
-	"github.com/micro/go-micro/examples/booking/data"
-	"github.com/micro/go-micro/examples/booking/srv/rate/proto"
+	"github.com/yadisnel/go-ms/v2examples/booking/data"
+	"github.com/yadisnel/go-ms/v2examples/booking/srv/rate/proto"
 
 	"context"
 	"golang.org/x/net/trace"
 
-	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/metadata"
+	"github.com/yadisnel/go-ms/v2"
+	"github.com/yadisnel/go-ms/v2/metadata"
 )
 
 type stay struct {

@@ -4,10 +4,10 @@ import (
 	"context"
 	"testing"
 
-	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/selector"
-	"github.com/micro/go-micro/v2/errors"
-	"github.com/micro/go-micro/v2/registry/memory"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/selector"
+	"github.com/yadisnel/go-ms/v2/errors"
+	"github.com/yadisnel/go-ms/v2/registry/memory"
 	"github.com/sony/gobreaker"
 )
 

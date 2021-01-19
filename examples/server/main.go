@@ -3,10 +3,10 @@ package main
 import (
 	"log"
 
-	"github.com/micro/go-micro/examples/server/handler"
-	"github.com/micro/go-micro/examples/server/subscriber"
-	"github.com/micro/go-micro/v2/config/cmd"
-	"github.com/micro/go-micro/v2/server"
+	"github.com/yadisnel/go-ms/v2examples/server/handler"
+	"github.com/yadisnel/go-ms/v2examples/server/subscriber"
+	"github.com/yadisnel/go-ms/v2/config/cmd"
+	"github.com/yadisnel/go-ms/v2/server"
 )
 
 func main() {

@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/micro/go-micro/v2/config/source"
-	"github.com/micro/go-micro/v2/config/source/env"
-	"github.com/micro/go-micro/v2/config/source/file"
-	"github.com/micro/go-micro/v2/config/source/memory"
+	"github.com/yadisnel/go-ms/v2/config/source"
+	"github.com/yadisnel/go-ms/v2/config/source/env"
+	"github.com/yadisnel/go-ms/v2/config/source/file"
+	"github.com/yadisnel/go-ms/v2/config/source/memory"
 )
 
 func createFileForIssue18(t *testing.T, content string) *os.File {

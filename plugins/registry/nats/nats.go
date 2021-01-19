@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/micro/go-micro/v2/cmd"
-	"github.com/micro/go-micro/v2/registry"
+	"github.com/yadisnel/go-ms/v2/cmd"
+	"github.com/yadisnel/go-ms/v2/registry"
 	"github.com/nats-io/nats.go"
 )
 

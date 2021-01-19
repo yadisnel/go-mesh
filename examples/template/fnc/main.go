@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/micro/go-micro/examples/template/fnc/handler"
-	"github.com/micro/go-micro/examples/template/fnc/subscriber"
-	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/util/log"
+	"github.com/yadisnel/go-ms/v2examples/template/fnc/handler"
+	"github.com/yadisnel/go-ms/v2examples/template/fnc/subscriber"
+	"github.com/yadisnel/go-ms/v2"
+	"github.com/yadisnel/go-ms/v2/util/log"
 )
 
 func main() {

@@ -6,11 +6,11 @@ import (
 	"math/rand"
 	"time"
 
-	example "github.com/micro/go-micro/examples/server/proto/example"
-	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/client/selector"
-	"github.com/micro/go-micro/v2/config/cmd"
-	"github.com/micro/go-micro/v2/registry"
+	example "github.com/yadisnel/go-ms/v2examples/server/proto/example"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/client/selector"
+	"github.com/yadisnel/go-ms/v2/config/cmd"
+	"github.com/yadisnel/go-ms/v2/registry"
 )
 
 func init() {

@@ -8,10 +8,10 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/registry/memory"
-	"github.com/micro/go-micro/v2/server"
+	"github.com/yadisnel/go-ms/v2"
+	"github.com/yadisnel/go-ms/v2/client"
+	"github.com/yadisnel/go-ms/v2/registry/memory"
+	"github.com/yadisnel/go-ms/v2/server"
 )
 
 type testHandler struct{}

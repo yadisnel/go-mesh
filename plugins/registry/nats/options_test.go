@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/go-log/log"
-	"github.com/micro/go-micro/v2/registry"
+	"github.com/yadisnel/go-ms/v2/registry"
 	"github.com/nats-io/nats.go"
 )
 
