@@ -3,7 +3,7 @@ package cli
 import (
 	"context"
 
-	"github.com/micro/cli/v2"
+	"github.com/yadisnel/go-ms-cli/v2"
 	"github.com/yadisnel/go-ms/v2/config/source"
 )
 
