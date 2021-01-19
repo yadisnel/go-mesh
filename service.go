@@ -13,7 +13,7 @@ import (
 	"github.com/yadisnel/go-ms/v2/debug/stats"
 	"github.com/yadisnel/go-ms/v2/debug/trace"
 	"github.com/yadisnel/go-ms/v2/logger"
-	"github.com/yadisnel/go-ms-plugins/v2/plugins"
+	"github.com/yadisnel/go-ms-plugins/v2/plugin"
 	"github.com/yadisnel/go-ms/v2/server"
 	"github.com/yadisnel/go-ms/v2/store"
 	signalutil "github.com/yadisnel/go-ms/v2/util/signal"
