@@ -22,6 +22,7 @@ require (
 	github.com/imdario/mergo v0.3.9
 	github.com/lucas-clemente/quic-go v0.19.3
 	github.com/yadisnel/go-ms-cli/v2 v2.0.0
+	github.com/yadisnel/go-ms-plugins/v2 v2.0.0-alpha.3
 	github.com/miekg/dns v1.1.27
 	github.com/oxtoacart/bpool v0.0.0-20190530202638-03653db5a59c
 	github.com/patrickmn/go-cache v2.1.0+incompatible
