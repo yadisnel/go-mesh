@@ -1,9 +1,9 @@
-// Package registry resolves names using the go-ms registry
+// Package registry resolves names using the go-micro registry
 package registry
 
 import (
-	"github.com/yadisnel/go-ms/v2/network/resolver"
-	"github.com/yadisnel/go-ms/v2/registry"
+	"github.com/micro/go-micro/v2/network/resolver"
+	"github.com/micro/go-micro/v2/registry"
 )
 
 // Resolver is a registry network resolver
@@ -12,7 +12,7 @@ type Resolver struct {
 	Registry registry.Registry
 }
 
-// Resolve assumes ID is a domain name e.g github.com
+// Resolve assumes ID is a domain name e.g micro.mu
 func (r *Resolver) Resolve(name string) ([]*resolver.Record, error) {
 	reg := r.Registry
 	if reg == nil {

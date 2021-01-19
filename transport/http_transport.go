@@ -13,10 +13,10 @@ import (
 	"sync"
 	"time"
 
-	maddr "github.com/yadisnel/go-ms/v2/util/addr"
-	"github.com/yadisnel/go-ms/v2/util/buf"
-	mnet "github.com/yadisnel/go-ms/v2/util/net"
-	mls "github.com/yadisnel/go-ms/v2/util/tls"
+	maddr "github.com/micro/go-micro/v2/util/addr"
+	"github.com/micro/go-micro/v2/util/buf"
+	mnet "github.com/micro/go-micro/v2/util/net"
+	mls "github.com/micro/go-micro/v2/util/tls"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
 )
@@ -592,7 +592,7 @@ func (h *httpTransport) String() string {
 	return "http"
 }
 
-func newHTTPTransport(opts ...Option) *httpTransport {
+func NewHTTPTransport(opts ...Option) *httpTransport {
 	var options Options
 	for _, o := range opts {
 		o(&options)

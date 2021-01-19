@@ -6,9 +6,8 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/yadisnel/go-ms/v2/broker"
-	"github.com/yadisnel/go-ms/v2/registry"
-	"github.com/yadisnel/go-ms/v2/registry/memory"
+	"github.com/micro/go-micro/v2/broker"
+	"github.com/micro/go-micro/v2/registry"
 )
 
 var (
@@ -54,7 +53,7 @@ var (
 )
 
 func newTestRegistry() registry.Registry {
-	return memory.NewRegistry(memory.Services(testData))
+	return registry.NewMemoryRegistry(registry.Services(testData))
 }
 
 func sub(be *testing.B, c int) {

@@ -18,13 +18,13 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/yadisnel/go-ms/v2/codec/json"
-	merr "github.com/yadisnel/go-ms/v2/errors"
-	"github.com/yadisnel/go-ms/v2/registry"
-	"github.com/yadisnel/go-ms/v2/registry/cache"
-	maddr "github.com/yadisnel/go-ms/v2/util/addr"
-	mnet "github.com/yadisnel/go-ms/v2/util/net"
-	mls "github.com/yadisnel/go-ms/v2/util/tls"
+	"github.com/micro/go-micro/v2/codec/json"
+	merr "github.com/micro/go-micro/v2/errors"
+	"github.com/micro/go-micro/v2/registry"
+	"github.com/micro/go-micro/v2/registry/cache"
+	maddr "github.com/micro/go-micro/v2/util/addr"
+	mnet "github.com/micro/go-micro/v2/util/net"
+	mls "github.com/micro/go-micro/v2/util/tls"
 	"golang.org/x/net/http2"
 )
 
@@ -67,7 +67,7 @@ type httpEvent struct {
 var (
 	DefaultPath      = "/"
 	DefaultAddress   = "127.0.0.1:0"
-	serviceName      = "go.ms.http.broker"
+	serviceName      = "micro.http.broker"
 	broadcastVersion = "ff.http.broadcast"
 	registerTTL      = time.Minute
 	registerInterval = time.Second * 30
@@ -292,7 +292,7 @@ func (h *httpBroker) run(l net.Listener) {
 
 func (h *httpBroker) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	if req.Method != "POST" {
-		err := merr.BadRequest("go.ms.broker", "Method not allowed")
+		err := merr.BadRequest("go.micro.broker", "Method not allowed")
 		http.Error(w, err.Error(), http.StatusMethodNotAllowed)
 		return
 	}
@@ -302,7 +302,7 @@ func (h *httpBroker) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 
 	b, err := ioutil.ReadAll(req.Body)
 	if err != nil {
-		errr := merr.InternalServerError("go.ms.broker", "Error reading request body: %v", err)
+		errr := merr.InternalServerError("go.micro.broker", "Error reading request body: %v", err)
 		w.WriteHeader(500)
 		w.Write([]byte(errr.Error()))
 		return
@@ -310,17 +310,17 @@ func (h *httpBroker) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 
 	var m *Message
 	if err = h.opts.Codec.Unmarshal(b, &m); err != nil {
-		errr := merr.InternalServerError("go.ms.broker", "Error parsing request body: %v", err)
+		errr := merr.InternalServerError("go.micro.broker", "Error parsing request body: %v", err)
 		w.WriteHeader(500)
 		w.Write([]byte(errr.Error()))
 		return
 	}
 
-	topic := m.Header["Goms-Topic"]
+	topic := m.Header["Micro-Topic"]
 	//delete(m.Header, ":topic")
 
 	if len(topic) == 0 {
-		errr := merr.InternalServerError("go.ms.broker", "Topic not found")
+		errr := merr.InternalServerError("go.micro.broker", "Topic not found")
 		w.WriteHeader(500)
 		w.Write([]byte(errr.Error()))
 		return
@@ -478,7 +478,7 @@ func (h *httpBroker) Init(opts ...Option) error {
 	}
 
 	if len(h.id) == 0 {
-		h.id = "go.ms.http.broker-" + uuid.New().String()
+		h.id = "go.micro.http.broker-" + uuid.New().String()
 	}
 
 	// get registry
@@ -520,7 +520,7 @@ func (h *httpBroker) Publish(topic string, msg *Message, opts ...PublishOption) 
 		m.Header[k] = v
 	}
 
-	m.Header["Goms-Topic"] = topic
+	m.Header["Micro-Topic"] = topic
 
 	// encode the message
 	b, err := h.opts.Codec.Marshal(m)

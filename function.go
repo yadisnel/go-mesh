@@ -1,10 +1,10 @@
-package goms
+package micro
 
 import (
 	"context"
 	"time"
 
-	"github.com/yadisnel/go-ms/v2/server"
+	"github.com/micro/go-micro/v2/server"
 )
 
 type function struct {

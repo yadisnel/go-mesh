@@ -5,18 +5,18 @@ import (
 	"os"
 	"testing"
 
-	"github.com/yadisnel/go-ms-cli/v2"
-	"github.com/yadisnel/go-ms/v2"
-	"github.com/yadisnel/go-ms/v2/config"
-	"github.com/yadisnel/go-ms/v2/config/cmd"
-	"github.com/yadisnel/go-ms/v2/config/source"
+	"github.com/micro/cli/v2"
+	"github.com/micro/go-micro/v2"
+	"github.com/micro/go-micro/v2/cmd"
+	"github.com/micro/go-micro/v2/config"
+	"github.com/micro/go-micro/v2/config/source"
 )
 
 func TestCliSourceDefault(t *testing.T) {
 	const expVal string = "flagvalue"
 
-	service := goms.NewService(
-		goms.Flags(
+	service := micro.NewService(
+		micro.Flags(
 			// to be able to run inside go test
 			&cli.StringFlag{
 				Name: "test.timeout",
@@ -41,7 +41,7 @@ func TestCliSourceDefault(t *testing.T) {
 	var cliSrc source.Source
 	service.Init(
 		// Loads CLI configuration
-		goms.Action(func(c *cli.Context) error {
+		micro.Action(func(c *cli.Context) error {
 			cliSrc = NewSource(
 				Context(c),
 			)

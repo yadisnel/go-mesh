@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/yadisnel/go-ms/v2/network/resolver"
+	"github.com/micro/go-micro/v2/network/resolver"
 )
 
 // Resolver is a DNS network resolve
 type Resolver struct{}
 
-// Resolve assumes ID is a domain name e.g github.com
+// Resolve assumes ID is a domain name e.g micro.mu
 func (r *Resolver) Resolve(name string) ([]*resolver.Record, error) {
 	_, addrs, err := net.LookupSRV("network", "udp", name)
 	if err != nil {

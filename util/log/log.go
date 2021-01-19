@@ -1,5 +1,5 @@
 // Package log is a global internal logger
-// DEPRECATED: this is frozen package, use github.com/yadisnel/go-ms/v2/logger
+// DEPRECATED: this is frozen package, use github.com/micro/go-micro/v2/logger
 package log
 
 import (
@@ -7,8 +7,8 @@ import (
 	"os"
 	"sync/atomic"
 
-	dlog "github.com/yadisnel/go-ms/v2/debug/log"
-	nlog "github.com/yadisnel/go-ms/v2/logger"
+	dlog "github.com/micro/go-micro/v2/debug/log"
+	nlog "github.com/micro/go-micro/v2/logger"
 )
 
 // level is a log level
@@ -57,7 +57,7 @@ func levelToLevel(l Level) nlog.Level {
 }
 
 func init() {
-	switch os.Getenv("GOMS_LOG_LEVEL") {
+	switch os.Getenv("MICRO_LOG_LEVEL") {
 	case "trace":
 		level = LevelTrace
 	case "debug":
@@ -104,7 +104,7 @@ func (el *elog) Stream() (dlog.Stream, error) {
 	return el.dlog.Stream()
 }
 
-// Log makes use of github.com/yadisnel/go-ms-debug/log
+// Log makes use of github.com/micro/debug/log
 func Log(v ...interface{}) {
 	if len(prefix) > 0 {
 		v = append([]interface{}{prefix, " "}, v...)
@@ -112,7 +112,7 @@ func Log(v ...interface{}) {
 	nlog.DefaultLogger.Log(levelToLevel(level), v)
 }
 
-// Logf makes use of github.com/yadisnel/go-ms-debug/log
+// Logf makes use of github.com/micro/debug/log
 func Logf(format string, v ...interface{}) {
 	if len(prefix) > 0 {
 		format = prefix + " " + format

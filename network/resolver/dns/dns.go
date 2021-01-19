@@ -5,7 +5,7 @@ import (
 	"context"
 	"net"
 
-	"github.com/yadisnel/go-ms/v2/network/resolver"
+	"github.com/micro/go-micro/v2/network/resolver"
 	"github.com/miekg/dns"
 )
 
@@ -15,7 +15,7 @@ type Resolver struct {
 	Address string
 }
 
-// Resolve assumes ID is a domain name e.g github.com
+// Resolve assumes ID is a domain name e.g micro.mu
 func (r *Resolver) Resolve(name string) ([]*resolver.Record, error) {
 	host, port, err := net.SplitHostPort(name)
 	if err != nil {

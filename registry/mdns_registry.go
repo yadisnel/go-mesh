@@ -16,13 +16,13 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/yadisnel/go-ms/v2/logger"
-	"github.com/yadisnel/go-ms/v2/util/mdns"
+	"github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-micro/v2/util/mdns"
 )
 
 var (
-	// use a .go-ms domain rather than .local
-	mdnsDomain = "go-ms"
+	// use a .micro domain rather than .local
+	mdnsDomain = "micro"
 )
 
 type mdnsTxt struct {

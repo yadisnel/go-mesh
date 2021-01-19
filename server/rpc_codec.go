@@ -4,14 +4,14 @@ import (
 	"bytes"
 	"sync"
 
-	"github.com/yadisnel/go-ms/v2/codec"
-	raw "github.com/yadisnel/go-ms/v2/codec/bytes"
-	"github.com/yadisnel/go-ms/v2/codec/grpc"
-	"github.com/yadisnel/go-ms/v2/codec/json"
-	"github.com/yadisnel/go-ms/v2/codec/jsonrpc"
-	"github.com/yadisnel/go-ms/v2/codec/proto"
-	"github.com/yadisnel/go-ms/v2/codec/protorpc"
-	"github.com/yadisnel/go-ms/v2/transport"
+	"github.com/micro/go-micro/v2/codec"
+	raw "github.com/micro/go-micro/v2/codec/bytes"
+	"github.com/micro/go-micro/v2/codec/grpc"
+	"github.com/micro/go-micro/v2/codec/json"
+	"github.com/micro/go-micro/v2/codec/jsonrpc"
+	"github.com/micro/go-micro/v2/codec/proto"
+	"github.com/micro/go-micro/v2/codec/protorpc"
+	"github.com/micro/go-micro/v2/transport"
 	"github.com/oxtoacart/bpool"
 	"github.com/pkg/errors"
 )
@@ -93,11 +93,11 @@ func getHeaders(m *codec.Message) {
 		return m.Header[hdr]
 	}
 
-	m.Id = set(m.Id, "Goms-Id")
-	m.Error = set(m.Error, "Goms-Error")
-	m.Endpoint = set(m.Endpoint, "Goms-Endpoint")
-	m.Method = set(m.Method, "Goms-Method")
-	m.Target = set(m.Target, "Goms-Service")
+	m.Id = set(m.Id, "Micro-Id")
+	m.Error = set(m.Error, "Micro-Error")
+	m.Endpoint = set(m.Endpoint, "Micro-Endpoint")
+	m.Method = set(m.Method, "Micro-Method")
+	m.Target = set(m.Target, "Micro-Service")
 
 	// TODO: remove this cruft
 	if len(m.Endpoint) == 0 {
@@ -115,21 +115,21 @@ func setHeaders(m, r *codec.Message) {
 	}
 
 	// set headers
-	set("Goms-Id", r.Id)
-	set("Goms-Service", r.Target)
-	set("Goms-Method", r.Method)
-	set("Goms-Endpoint", r.Endpoint)
-	set("Goms-Error", r.Error)
+	set("Micro-Id", r.Id)
+	set("Micro-Service", r.Target)
+	set("Micro-Method", r.Method)
+	set("Micro-Endpoint", r.Endpoint)
+	set("Micro-Error", r.Error)
 }
 
 // setupProtocol sets up the old protocol
 func setupProtocol(msg *transport.Message) codec.NewCodec {
-	service := getHeader("Goms-Service", msg.Header)
-	method := getHeader("Goms-Method", msg.Header)
-	endpoint := getHeader("Goms-Endpoint", msg.Header)
-	protocol := getHeader("Goms-Protocol", msg.Header)
-	target := getHeader("Goms-Target", msg.Header)
-	topic := getHeader("Goms-Topic", msg.Header)
+	service := getHeader("Micro-Service", msg.Header)
+	method := getHeader("Micro-Method", msg.Header)
+	endpoint := getHeader("Micro-Endpoint", msg.Header)
+	protocol := getHeader("Micro-Protocol", msg.Header)
+	target := getHeader("Micro-Target", msg.Header)
+	topic := getHeader("Micro-Topic", msg.Header)
 
 	// if the protocol exists (mucp) do nothing
 	if len(protocol) > 0 {
@@ -153,12 +153,12 @@ func setupProtocol(msg *transport.Message) codec.NewCodec {
 
 	// no method then set to endpoint
 	if len(method) == 0 {
-		msg.Header["Goms-Method"] = endpoint
+		msg.Header["Micro-Method"] = endpoint
 	}
 
 	// no endpoint then set to method
 	if len(endpoint) == 0 {
-		msg.Header["Goms-Endpoint"] = method
+		msg.Header["Micro-Endpoint"] = method
 	}
 
 	return nil
@@ -315,7 +315,7 @@ func (c *rpcCodec) Write(r *codec.Message, b interface{}) error {
 
 		// write an error if it failed
 		m.Error = errors.Wrapf(err, "Unable to encode body").Error()
-		m.Header["Goms-Error"] = m.Error
+		m.Header["Micro-Error"] = m.Error
 		// no body to write
 		if err := c.codec.Write(m, nil); err != nil {
 			return err

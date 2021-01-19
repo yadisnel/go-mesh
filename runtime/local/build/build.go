@@ -1,8 +1,8 @@
-// Package build builds a go-ms runtime package
+// Package build builds a micro runtime package
 package build
 
 import (
-	"github.com/yadisnel/go-ms/v2/runtime/local/source"
+	"github.com/micro/go-micro/v2/runtime/local/source"
 )
 
 // Builder builds binaries
@@ -21,7 +21,7 @@ type Source struct {
 	Repository *source.Repository
 }
 
-// Package is go-ms service package
+// Package is micro service package
 type Package struct {
 	// Name of the binary
 	Name string

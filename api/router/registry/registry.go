@@ -10,13 +10,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yadisnel/go-ms/v2/api"
-	"github.com/yadisnel/go-ms/v2/api/router"
-	"github.com/yadisnel/go-ms/v2/api/router/util"
-	"github.com/yadisnel/go-ms/v2/logger"
-	"github.com/yadisnel/go-ms/v2/metadata"
-	"github.com/yadisnel/go-ms/v2/registry"
-	"github.com/yadisnel/go-ms/v2/registry/cache"
+	"github.com/micro/go-micro/v2/api"
+	"github.com/micro/go-micro/v2/api/router"
+	"github.com/micro/go-micro/v2/api/router/util"
+	"github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-micro/v2/metadata"
+	"github.com/micro/go-micro/v2/registry"
+	"github.com/micro/go-micro/v2/registry/cache"
 )
 
 // endpoint struct, that holds compiled pcre

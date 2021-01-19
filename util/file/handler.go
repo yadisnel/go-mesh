@@ -6,14 +6,14 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/yadisnel/go-ms/v2/errors"
-	"github.com/yadisnel/go-ms/v2/logger"
-	"github.com/yadisnel/go-ms/v2/server"
-	proto "github.com/yadisnel/go-ms/v2/util/file/proto"
+	"github.com/micro/go-micro/v2/errors"
+	"github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-micro/v2/server"
+	proto "github.com/micro/go-micro/v2/util/file/proto"
 	"golang.org/x/net/context"
 )
 
-// NewHandler is a handler that can be registered with a go-ms Server
+// NewHandler is a handler that can be registered with a micro Server
 func NewHandler(readDir string) proto.FileHandler {
 	return &handler{
 		readDir: readDir,
@@ -41,7 +41,7 @@ func (h *handler) Open(ctx context.Context, req *proto.OpenRequest, rsp *proto.O
 	}
 	file, err := os.OpenFile(path, flags, 0666)
 	if err != nil {
-		return errors.InternalServerError("go.ms.server", err.Error())
+		return errors.InternalServerError("go.micro.server", err.Error())
 	}
 
 	rsp.Id = h.session.Add(file)
@@ -62,7 +62,7 @@ func (h *handler) Stat(ctx context.Context, req *proto.StatRequest, rsp *proto.S
 	path := filepath.Join(h.readDir, req.Filename)
 	fi, err := os.Stat(path)
 	if os.IsNotExist(err) {
-		return errors.InternalServerError("go.ms.srv.file", err.Error())
+		return errors.InternalServerError("go.micro.srv.file", err.Error())
 	}
 
 	if fi.IsDir() {
@@ -81,13 +81,13 @@ func (h *handler) Stat(ctx context.Context, req *proto.StatRequest, rsp *proto.S
 func (h *handler) Read(ctx context.Context, req *proto.ReadRequest, rsp *proto.ReadResponse) error {
 	file := h.session.Get(req.Id)
 	if file == nil {
-		return errors.InternalServerError("go.ms.srv.file", "You must call open first.")
+		return errors.InternalServerError("go.micro.srv.file", "You must call open first.")
 	}
 
 	rsp.Data = make([]byte, req.Size)
 	n, err := file.ReadAt(rsp.Data, req.Offset)
 	if err != nil && err != io.EOF {
-		return errors.InternalServerError("go.ms.srv.file", err.Error())
+		return errors.InternalServerError("go.micro.srv.file", err.Error())
 	}
 
 	if err == io.EOF {
@@ -105,7 +105,7 @@ func (h *handler) Read(ctx context.Context, req *proto.ReadRequest, rsp *proto.R
 func (h *handler) Write(ctx context.Context, req *proto.WriteRequest, rsp *proto.WriteResponse) error {
 	file := h.session.Get(req.Id)
 	if file == nil {
-		return errors.InternalServerError("go.ms.srv.file", "You must call open first.")
+		return errors.InternalServerError("go.micro.srv.file", "You must call open first.")
 	}
 
 	if _, err := file.WriteAt(req.GetData(), req.GetOffset()); err != nil {

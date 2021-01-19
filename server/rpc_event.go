@@ -1,8 +1,8 @@
 package server
 
 import (
-	"github.com/yadisnel/go-ms/v2/broker"
-	"github.com/yadisnel/go-ms/v2/transport"
+	"github.com/micro/go-micro/v2/broker"
+	"github.com/micro/go-micro/v2/transport"
 )
 
 // event is a broker event we handle on the server transport
@@ -25,7 +25,7 @@ func (e *event) Error() error {
 }
 
 func (e *event) Topic() string {
-	return e.message.Header["Goms-Topic"]
+	return e.message.Header["Micro-Topic"]
 }
 
 func newEvent(msg transport.Message) *event {

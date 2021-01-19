@@ -1,4 +1,4 @@
-// Package server is an interface for a go-ms server
+// Package server is an interface for a micro server
 package server
 
 import (
@@ -8,13 +8,13 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/yadisnel/go-ms/v2/codec"
-	"github.com/yadisnel/go-ms/v2/logger"
-	"github.com/yadisnel/go-ms/v2/registry"
-	signalutil "github.com/yadisnel/go-ms/v2/util/signal"
+	"github.com/micro/go-micro/v2/codec"
+	"github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-micro/v2/registry"
+	signalutil "github.com/micro/go-micro/v2/util/signal"
 )
 
-// Server is a simple go-ms server abstraction
+// Server is a simple micro server abstraction
 type Server interface {
 	// Initialise options
 	Init(...Option) error
@@ -138,7 +138,7 @@ type Option func(*Options)
 
 var (
 	DefaultAddress                 = ":0"
-	DefaultName                    = "go.ms.server"
+	DefaultName                    = "go.micro.server"
 	DefaultVersion                 = "latest"
 	DefaultId                      = uuid.New().String()
 	DefaultServer           Server = newRpcServer()

@@ -5,10 +5,10 @@ import (
 	"context"
 	"sync"
 
-	"github.com/yadisnel/go-ms/v2/client"
-	"github.com/yadisnel/go-ms/v2/debug/service/handler"
-	"github.com/yadisnel/go-ms/v2/proxy"
-	"github.com/yadisnel/go-ms/v2/server"
+	"github.com/micro/go-micro/v2/client"
+	"github.com/micro/go-micro/v2/debug/handler"
+	"github.com/micro/go-micro/v2/network/proxy"
+	"github.com/micro/go-micro/v2/server"
 )
 
 // Server is a proxy muxer that incudes the use of the DefaultHandler

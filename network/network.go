@@ -1,16 +1,16 @@
-// Package network is for creating internetworks
+// Package network is for creating p2p networks
 package network
 
 import (
 	"time"
 
-	"github.com/yadisnel/go-ms/v2/client"
-	"github.com/yadisnel/go-ms/v2/server"
+	"github.com/micro/go-micro/v2/client"
+	"github.com/micro/go-micro/v2/server"
 )
 
 var (
 	// DefaultName is default network name
-	DefaultName = "go.ms"
+	DefaultName = "go.micro"
 	// DefaultAddress is default network address
 	DefaultAddress = ":0"
 	// ResolveTime defines time interval to periodically resolve network nodes
@@ -54,7 +54,7 @@ type Node interface {
 	Status() Status
 }
 
-// Network is go-ms network
+// Network is micro network
 type Network interface {
 	// Node is network node
 	Node
@@ -68,9 +68,9 @@ type Network interface {
 	Connect() error
 	// Close stops the tunnel and resolving
 	Close() error
-	// Client is go-ms client
+	// Client is micro client
 	Client() client.Client
-	// Server is go-ms server
+	// Server is micro server
 	Server() server.Server
 }
 

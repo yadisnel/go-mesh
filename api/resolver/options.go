@@ -12,7 +12,7 @@ func NewOptions(opts ...Option) Options {
 	}
 
 	if options.Namespace == nil {
-		options.Namespace = StaticNamespace("go.ms")
+		options.Namespace = StaticNamespace("go.micro")
 	}
 
 	return options

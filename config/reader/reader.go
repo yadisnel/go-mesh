@@ -4,7 +4,7 @@ package reader
 import (
 	"time"
 
-	"github.com/yadisnel/go-ms/v2/config/source"
+	"github.com/micro/go-micro/v2/config/source"
 )
 
 // Reader is an interface for merging changesets

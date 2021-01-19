@@ -6,17 +6,16 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/yadisnel/go-ms/v2/api/handler"
-	"github.com/yadisnel/go-ms/v2/api/resolver"
-	"github.com/yadisnel/go-ms/v2/api/resolver/vpath"
-	"github.com/yadisnel/go-ms/v2/api/router"
-	regRouter "github.com/yadisnel/go-ms/v2/api/router/registry"
-	"github.com/yadisnel/go-ms/v2/registry"
-	"github.com/yadisnel/go-ms/v2/registry/memory"
+	"github.com/micro/go-micro/v2/api/handler"
+	"github.com/micro/go-micro/v2/api/resolver"
+	"github.com/micro/go-micro/v2/api/resolver/vpath"
+	"github.com/micro/go-micro/v2/api/router"
+	regRouter "github.com/micro/go-micro/v2/api/router/registry"
+	"github.com/micro/go-micro/v2/registry"
 )
 
 func testHttp(t *testing.T, path, service, ns string) {
-	r := memory.NewRegistry()
+	r := registry.NewMemoryRegistry()
 
 	l, err := net.Listen("tcp", "127.0.0.1:0")
 	if err != nil {
@@ -84,33 +83,33 @@ func TestHttpHandler(t *testing.T) {
 	}{
 		{
 			"/test/foo",
-			"go.ms.api.test",
-			"go.ms.api",
+			"go.micro.api.test",
+			"go.micro.api",
 		},
 		{
 			"/test/foo/baz",
-			"go.ms.api.test",
-			"go.ms.api",
+			"go.micro.api.test",
+			"go.micro.api",
 		},
 		{
 			"/v1/foo",
-			"go.ms.api.v1.foo",
-			"go.ms.api",
+			"go.micro.api.v1.foo",
+			"go.micro.api",
 		},
 		{
 			"/v1/foo/bar",
-			"go.ms.api.v1.foo",
-			"go.ms.api",
+			"go.micro.api.v1.foo",
+			"go.micro.api",
 		},
 		{
 			"/v2/baz",
-			"go.ms.api.v2.baz",
-			"go.ms.api",
+			"go.micro.api.v2.baz",
+			"go.micro.api",
 		},
 		{
 			"/v2/baz/bar",
-			"go.ms.api.v2.baz",
-			"go.ms.api",
+			"go.micro.api.v2.baz",
+			"go.micro.api",
 		},
 		{
 			"/v2/baz/bar",

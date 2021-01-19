@@ -7,7 +7,7 @@ import (
 	"hash/fnv"
 	"time"
 
-	"github.com/yadisnel/go-ms/v2/metadata"
+	"github.com/micro/go-micro/v2/metadata"
 	cache "github.com/patrickmn/go-cache"
 )
 
@@ -48,7 +48,7 @@ func (c *Cache) List() map[string]string {
 
 // key returns a hash for the context and request
 func key(ctx context.Context, req *Request) string {
-	ns, _ := metadata.Get(ctx, "Goms-Namespace")
+	ns, _ := metadata.Get(ctx, "Micro-Namespace")
 
 	bytes, _ := json.Marshal(map[string]interface{}{
 		"namespace": ns,

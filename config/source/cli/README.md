@@ -4,12 +4,12 @@ The cli source reads config from parsed flags via a cli.Context.
 
 ## Format
 
-We expect the use of the `go-ms/cli` package. Upper case flags will be lower cased. Dashes will be used as delimiters for nesting.
+We expect the use of the `micro/cli` package. Upper case flags will be lower cased. Dashes will be used as delimiters for nesting.
 
 ### Example
 
 ```go
-goms.Flags(
+micro.Flags(
     cli.StringFlag{
         Name: "database-address",
         Value: "127.0.0.1",
@@ -42,9 +42,9 @@ Because a cli.Context is needed to retrieve the flags and their values, it is re
 
 func main() {
     // New Service
-    service := goms.NewService(
-        goms.Name("example"),
-        goms.Flags(
+    service := micro.NewService(
+        micro.Name("example"),
+        micro.Flags(
             cli.StringFlag{
                 Name: "database-address",
                 Value: "127.0.0.1",
@@ -56,7 +56,7 @@ func main() {
     var clisrc source.Source
 
     service.Init(
-        goms.Action(func(c *cli.Context) {
+        micro.Action(func(c *cli.Context) {
             clisrc = cli.NewSource(
                 cli.Context(c),
 	    )

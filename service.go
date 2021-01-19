@@ -1,4 +1,4 @@
-package goms
+package micro
 
 import (
 	"os"
@@ -7,18 +7,17 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/yadisnel/go-ms/v2/auth"
-	"github.com/yadisnel/go-ms/v2/client"
-	"github.com/yadisnel/go-ms/v2/config/cmd"
-	"github.com/yadisnel/go-ms/v2/debug/service/handler"
-	"github.com/yadisnel/go-ms/v2/debug/stats"
-	"github.com/yadisnel/go-ms/v2/debug/trace"
-	"github.com/yadisnel/go-ms/v2/logger"
-	"github.com/yadisnel/go-ms/v2/plugin"
-	"github.com/yadisnel/go-ms/v2/server"
-	"github.com/yadisnel/go-ms/v2/store"
-	signalutil "github.com/yadisnel/go-ms/v2/util/signal"
-	"github.com/yadisnel/go-ms/v2/util/wrapper"
+	"github.com/micro/go-micro/v2/client"
+	"github.com/micro/go-micro/v2/cmd"
+	"github.com/micro/go-micro/v2/debug/handler"
+	"github.com/micro/go-micro/v2/debug/stats"
+	"github.com/micro/go-micro/v2/debug/trace"
+	"github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-micro/v2/plugins"
+	"github.com/micro/go-micro/v2/server"
+	"github.com/micro/go-micro/v2/store"
+	signalutil "github.com/micro/go-micro/v2/util/signal"
+	"github.com/micro/go-micro/v2/util/wrapper"
 )
 
 type service struct {
@@ -34,21 +33,14 @@ func newService(opts ...Option) Service {
 	// service name
 	serviceName := options.Server.Options().Name
 
-	// we pass functions to the wrappers since the values can change during initialisation
-	authFn := func() auth.Auth { return options.Server.Options().Auth }
-	cacheFn := func() *client.Cache { return options.Client.Options().Cache }
-
 	// wrap client to inject From-Service header on any calls
 	options.Client = wrapper.FromService(serviceName, options.Client)
 	options.Client = wrapper.TraceCall(serviceName, trace.DefaultTracer, options.Client)
-	options.Client = wrapper.CacheClient(cacheFn, options.Client)
-	options.Client = wrapper.AuthClient(authFn, options.Client)
 
 	// wrap the server to provide handler stats
 	options.Server.Init(
 		server.WrapHandler(wrapper.HandlerStats(stats.DefaultStats)),
 		server.WrapHandler(wrapper.TraceHandler(trace.DefaultTracer)),
-		server.WrapHandler(wrapper.AuthHandler(authFn)),
 	)
 
 	// set opts
@@ -72,7 +64,7 @@ func (s *service) Init(opts ...Option) {
 
 	s.once.Do(func() {
 		// setup the plugins
-		for _, p := range strings.Split(os.Getenv("GOMS_PLUGIN"), ",") {
+		for _, p := range strings.Split(os.Getenv("MICRO_PLUGIN"), ",") {
 			if len(p) == 0 {
 				continue
 			}
@@ -129,7 +121,7 @@ func (s *service) Server() server.Server {
 }
 
 func (s *service) String() string {
-	return "go-ms"
+	return "micro"
 }
 
 func (s *service) Start() error {

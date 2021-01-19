@@ -1,9 +1,8 @@
 package handler
 
 import (
-	"github.com/yadisnel/go-ms/v2/api/router"
-	"github.com/yadisnel/go-ms/v2/client"
-	"github.com/yadisnel/go-ms/v2/client/grpc"
+	"github.com/micro/go-micro/v2/api/router"
+	"github.com/micro/go-micro/v2/client"
 )
 
 var (
@@ -27,12 +26,12 @@ func NewOptions(opts ...Option) Options {
 	}
 
 	if options.Client == nil {
-		WithClient(grpc.NewClient())(&options)
+		WithClient(client.NewClient())(&options)
 	}
 
 	// set namespace if blank
 	if len(options.Namespace) == 0 {
-		WithNamespace("go.ms.api")(&options)
+		WithNamespace("go.micro.api")(&options)
 	}
 
 	if options.MaxRecvSize == 0 {

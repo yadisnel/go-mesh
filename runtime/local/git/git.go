@@ -201,7 +201,7 @@ func GetRepoRoot(fullPath string) (string, error) {
 	return "", nil
 }
 
-const defaultRepo = "github.com/yadisnel/go-ms-services"
+const defaultRepo = "github.com/micro/services"
 
 // Source is not just git related @todo move
 type Source struct {
@@ -225,7 +225,7 @@ type Source struct {
 // Name to be passed to RPC call runtime.Create Update Delete
 // eg: `helloworld/api`, `crufter/myrepo/helloworld/api`, `localfolder`
 func (s *Source) RuntimeName() string {
-	if s.Repo == "github.com/yadisnel/go-ms-services" || s.Repo == "" {
+	if s.Repo == "github.com/micro/services" || s.Repo == "" {
 		return s.Folder
 	}
 	return fmt.Sprintf("%v/%v", strings.ReplaceAll(s.Repo, "github.com/", ""), s.Folder)
@@ -237,17 +237,17 @@ func (s *Source) RuntimeSource() string {
 	if s.Local {
 		return s.FullPath
 	}
-	if s.Repo == "github.com/yadisnel/go-ms-services" || s.Repo == "" {
+	if s.Repo == "github.com/micro/services" || s.Repo == "" {
 		return s.Folder
 	}
 	return fmt.Sprintf("%v/%v", s.Repo, s.Folder)
 }
 
-// ParseSource parses a `go-ms run/update/kill` source.
+// ParseSource parses a `micro run/update/kill` source.
 func ParseSource(source string) (*Source, error) {
-	// If github is not present, we got a shorthand for `go-ms/services`
+	// If github is not present, we got a shorthand for `micro/services`
 	if !strings.Contains(source, "github.com") {
-		source = "github.com/yadisnel/go-ms-services/" + source
+		source = "github.com/micro/services/" + source
 	}
 	if !strings.Contains(source, "@") {
 		source += "@latest"
@@ -329,7 +329,7 @@ func CheckoutSource(folder string, source *Source) error {
 
 // code below is not used yet
 
-var nameExtractRegexp = regexp.MustCompile(`((go-ms|web)\.Name\(")(.*)("\))`)
+var nameExtractRegexp = regexp.MustCompile(`((micro|web)\.Name\(")(.*)("\))`)
 
 func extractServiceName(fileContent []byte) string {
 	hits := nameExtractRegexp.FindAll(fileContent, 1)

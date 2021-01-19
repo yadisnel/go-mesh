@@ -1,4 +1,4 @@
-// Package rpc is a go-ms rpc handler.
+// Package rpc is a go-micro rpc handler.
 package rpc
 
 import (
@@ -10,20 +10,20 @@ import (
 	"strings"
 
 	jsonpatch "github.com/evanphx/json-patch/v5"
-	"github.com/yadisnel/go-ms/v2/api"
-	"github.com/yadisnel/go-ms/v2/api/handler"
-	"github.com/yadisnel/go-ms/v2/api/internal/proto"
-	"github.com/yadisnel/go-ms/v2/client"
-	"github.com/yadisnel/go-ms/v2/client/selector"
-	"github.com/yadisnel/go-ms/v2/codec"
-	"github.com/yadisnel/go-ms/v2/codec/jsonrpc"
-	"github.com/yadisnel/go-ms/v2/codec/protorpc"
-	"github.com/yadisnel/go-ms/v2/errors"
-	"github.com/yadisnel/go-ms/v2/logger"
-	"github.com/yadisnel/go-ms/v2/metadata"
-	"github.com/yadisnel/go-ms/v2/registry"
-	"github.com/yadisnel/go-ms/v2/util/ctx"
-	"github.com/yadisnel/go-ms/v2/util/qson"
+	"github.com/micro/go-micro/v2/api"
+	"github.com/micro/go-micro/v2/api/handler"
+	"github.com/micro/go-micro/v2/api/internal/proto"
+	"github.com/micro/go-micro/v2/client"
+	"github.com/micro/go-micro/v2/codec"
+	"github.com/micro/go-micro/v2/codec/jsonrpc"
+	"github.com/micro/go-micro/v2/codec/protorpc"
+	"github.com/micro/go-micro/v2/errors"
+	"github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-micro/v2/metadata"
+	"github.com/micro/go-micro/v2/registry"
+	"github.com/micro/go-micro/v2/selector"
+	"github.com/micro/go-micro/v2/util/ctx"
+	"github.com/micro/go-micro/v2/util/qson"
 	"github.com/oxtoacart/bpool"
 )
 
@@ -91,13 +91,13 @@ func (h *rpcHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		// try get service from router
 		s, err := h.opts.Router.Route(r)
 		if err != nil {
-			writeError(w, r, errors.InternalServerError("go.ms.api", err.Error()))
+			writeError(w, r, errors.InternalServerError("go.micro.api", err.Error()))
 			return
 		}
 		service = s
 	} else {
 		// we have no way of routing the request
-		writeError(w, r, errors.InternalServerError("go.ms.api", "no route found"))
+		writeError(w, r, errors.InternalServerError("go.micro.api", "no route found"))
 		return
 	}
 
@@ -108,7 +108,7 @@ func (h *rpcHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		ct = ct[:idx]
 	}
 
-	// go-ms client
+	// micro client
 	c := h.opts.Client
 
 	// create context
@@ -452,7 +452,7 @@ func writeError(w http.ResponseWriter, r *http.Request, err error) {
 	case 0:
 		// assuming it's totally screwed
 		ce.Code = 500
-		ce.Id = "go.ms.api"
+		ce.Id = "go.micro.api"
 		ce.Status = http.StatusText(500)
 		ce.Detail = "error during request: " + ce.Detail
 		w.WriteHeader(500)

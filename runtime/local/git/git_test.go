@@ -14,31 +14,31 @@ func TestParseSource(t *testing.T) {
 		{
 			source: "helloworld",
 			expected: &Source{
-				Repo:   "github.com/yadisnel/go-ms-services",
+				Repo:   "github.com/micro/services",
 				Folder: "helloworld",
 				Ref:    "latest",
 			},
 		},
 		{
-			source: "github.com/yadisnel/go-ms-services/helloworld",
+			source: "github.com/micro/services/helloworld",
 			expected: &Source{
-				Repo:   "github.com/yadisnel/go-ms-services",
+				Repo:   "github.com/micro/services",
 				Folder: "helloworld",
 				Ref:    "latest",
 			},
 		},
 		{
-			source: "github.com/yadisnel/go-ms-services/helloworld@v1.12.1",
+			source: "github.com/micro/services/helloworld@v1.12.1",
 			expected: &Source{
-				Repo:   "github.com/yadisnel/go-ms-services",
+				Repo:   "github.com/micro/services",
 				Folder: "helloworld",
 				Ref:    "v1.12.1",
 			},
 		},
 		{
-			source: "github.com/yadisnel/go-ms-services/helloworld@branchname",
+			source: "github.com/micro/services/helloworld@branchname",
 			expected: &Source{
-				Repo:   "github.com/yadisnel/go-ms-services",
+				Repo:   "github.com/micro/services",
 				Folder: "helloworld",
 				Ref:    "branchname",
 			},
@@ -117,11 +117,11 @@ func TestServiceNameExtract(t *testing.T) {
 		{
 			fileContent: `func main() {
 			// New Service
-			service := goms.NewService(
-				goms.Name("go.ms.service.helloworld"),
-				goms.Version("latest"),
+			service := micro.NewService(
+				micro.Name("go.micro.service.helloworld"),
+				micro.Version("latest"),
 			)`,
-			expected: "go.ms.service.helloworld",
+			expected: "go.micro.service.helloworld",
 		},
 	}
 	for i, c := range cases {

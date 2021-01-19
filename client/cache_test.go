@@ -5,12 +5,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/yadisnel/go-ms/v2/metadata"
+	"github.com/micro/go-micro/v2/metadata"
 )
 
 func TestCache(t *testing.T) {
 	ctx := context.TODO()
-	req := NewRequest("go.ms.service.foo", "Foo.Bar", nil)
+	req := NewRequest("go.micro.service.foo", "Foo.Bar", nil)
 
 	t.Run("CacheMiss", func(t *testing.T) {
 		if _, ok := NewCache().Get(ctx, &req); ok {
@@ -34,9 +34,9 @@ func TestCache(t *testing.T) {
 
 func TestCacheKey(t *testing.T) {
 	ctx := context.TODO()
-	req1 := NewRequest("go.ms.service.foo", "Foo.Bar", nil)
-	req2 := NewRequest("go.ms.service.foo", "Foo.Baz", nil)
-	req3 := NewRequest("go.ms.service.foo", "Foo.Baz", "customquery")
+	req1 := NewRequest("go.micro.service.foo", "Foo.Bar", nil)
+	req2 := NewRequest("go.micro.service.foo", "Foo.Baz", nil)
+	req3 := NewRequest("go.micro.service.foo", "Foo.Baz", "customquery")
 
 	t.Run("IdenticalRequests", func(t *testing.T) {
 		key1 := key(ctx, &req1)
@@ -65,7 +65,7 @@ func TestCacheKey(t *testing.T) {
 	})
 
 	t.Run("DifferentMetadata", func(t *testing.T) {
-		mdCtx := metadata.Set(context.TODO(), "Goms-Namespace", "bar")
+		mdCtx := metadata.Set(context.TODO(), "Micro-Namespace", "bar")
 		key1 := key(mdCtx, &req1)
 		key2 := key(ctx, &req1)
 

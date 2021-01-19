@@ -1,17 +1,17 @@
-// Package go-ms is a pluggable framework for microservices
-package goms
+// Package micro is a pluggable framework for microservices
+package micro
 
 import (
 	"context"
 
-	"github.com/yadisnel/go-ms/v2/client"
-	"github.com/yadisnel/go-ms/v2/server"
+	"github.com/micro/go-micro/v2/client"
+	"github.com/micro/go-micro/v2/server"
 )
 
 type serviceKey struct{}
 
 // Service is an interface that wraps the lower level libraries
-// within go-ms. Its a convenience method for building
+// within go-micro. Its a convenience method for building
 // and initialising services.
 type Service interface {
 	// The service name
@@ -74,7 +74,7 @@ type Publisher = Event
 type Option func(*Options)
 
 var (
-	HeaderPrefix = "Goms-"
+	HeaderPrefix = "Micro-"
 )
 
 // NewService creates and returns a new Service based on the packages within.

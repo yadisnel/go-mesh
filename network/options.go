@@ -2,12 +2,12 @@ package network
 
 import (
 	"github.com/google/uuid"
-	"github.com/yadisnel/go-ms/v2/network/resolver"
-	"github.com/yadisnel/go-ms/v2/network/resolver/registry"
-	"github.com/yadisnel/go-ms/v2/proxy"
-	"github.com/yadisnel/go-ms/v2/proxy/mucp"
-	"github.com/yadisnel/go-ms/v2/router"
-	"github.com/yadisnel/go-ms/v2/tunnel"
+	"github.com/micro/go-micro/v2/network/proxy"
+	"github.com/micro/go-micro/v2/network/proxy/mucp"
+	"github.com/micro/go-micro/v2/network/resolver"
+	"github.com/micro/go-micro/v2/network/resolver/registry"
+	"github.com/micro/go-micro/v2/network/router"
+	"github.com/micro/go-micro/v2/network/tunnel"
 )
 
 type Option func(*Options)

@@ -4,13 +4,13 @@ package api
 import (
 	"net/http"
 
-	goapi "github.com/yadisnel/go-ms/v2/api"
-	"github.com/yadisnel/go-ms/v2/api/handler"
-	api "github.com/yadisnel/go-ms/v2/api/proto"
-	"github.com/yadisnel/go-ms/v2/client"
-	"github.com/yadisnel/go-ms/v2/client/selector"
-	"github.com/yadisnel/go-ms/v2/errors"
-	"github.com/yadisnel/go-ms/v2/util/ctx"
+	goapi "github.com/micro/go-micro/v2/api"
+	"github.com/micro/go-micro/v2/api/handler"
+	api "github.com/micro/go-micro/v2/api/proto"
+	"github.com/micro/go-micro/v2/client"
+	"github.com/micro/go-micro/v2/errors"
+	"github.com/micro/go-micro/v2/selector"
+	"github.com/micro/go-micro/v2/util/ctx"
 )
 
 type apiHandler struct {
@@ -32,7 +32,7 @@ func (a *apiHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	r.Body = http.MaxBytesReader(w, r.Body, bsize)
 	request, err := requestToProto(r)
 	if err != nil {
-		er := errors.InternalServerError("go.ms.api", err.Error())
+		er := errors.InternalServerError("go.micro.api", err.Error())
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(500)
 		w.Write([]byte(er.Error()))
@@ -48,7 +48,7 @@ func (a *apiHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		// try get service from router
 		s, err := a.opts.Router.Route(r)
 		if err != nil {
-			er := errors.InternalServerError("go.ms.api", err.Error())
+			er := errors.InternalServerError("go.micro.api", err.Error())
 			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(500)
 			w.Write([]byte(er.Error()))
@@ -57,7 +57,7 @@ func (a *apiHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		service = s
 	} else {
 		// we have no way of routing the request
-		er := errors.InternalServerError("go.ms.api", "no route found")
+		er := errors.InternalServerError("go.micro.api", "no route found")
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(500)
 		w.Write([]byte(er.Error()))

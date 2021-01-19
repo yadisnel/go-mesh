@@ -1,26 +1,26 @@
-package goms
+package micro
 
 import (
 	"context"
 	"time"
 
-	"github.com/yadisnel/go-ms-cli/v2"
-	"github.com/yadisnel/go-ms/v2/auth"
-	"github.com/yadisnel/go-ms/v2/broker"
-	"github.com/yadisnel/go-ms/v2/client"
-	"github.com/yadisnel/go-ms/v2/client/selector"
-	"github.com/yadisnel/go-ms/v2/config"
-	"github.com/yadisnel/go-ms/v2/config/cmd"
-	"github.com/yadisnel/go-ms/v2/debug/profile"
-	"github.com/yadisnel/go-ms/v2/debug/trace"
-	"github.com/yadisnel/go-ms/v2/registry"
-	"github.com/yadisnel/go-ms/v2/runtime"
-	"github.com/yadisnel/go-ms/v2/server"
-	"github.com/yadisnel/go-ms/v2/store"
-	"github.com/yadisnel/go-ms/v2/transport"
+	"github.com/micro/cli/v2"
+	"github.com/micro/go-micro/v2/auth"
+	"github.com/micro/go-micro/v2/broker"
+	"github.com/micro/go-micro/v2/client"
+	"github.com/micro/go-micro/v2/cmd"
+	"github.com/micro/go-micro/v2/config"
+	"github.com/micro/go-micro/v2/debug/profile"
+	"github.com/micro/go-micro/v2/debug/trace"
+	"github.com/micro/go-micro/v2/registry"
+	"github.com/micro/go-micro/v2/runtime"
+	"github.com/micro/go-micro/v2/selector"
+	"github.com/micro/go-micro/v2/server"
+	"github.com/micro/go-micro/v2/store"
+	"github.com/micro/go-micro/v2/transport"
 )
 
-// Options for go-ms service
+// Options for micro service
 type Options struct {
 	Auth      auth.Auth
 	Broker    broker.Broker
@@ -155,7 +155,6 @@ func Tracer(t trace.Tracer) Option {
 func Auth(a auth.Auth) Option {
 	return func(o *Options) {
 		o.Auth = a
-		o.Server.Init(server.Auth(a))
 	}
 }
 

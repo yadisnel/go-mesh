@@ -4,8 +4,8 @@ package memory
 import (
 	"fmt"
 
-	"github.com/yadisnel/go-ms/v2/debug/log"
-	"github.com/yadisnel/go-ms/v2/util/ring"
+	"github.com/micro/go-micro/v2/debug/log"
+	"github.com/micro/go-micro/v2/util/ring"
 )
 
 var (
@@ -13,7 +13,7 @@ var (
 	DefaultSize = 1024
 )
 
-// memoryLog is default go-ms log
+// memoryLog is default micro log
 type memoryLog struct {
 	*ring.Buffer
 }

@@ -10,11 +10,11 @@ import (
 	"sync"
 	"time"
 
-	dlog "github.com/yadisnel/go-ms/v2/debug/log"
+	dlog "github.com/micro/go-micro/v2/debug/log"
 )
 
 func init() {
-	lvl, err := GetLevel(os.Getenv("GOMS_LOG_LEVEL"))
+	lvl, err := GetLevel(os.Getenv("MICRO_LOG_LEVEL"))
 	if err != nil {
 		lvl = InfoLevel
 	}

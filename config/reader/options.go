@@ -1,12 +1,8 @@
 package reader
 
 import (
-	"github.com/yadisnel/go-ms/v2/config/encoder"
-	"github.com/yadisnel/go-ms/v2/config/encoder/hcl"
-	"github.com/yadisnel/go-ms/v2/config/encoder/json"
-	"github.com/yadisnel/go-ms/v2/config/encoder/toml"
-	"github.com/yadisnel/go-ms/v2/config/encoder/xml"
-	"github.com/yadisnel/go-ms/v2/config/encoder/yaml"
+	"github.com/micro/go-micro/v2/config/encoder"
+	"github.com/micro/go-micro/v2/config/encoder/json"
 )
 
 type Options struct {
@@ -19,11 +15,6 @@ func NewOptions(opts ...Option) Options {
 	options := Options{
 		Encoding: map[string]encoder.Encoder{
 			"json": json.NewEncoder(),
-			"yaml": yaml.NewEncoder(),
-			"toml": toml.NewEncoder(),
-			"xml":  xml.NewEncoder(),
-			"hcl":  hcl.NewEncoder(),
-			"yml":  yaml.NewEncoder(),
 		},
 	}
 	for _, o := range opts {

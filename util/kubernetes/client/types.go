@@ -30,7 +30,7 @@ type Container struct {
 	Ports   []ContainerPort `json:"ports,omitempty"`
 }
 
-// DeploymentSpec defines go-ms deployment spec
+// DeploymentSpec defines micro deployment spec
 type DeploymentSpec struct {
 	Replicas int            `json:"replicas,omitempty"`
 	Selector *LabelSelector `json:"selector"`
@@ -174,7 +174,7 @@ type ServiceList struct {
 	Items []Service `json:"items"`
 }
 
-// Template is go-ms deployment template
+// Template is micro deployment template
 type Template struct {
 	Metadata *Metadata `json:"metadata,omitempty"`
 	PodSpec  *PodSpec  `json:"spec,omitempty"`

@@ -12,17 +12,17 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yadisnel/go-ms/v2/broker"
-	"github.com/yadisnel/go-ms/v2/codec"
-	raw "github.com/yadisnel/go-ms/v2/codec/bytes"
-	"github.com/yadisnel/go-ms/v2/logger"
-	"github.com/yadisnel/go-ms/v2/metadata"
-	"github.com/yadisnel/go-ms/v2/registry"
-	"github.com/yadisnel/go-ms/v2/transport"
-	"github.com/yadisnel/go-ms/v2/util/addr"
-	"github.com/yadisnel/go-ms/v2/util/backoff"
-	mnet "github.com/yadisnel/go-ms/v2/util/net"
-	"github.com/yadisnel/go-ms/v2/util/socket"
+	"github.com/micro/go-micro/v2/broker"
+	"github.com/micro/go-micro/v2/codec"
+	raw "github.com/micro/go-micro/v2/codec/bytes"
+	"github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-micro/v2/metadata"
+	"github.com/micro/go-micro/v2/registry"
+	"github.com/micro/go-micro/v2/transport"
+	"github.com/micro/go-micro/v2/util/addr"
+	"github.com/micro/go-micro/v2/util/backoff"
+	mnet "github.com/micro/go-micro/v2/util/net"
+	"github.com/micro/go-micro/v2/util/socket"
 )
 
 type rpcServer struct {
@@ -97,11 +97,11 @@ func (s *rpcServer) HandleEvent(e broker.Event) error {
 	ctx := metadata.NewContext(context.Background(), hdr)
 
 	// TODO: inspect message header
-	// Goms-Service means a request
-	// Goms-Topic means a message
+	// Micro-Service means a request
+	// Micro-Topic means a message
 
 	rpcMsg := &rpcMessage{
-		topic:       msg.Header["Goms-Topic"],
+		topic:       msg.Header["Micro-Topic"],
 		contentType: ct,
 		payload:     &raw.Frame{Data: msg.Body},
 		codec:       cf,
@@ -133,7 +133,7 @@ func (s *rpcServer) HandleEvent(e broker.Event) error {
 func (s *rpcServer) ServeConn(sock transport.Socket) {
 	// global error tracking
 	var gerr error
-	// streams are multiplexed on Goms-Stream or Goms-Id header
+	// streams are multiplexed on Micro-Stream or Micro-Id header
 	pool := socket.NewPool()
 
 	// get global waitgroup
@@ -180,14 +180,14 @@ func (s *rpcServer) ServeConn(sock transport.Socket) {
 		}
 
 		// check the message header for
-		// Goms-Service is a request
-		// Goms-Topic is a message
-		if t := msg.Header["Goms-Topic"]; len(t) > 0 {
+		// Micro-Service is a request
+		// Micro-Topic is a message
+		if t := msg.Header["Micro-Topic"]; len(t) > 0 {
 			// process the event
 			ev := newEvent(msg)
 			// TODO: handle the error event
 			if err := s.HandleEvent(ev); err != nil {
-				msg.Header["Goms-Error"] = err.Error()
+				msg.Header["Micro-Error"] = err.Error()
 			}
 			// write back some 200
 			if err := sock.Send(&transport.Message{
@@ -202,21 +202,21 @@ func (s *rpcServer) ServeConn(sock transport.Socket) {
 
 		// business as usual
 
-		// use Goms-Stream as the stream identifier
+		// use Micro-Stream as the stream identifier
 		// in the event its blank we'll always process
 		// on the same socket
-		id := msg.Header["Goms-Stream"]
+		id := msg.Header["Micro-Stream"]
 
 		// if there's no stream id then its a standard request
-		// use the Goms-Id
+		// use the Micro-Id
 		if len(id) == 0 {
-			id = msg.Header["Goms-Id"]
+			id = msg.Header["Micro-Id"]
 		}
 
 		// check stream id
 		var stream bool
 
-		if v := getHeader("Goms-Stream", msg.Header); len(v) > 0 {
+		if v := getHeader("Micro-Stream", msg.Header); len(v) > 0 {
 			stream = true
 		}
 
@@ -226,7 +226,7 @@ func (s *rpcServer) ServeConn(sock transport.Socket) {
 		// if we don't have a socket and its a stream
 		if !ok && stream {
 			// check if its a last stream EOS error
-			err := msg.Header["Goms-Error"]
+			err := msg.Header["Micro-Error"]
 			if err == lastStreamResponseError.Error() {
 				pool.Release(psock)
 				continue
@@ -326,9 +326,9 @@ func (s *rpcServer) ServeConn(sock transport.Socket) {
 
 		// internal request
 		request := &rpcRequest{
-			service:     getHeader("Goms-Service", msg.Header),
-			method:      getHeader("Goms-Method", msg.Header),
-			endpoint:    getHeader("Goms-Endpoint", msg.Header),
+			service:     getHeader("Micro-Service", msg.Header),
+			method:      getHeader("Micro-Method", msg.Header),
+			endpoint:    getHeader("Micro-Endpoint", msg.Header),
 			contentType: ct,
 			codec:       rcodec,
 			header:      msg.Header,

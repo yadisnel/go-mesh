@@ -5,7 +5,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/yadisnel/go-ms/v2/metadata"
+	"github.com/micro/go-micro/v2/metadata"
 )
 
 // Tracer is an interface for distributed tracing
@@ -49,20 +49,20 @@ type Span struct {
 }
 
 const (
-	traceIDKey = "Goms-Trace-Id"
-	spanIDKey  = "Goms-Span-Id"
+	traceIDKey = "Micro-Trace-Id"
+	spanIDKey  = "Micro-Span-Id"
 )
 
 // FromContext returns a span from context
 func FromContext(ctx context.Context) (traceID string, parentSpanID string, isFound bool) {
 	traceID, traceOk := metadata.Get(ctx, traceIDKey)
-	gomsID, gomsOk := metadata.Get(ctx, "Goms-Id")
-	if !traceOk && !gomsOk {
+	microID, microOk := metadata.Get(ctx, "Micro-Id")
+	if !traceOk && !microOk {
 		isFound = false
 		return
 	}
 	if !traceOk {
-		traceID = gomsID
+		traceID = microID
 	}
 	parentSpanID, ok := metadata.Get(ctx, spanIDKey)
 	return traceID, parentSpanID, ok
@@ -77,7 +77,7 @@ func ToContext(ctx context.Context, traceID, parentSpanID string) context.Contex
 }
 
 var (
-	DefaultTracer Tracer = new(noop)
+	DefaultTracer Tracer = NewTracer()
 )
 
 type noop struct{}

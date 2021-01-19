@@ -4,16 +4,16 @@ import (
 	"bytes"
 	errs "errors"
 
-	"github.com/yadisnel/go-ms/v2/codec"
-	raw "github.com/yadisnel/go-ms/v2/codec/bytes"
-	"github.com/yadisnel/go-ms/v2/codec/grpc"
-	"github.com/yadisnel/go-ms/v2/codec/json"
-	"github.com/yadisnel/go-ms/v2/codec/jsonrpc"
-	"github.com/yadisnel/go-ms/v2/codec/proto"
-	"github.com/yadisnel/go-ms/v2/codec/protorpc"
-	"github.com/yadisnel/go-ms/v2/errors"
-	"github.com/yadisnel/go-ms/v2/registry"
-	"github.com/yadisnel/go-ms/v2/transport"
+	"github.com/micro/go-micro/v2/codec"
+	raw "github.com/micro/go-micro/v2/codec/bytes"
+	"github.com/micro/go-micro/v2/codec/grpc"
+	"github.com/micro/go-micro/v2/codec/json"
+	"github.com/micro/go-micro/v2/codec/jsonrpc"
+	"github.com/micro/go-micro/v2/codec/proto"
+	"github.com/micro/go-micro/v2/codec/protorpc"
+	"github.com/micro/go-micro/v2/errors"
+	"github.com/micro/go-micro/v2/registry"
+	"github.com/micro/go-micro/v2/transport"
 )
 
 const (
@@ -96,16 +96,16 @@ func getHeaders(m *codec.Message) {
 	}
 
 	// check error in header
-	m.Error = set(m.Error, "Goms-Error")
+	m.Error = set(m.Error, "Micro-Error")
 
 	// check endpoint in header
-	m.Endpoint = set(m.Endpoint, "Goms-Endpoint")
+	m.Endpoint = set(m.Endpoint, "Micro-Endpoint")
 
 	// check method in header
-	m.Method = set(m.Method, "Goms-Method")
+	m.Method = set(m.Method, "Micro-Method")
 
 	// set the request id
-	m.Id = set(m.Id, "Goms-Id")
+	m.Id = set(m.Id, "Micro-Id")
 }
 
 func setHeaders(m *codec.Message, stream string) {
@@ -116,14 +116,14 @@ func setHeaders(m *codec.Message, stream string) {
 		m.Header[hdr] = v
 	}
 
-	set("Goms-Id", m.Id)
-	set("Goms-Service", m.Target)
-	set("Goms-Method", m.Method)
-	set("Goms-Endpoint", m.Endpoint)
-	set("Goms-Error", m.Error)
+	set("Micro-Id", m.Id)
+	set("Micro-Service", m.Target)
+	set("Micro-Method", m.Method)
+	set("Micro-Endpoint", m.Endpoint)
+	set("Micro-Error", m.Error)
 
 	if len(stream) > 0 {
-		set("Goms-Stream", stream)
+		set("Micro-Stream", stream)
 	}
 }
 
@@ -137,7 +137,7 @@ func setupProtocol(msg *transport.Message, node *registry.Node) codec.NewCodec {
 	}
 
 	// processing topic publishing
-	if len(msg.Header["Goms-Topic"]) > 0 {
+	if len(msg.Header["Micro-Topic"]) > 0 {
 		return nil
 	}
 
@@ -192,7 +192,7 @@ func (c *rpcCodec) Write(m *codec.Message, body interface{}) error {
 		} else {
 			// write to codec
 			if err := c.codec.Write(m, body); err != nil {
-				return errors.InternalServerError("go.ms.client.codec", err.Error())
+				return errors.InternalServerError("go.micro.client.codec", err.Error())
 			}
 			// set body
 			m.Body = c.buf.wbuf.Bytes()
@@ -207,7 +207,7 @@ func (c *rpcCodec) Write(m *codec.Message, body interface{}) error {
 
 	// send the request
 	if err := c.client.Send(&msg); err != nil {
-		return errors.InternalServerError("go.ms.client.transport", err.Error())
+		return errors.InternalServerError("go.micro.client.transport", err.Error())
 	}
 
 	return nil
@@ -218,7 +218,7 @@ func (c *rpcCodec) ReadHeader(m *codec.Message, r codec.MessageType) error {
 
 	// read message from transport
 	if err := c.client.Recv(&tm); err != nil {
-		return errors.InternalServerError("go.ms.client.transport", err.Error())
+		return errors.InternalServerError("go.micro.client.transport", err.Error())
 	}
 
 	c.buf.rbuf.Reset()
@@ -235,7 +235,7 @@ func (c *rpcCodec) ReadHeader(m *codec.Message, r codec.MessageType) error {
 
 	// return header error
 	if err != nil {
-		return errors.InternalServerError("go.ms.client.codec", err.Error())
+		return errors.InternalServerError("go.micro.client.codec", err.Error())
 	}
 
 	return nil
@@ -250,7 +250,7 @@ func (c *rpcCodec) ReadBody(b interface{}) error {
 	}
 
 	if err := c.codec.ReadBody(b); err != nil {
-		return errors.InternalServerError("go.ms.client.codec", err.Error())
+		return errors.InternalServerError("go.micro.client.codec", err.Error())
 	}
 	return nil
 }
@@ -259,7 +259,7 @@ func (c *rpcCodec) Close() error {
 	c.buf.Close()
 	c.codec.Close()
 	if err := c.client.Close(); err != nil {
-		return errors.InternalServerError("go.ms.client.transport", err.Error())
+		return errors.InternalServerError("go.micro.client.transport", err.Error())
 	}
 	return nil
 }

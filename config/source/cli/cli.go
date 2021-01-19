@@ -8,9 +8,9 @@ import (
 	"time"
 
 	"github.com/imdario/mergo"
-	"github.com/yadisnel/go-ms-cli/v2"
-	"github.com/yadisnel/go-ms/v2/config/cmd"
-	"github.com/yadisnel/go-ms/v2/config/source"
+	"github.com/micro/cli/v2"
+	"github.com/micro/go-micro/v2/cmd"
+	"github.com/micro/go-micro/v2/config/source"
 )
 
 type cliSource struct {
@@ -84,7 +84,7 @@ func (c *cliSource) String() string {
 	return "cli"
 }
 
-// NewSource returns a config source for integrating parsed flags from a go-ms/cli.Context.
+// NewSource returns a config source for integrating parsed flags from a micro/cli.Context.
 // Hyphens are delimiters for nesting, and all keys are lowercased. The assumption is that
 // command line flags have already been parsed.
 //

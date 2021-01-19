@@ -3,10 +3,6 @@ package auth
 import (
 	"context"
 	"time"
-
-	"github.com/yadisnel/go-ms/v2/auth/provider"
-	"github.com/yadisnel/go-ms/v2/client"
-	"github.com/yadisnel/go-ms/v2/store"
 )
 
 func NewOptions(opts ...Option) Options {
@@ -14,10 +10,6 @@ func NewOptions(opts ...Option) Options {
 	for _, o := range opts {
 		o(&options)
 	}
-	if options.Client == nil {
-		options.Client = client.DefaultClient
-	}
-
 	return options
 }
 
@@ -34,14 +26,6 @@ type Options struct {
 	PublicKey string
 	// PrivateKey for encoding JWTs
 	PrivateKey string
-	// Provider is an auth provider
-	Provider provider.Provider
-	// LoginURL is the relative url path where a user can login
-	LoginURL string
-	// Store to back auth
-	Store store.Store
-	// Client to use for RPC
-	Client client.Client
 	// Addrs sets the addresses of auth
 	Addrs []string
 }
@@ -59,13 +43,6 @@ func Addrs(addrs ...string) Option {
 func Namespace(n string) Option {
 	return func(o *Options) {
 		o.Namespace = n
-	}
-}
-
-// Store to back auth
-func Store(s store.Store) Option {
-	return func(o *Options) {
-		o.Store = s
 	}
 }
 
@@ -95,27 +72,6 @@ func Credentials(id, secret string) Option {
 func ClientToken(token *Token) Option {
 	return func(o *Options) {
 		o.Token = token
-	}
-}
-
-// Provider set the auth provider
-func Provider(p provider.Provider) Option {
-	return func(o *Options) {
-		o.Provider = p
-	}
-}
-
-// LoginURL sets the auth LoginURL
-func LoginURL(url string) Option {
-	return func(o *Options) {
-		o.LoginURL = url
-	}
-}
-
-// WithClient sets the client to use when making requests
-func WithClient(c client.Client) Option {
-	return func(o *Options) {
-		o.Client = c
 	}
 }
 
@@ -238,14 +194,14 @@ func VerifyContext(ctx context.Context) VerifyOption {
 	}
 }
 
-type RulesOptions struct {
+type ListOptions struct {
 	Context context.Context
 }
 
-type RulesOption func(o *RulesOptions)
+type ListOption func(o *ListOptions)
 
-func RulesContext(ctx context.Context) RulesOption {
-	return func(o *RulesOptions) {
+func RulesContext(ctx context.Context) ListOption {
+	return func(o *ListOptions) {
 		o.Context = ctx
 	}
 }

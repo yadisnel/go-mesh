@@ -6,12 +6,11 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/yadisnel/go-ms/v2/registry"
-	"github.com/yadisnel/go-ms/v2/registry/memory"
+	"github.com/micro/go-micro/v2/registry"
 )
 
 func TestRoundTripper(t *testing.T) {
-	m := memory.NewRegistry()
+	m := registry.NewMemoryRegistry()
 
 	rt := NewRoundTripper(
 		WithRegistry(m),
