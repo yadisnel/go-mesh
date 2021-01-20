@@ -53,9 +53,9 @@ func TestEnvvar_Prefixes(t *testing.T) {
 		prefixOpts   []source.Option
 		expectedKeys []string
 	}{
-		{[]source.Option{WithPrefix("APP", "GO_MS")}, []string{"app", "go_ms"}},
-		{[]source.Option{WithPrefix("GO_MS"), WithStrippedPrefix("APP")}, []string{"database", "go_ms"}},
-		{[]source.Option{WithPrefix("GO_MS"), WithStrippedPrefix("APP")}, []string{"database", "go_ms"}},
+		{[]source.Option{WithPrefix("APP", "GOMS")}, []string{"app", "goms"}},
+		{[]source.Option{WithPrefix("GOMS"), WithStrippedPrefix("APP")}, []string{"database", "goms"}},
+		{[]source.Option{WithPrefix("GOMS"), WithStrippedPrefix("APP")}, []string{"database", "goms"}},
 	}
 
 	for _, pt := range prefixtests {
@@ -85,7 +85,7 @@ func TestEnvvar_Prefixes(t *testing.T) {
 }
 
 func TestEnvvar_WatchNextNoOpsUntilStop(t *testing.T) {
-	src := NewSource(WithStrippedPrefix("GO_MS_"))
+	src := NewSource(WithStrippedPrefix("GOMS_"))
 	w, err := src.Watch()
 	if err != nil {
 		t.Error(err)
