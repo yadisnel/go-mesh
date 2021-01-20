@@ -175,7 +175,7 @@ type Advert struct {
 	// id of the advertising router
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// type of advertisement
-	Type AdvertType `protobuf:"varint,2,opt,name=type,proto3,enum=go.ms.network.AdvertType" json:"type,omitempty"`
+	Type AdvertType `protobuf:"varint,2,opt,name=type,proto3,enum=go.micro.network.AdvertType" json:"type,omitempty"`
 	// unix timestamp of the advertisement
 	Timestamp int64 `protobuf:"varint,3,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 	// TTL of the Advert
@@ -252,7 +252,7 @@ type Event struct {
 	// the unique event id
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// type of event
-	Type EventType `protobuf:"varint,2,opt,name=type,proto3,enum=go.ms.network.EventType" json:"type,omitempty"`
+	Type EventType `protobuf:"varint,2,opt,name=type,proto3,enum=go.micro.network.EventType" json:"type,omitempty"`
 	// unix timestamp of event
 	Timestamp int64 `protobuf:"varint,3,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 	// service route
@@ -1185,32 +1185,32 @@ func (m *Sync) GetRoutes() []*Route {
 }
 
 func init() {
-	proto.RegisterEnum("go.ms.network.AdvertType", AdvertType_name, AdvertType_value)
-	proto.RegisterEnum("go.ms.network.EventType", EventType_name, EventType_value)
-	proto.RegisterType((*Route)(nil), "go.ms.network.Route")
-	proto.RegisterType((*Advert)(nil), "go.ms.network.Advert")
-	proto.RegisterType((*Event)(nil), "go.ms.network.Event")
-	proto.RegisterType((*Query)(nil), "go.ms.network.Query")
-	proto.RegisterType((*ConnectRequest)(nil), "go.ms.network.ConnectRequest")
-	proto.RegisterType((*ConnectResponse)(nil), "go.ms.network.ConnectResponse")
-	proto.RegisterType((*NodesRequest)(nil), "go.ms.network.NodesRequest")
-	proto.RegisterType((*NodesResponse)(nil), "go.ms.network.NodesResponse")
-	proto.RegisterType((*GraphRequest)(nil), "go.ms.network.GraphRequest")
-	proto.RegisterType((*GraphResponse)(nil), "go.ms.network.GraphResponse")
-	proto.RegisterType((*RoutesRequest)(nil), "go.ms.network.RoutesRequest")
-	proto.RegisterType((*RoutesResponse)(nil), "go.ms.network.RoutesResponse")
-	proto.RegisterType((*ServicesRequest)(nil), "go.ms.network.ServicesRequest")
-	proto.RegisterType((*ServicesResponse)(nil), "go.ms.network.ServicesResponse")
-	proto.RegisterType((*StatusRequest)(nil), "go.ms.network.StatusRequest")
-	proto.RegisterType((*StatusResponse)(nil), "go.ms.network.StatusResponse")
-	proto.RegisterType((*Error)(nil), "go.ms.network.Error")
-	proto.RegisterType((*Status)(nil), "go.ms.network.Status")
-	proto.RegisterType((*Node)(nil), "go.ms.network.Node")
-	proto.RegisterMapType((map[string]string)(nil), "go.ms.network.Node.MetadataEntry")
-	proto.RegisterType((*Connect)(nil), "go.ms.network.Connect")
-	proto.RegisterType((*Close)(nil), "go.ms.network.Close")
-	proto.RegisterType((*Peer)(nil), "go.ms.network.Peer")
-	proto.RegisterType((*Sync)(nil), "go.ms.network.Sync")
+	proto.RegisterEnum("go.micro.network.AdvertType", AdvertType_name, AdvertType_value)
+	proto.RegisterEnum("go.micro.network.EventType", EventType_name, EventType_value)
+	proto.RegisterType((*Route)(nil), "go.micro.network.Route")
+	proto.RegisterType((*Advert)(nil), "go.micro.network.Advert")
+	proto.RegisterType((*Event)(nil), "go.micro.network.Event")
+	proto.RegisterType((*Query)(nil), "go.micro.network.Query")
+	proto.RegisterType((*ConnectRequest)(nil), "go.micro.network.ConnectRequest")
+	proto.RegisterType((*ConnectResponse)(nil), "go.micro.network.ConnectResponse")
+	proto.RegisterType((*NodesRequest)(nil), "go.micro.network.NodesRequest")
+	proto.RegisterType((*NodesResponse)(nil), "go.micro.network.NodesResponse")
+	proto.RegisterType((*GraphRequest)(nil), "go.micro.network.GraphRequest")
+	proto.RegisterType((*GraphResponse)(nil), "go.micro.network.GraphResponse")
+	proto.RegisterType((*RoutesRequest)(nil), "go.micro.network.RoutesRequest")
+	proto.RegisterType((*RoutesResponse)(nil), "go.micro.network.RoutesResponse")
+	proto.RegisterType((*ServicesRequest)(nil), "go.micro.network.ServicesRequest")
+	proto.RegisterType((*ServicesResponse)(nil), "go.micro.network.ServicesResponse")
+	proto.RegisterType((*StatusRequest)(nil), "go.micro.network.StatusRequest")
+	proto.RegisterType((*StatusResponse)(nil), "go.micro.network.StatusResponse")
+	proto.RegisterType((*Error)(nil), "go.micro.network.Error")
+	proto.RegisterType((*Status)(nil), "go.micro.network.Status")
+	proto.RegisterType((*Node)(nil), "go.micro.network.Node")
+	proto.RegisterMapType((map[string]string)(nil), "go.micro.network.Node.MetadataEntry")
+	proto.RegisterType((*Connect)(nil), "go.micro.network.Connect")
+	proto.RegisterType((*Close)(nil), "go.micro.network.Close")
+	proto.RegisterType((*Peer)(nil), "go.micro.network.Peer")
+	proto.RegisterType((*Sync)(nil), "go.micro.network.Sync")
 }
 
 func init() { proto.RegisterFile("proto/network.proto", fileDescriptor_3fa77ddec0d08062) }
