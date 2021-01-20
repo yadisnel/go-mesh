@@ -1,4 +1,4 @@
-module github.com/yadisnel/go-ms/v2/cmd/protoc-gen-micro/v2
+module github.com/yadisnel/go-ms/v2/cmd/protoc-gen-ms/v2
 
 go 1.13
 

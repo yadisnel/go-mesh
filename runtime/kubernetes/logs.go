@@ -72,8 +72,8 @@ func (k *klog) getMatchingPods() ([]string, error) {
 	l := make(map[string]string)
 
 	l["name"] = client.Format(k.serviceName)
-	// TODO: specify micro:service
-	// l["micro"] = "service"
+	// TODO: specify ms:service
+	// l["ms"] = "service"
 
 	opts := []client.GetOption{
 		client.GetLabels(l),

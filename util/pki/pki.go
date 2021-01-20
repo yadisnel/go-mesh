@@ -1,4 +1,4 @@
-// Package pki provides PKI all the PKI functions necessary to run micro over an untrusted network
+// Package pki provides PKI all the PKI functions necessary to run ms over an untrusted network
 // including a CA
 package pki
 

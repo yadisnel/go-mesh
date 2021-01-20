@@ -25,5 +25,5 @@ values when accessing any config values directly. This ensures you'll always be 
 
 ## Getting Started
 
-For detailed information or architecture, installation and general usage see the [docs](https://micro.mu/docs/go-config.html)
+For detailed information or architecture, installation and general usage see the [docs](https://ms.mu/docs/go-config.html)
 

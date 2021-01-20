@@ -57,7 +57,7 @@ func levelToLevel(l Level) nlog.Level {
 }
 
 func init() {
-	switch os.Getenv("MICRO_LOG_LEVEL") {
+	switch os.Getenv("MS_LOG_LEVEL") {
 	case "trace":
 		level = LevelTrace
 	case "debug":
@@ -104,7 +104,7 @@ func (el *elog) Stream() (dlog.Stream, error) {
 	return el.dlog.Stream()
 }
 
-// Log makes use of github.com/micro/debug/log
+// Log makes use of github.com/ms/debug/log
 func Log(v ...interface{}) {
 	if len(prefix) > 0 {
 		v = append([]interface{}{prefix, " "}, v...)
@@ -112,7 +112,7 @@ func Log(v ...interface{}) {
 	nlog.DefaultLogger.Log(levelToLevel(level), v)
 }
 
-// Logf makes use of github.com/micro/debug/log
+// Logf makes use of github.com/ms/debug/log
 func Logf(format string, v ...interface{}) {
 	if len(prefix) > 0 {
 		format = prefix + " " + format

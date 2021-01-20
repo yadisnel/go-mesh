@@ -1,4 +1,4 @@
-// Package server is an interface for a micro server
+// Package server is an interface for a ms server
 package server
 
 import (
@@ -14,7 +14,7 @@ import (
 	signalutil "github.com/yadisnel/go-ms/v2/util/signal"
 )
 
-// Server is a simple micro server abstraction
+// Server is a simple ms server abstraction
 type Server interface {
 	// Initialise options
 	Init(...Option) error
@@ -138,7 +138,7 @@ type Option func(*Options)
 
 var (
 	DefaultAddress                 = ":0"
-	DefaultName                    = "go.micro.server"
+	DefaultName                    = "go.ms.server"
 	DefaultVersion                 = "latest"
 	DefaultId                      = uuid.New().String()
 	DefaultServer           Server = newRpcServer()

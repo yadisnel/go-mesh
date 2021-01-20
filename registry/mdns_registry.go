@@ -21,8 +21,8 @@ import (
 )
 
 var (
-	// use a .micro domain rather than .local
-	mdnsDomain = "micro"
+	// use a .ms domain rather than .local
+	mdnsDomain = "ms"
 )
 
 type mdnsTxt struct {

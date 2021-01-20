@@ -7,13 +7,13 @@ import (
 func TestVerify(t *testing.T) {
 	srvResource := &Resource{
 		Type:     "service",
-		Name:     "go.micro.service.foo",
+		Name:     "go.ms.service.foo",
 		Endpoint: "Foo.Bar",
 	}
 
 	webResource := &Resource{
 		Type:     "service",
-		Name:     "go.micro.web.foo",
+		Name:     "go.ms.web.foo",
 		Endpoint: "/foo/bar",
 	}
 

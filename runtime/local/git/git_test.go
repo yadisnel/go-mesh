@@ -14,31 +14,31 @@ func TestParseSource(t *testing.T) {
 		{
 			source: "helloworld",
 			expected: &Source{
-				Repo:   "github.com/micro/services",
+				Repo:   "github.com/ms/services",
 				Folder: "helloworld",
 				Ref:    "latest",
 			},
 		},
 		{
-			source: "github.com/micro/services/helloworld",
+			source: "github.com/ms/services/helloworld",
 			expected: &Source{
-				Repo:   "github.com/micro/services",
+				Repo:   "github.com/ms/services",
 				Folder: "helloworld",
 				Ref:    "latest",
 			},
 		},
 		{
-			source: "github.com/micro/services/helloworld@v1.12.1",
+			source: "github.com/ms/services/helloworld@v1.12.1",
 			expected: &Source{
-				Repo:   "github.com/micro/services",
+				Repo:   "github.com/ms/services",
 				Folder: "helloworld",
 				Ref:    "v1.12.1",
 			},
 		},
 		{
-			source: "github.com/micro/services/helloworld@branchname",
+			source: "github.com/ms/services/helloworld@branchname",
 			expected: &Source{
-				Repo:   "github.com/micro/services",
+				Repo:   "github.com/ms/services",
 				Folder: "helloworld",
 				Ref:    "branchname",
 			},
@@ -117,11 +117,11 @@ func TestServiceNameExtract(t *testing.T) {
 		{
 			fileContent: `func main() {
 			// New Service
-			service := micro.NewService(
-				micro.Name("go.micro.service.helloworld"),
-				micro.Version("latest"),
+			service := ms.NewService(
+				ms.Name("go.ms.service.helloworld"),
+				ms.Version("latest"),
 			)`,
-			expected: "go.micro.service.helloworld",
+			expected: "go.ms.service.helloworld",
 		},
 	}
 	for i, c := range cases {

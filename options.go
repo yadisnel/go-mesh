@@ -1,4 +1,4 @@
-package micro
+package ms
 
 import (
 	"context"
@@ -20,7 +20,7 @@ import (
 	"github.com/yadisnel/go-ms/v2/transport"
 )
 
-// Options for micro service
+// Options for ms service
 type Options struct {
 	Auth      auth.Auth
 	Broker    broker.Broker

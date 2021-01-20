@@ -22,8 +22,8 @@ var (
 	serviceAccountPath = "/var/run/secrets/kubernetes.io/serviceaccount"
 	// ErrReadNamespace is returned when the names could not be read from service account
 	ErrReadNamespace = errors.New("Could not read namespace from service account secret")
-	// DefaultImage is default micro image
-	DefaultImage = "micro/go-micro"
+	// DefaultImage is default ms image
+	DefaultImage = "ms/go-ms"
 	// DefaultNamespace is the default k8s namespace
 	DefaultNamespace = "default"
 )
@@ -225,7 +225,7 @@ func (c *client) Watch(r *Resource, opts ...WatchOption) (Watcher, error) {
 	return newWatcher(req)
 }
 
-// NewService returns default micro kubernetes service definition
+// NewService returns default ms kubernetes service definition
 func NewService(name, version, typ, namespace string) *Service {
 	if logger.V(logger.TraceLevel, logger.DefaultLogger) {
 		logger.Tracef("kubernetes default service: name: %s, version: %s", name, version)
@@ -234,7 +234,7 @@ func NewService(name, version, typ, namespace string) *Service {
 	Labels := map[string]string{
 		"name":    name,
 		"version": version,
-		"micro":   typ,
+		"ms":   typ,
 	}
 
 	svcName := name
@@ -268,7 +268,7 @@ func NewService(name, version, typ, namespace string) *Service {
 	}
 }
 
-// NewService returns default micro kubernetes deployment definition
+// NewService returns default ms kubernetes deployment definition
 func NewDeployment(name, version, typ, namespace string) *Deployment {
 	if logger.V(logger.TraceLevel, logger.DefaultLogger) {
 		logger.Tracef("kubernetes default deployment: name: %s, version: %s", name, version)
@@ -277,7 +277,7 @@ func NewDeployment(name, version, typ, namespace string) *Deployment {
 	Labels := map[string]string{
 		"name":    name,
 		"version": version,
-		"micro":   typ,
+		"ms":   typ,
 	}
 
 	depName := name

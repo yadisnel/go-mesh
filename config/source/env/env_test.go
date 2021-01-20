@@ -47,15 +47,15 @@ func TestEnvvar_Prefixes(t *testing.T) {
 	os.Setenv("APP_DATABASE_HOST", "localhost")
 	os.Setenv("APP_DATABASE_PASSWORD", "password")
 	os.Setenv("VAULT_ADDR", "vault:1337")
-	os.Setenv("GOMS_REGISTRY", "mdns")
+	os.Setenv("MS_REGISTRY", "mdns")
 
 	var prefixtests = []struct {
 		prefixOpts   []source.Option
 		expectedKeys []string
 	}{
-		{[]source.Option{WithPrefix("APP", "GOMS")}, []string{"app", "goms"}},
-		{[]source.Option{WithPrefix("GOMS"), WithStrippedPrefix("APP")}, []string{"database", "goms"}},
-		{[]source.Option{WithPrefix("GOMS"), WithStrippedPrefix("APP")}, []string{"database", "goms"}},
+		{[]source.Option{WithPrefix("APP", "MS")}, []string{"app", "ms"}},
+		{[]source.Option{WithPrefix("MS"), WithStrippedPrefix("APP")}, []string{"database", "ms"}},
+		{[]source.Option{WithPrefix("MS"), WithStrippedPrefix("APP")}, []string{"database", "ms"}},
 	}
 
 	for _, pt := range prefixtests {
@@ -85,7 +85,7 @@ func TestEnvvar_Prefixes(t *testing.T) {
 }
 
 func TestEnvvar_WatchNextNoOpsUntilStop(t *testing.T) {
-	src := NewSource(WithStrippedPrefix("GOMS_"))
+	src := NewSource(WithStrippedPrefix("MS_"))
 	w, err := src.Watch()
 	if err != nil {
 		t.Error(err)

@@ -510,7 +510,7 @@ func (router *router) ProcessMessage(ctx context.Context, msg Message) (err erro
 		if r := recover(); r != nil {
 			log.Errorf("panic recovered: %v", r)
 			log.Error(string(debug.Stack()))
-			err = merrors.InternalServerError("go.micro.server", "panic recovered: %v", r)
+			err = merrors.InternalServerError("go.ms.server", "panic recovered: %v", r)
 		}
 	}()
 
@@ -605,7 +605,7 @@ func (router *router) ProcessMessage(ctx context.Context, msg Message) (err erro
 
 	// if no errors just return
 	if len(errResults) > 0 {
-		err = merrors.InternalServerError("go.micro.server", "subscriber error: %v", strings.Join(errResults, "\n"))
+		err = merrors.InternalServerError("go.ms.server", "subscriber error: %v", strings.Join(errResults, "\n"))
 	}
 
 	return err

@@ -1,4 +1,4 @@
-package micro
+package ms
 
 import (
 	"os"
@@ -64,7 +64,7 @@ func (s *service) Init(opts ...Option) {
 
 	s.once.Do(func() {
 		// setup the plugins
-		for _, p := range strings.Split(os.Getenv("MICRO_PLUGIN"), ",") {
+		for _, p := range strings.Split(os.Getenv("MS_PLUGIN"), ",") {
 			if len(p) == 0 {
 				continue
 			}
@@ -121,7 +121,7 @@ func (s *service) Server() server.Server {
 }
 
 func (s *service) String() string {
-	return "micro"
+	return "ms"
 }
 
 func (s *service) Start() error {

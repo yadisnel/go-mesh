@@ -7,10 +7,10 @@ import (
 )
 
 var (
-	// DefaultRuntime is default micro runtime
+	// DefaultRuntime is default ms runtime
 	DefaultRuntime Runtime = NewRuntime()
 	// DefaultName is default runtime service name
-	DefaultName = "go.micro.runtime"
+	DefaultName = "go.ms.runtime"
 
 	ErrAlreadyExists = errors.New("already exists")
 )

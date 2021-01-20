@@ -10,7 +10,7 @@ import (
 
 var (
 	// DefaultName is default network name
-	DefaultName = "go.micro"
+	DefaultName = "go.ms"
 	// DefaultAddress is default network address
 	DefaultAddress = ":0"
 	// ResolveTime defines time interval to periodically resolve network nodes
@@ -54,7 +54,7 @@ type Node interface {
 	Status() Status
 }
 
-// Network is micro network
+// Network is ms network
 type Network interface {
 	// Node is network node
 	Node
@@ -68,9 +68,9 @@ type Network interface {
 	Connect() error
 	// Close stops the tunnel and resolving
 	Close() error
-	// Client is micro client
+	// Client is ms client
 	Client() client.Client
-	// Server is micro server
+	// Server is ms server
 	Server() server.Server
 }
 

@@ -56,13 +56,13 @@ const (
 // FromContext returns a span from context
 func FromContext(ctx context.Context) (traceID string, parentSpanID string, isFound bool) {
 	traceID, traceOk := metadata.Get(ctx, traceIDKey)
-	microID, microOk := metadata.Get(ctx, "Micro-Id")
-	if !traceOk && !microOk {
+	msID, msOk := metadata.Get(ctx, "Micro-Id")
+	if !traceOk && !msOk {
 		isFound = false
 		return
 	}
 	if !traceOk {
-		traceID = microID
+		traceID = msID
 	}
 	parentSpanID, ok := metadata.Get(ctx, spanIDKey)
 	return traceID, parentSpanID, ok

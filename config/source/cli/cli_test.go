@@ -15,8 +15,8 @@ import (
 func TestCliSourceDefault(t *testing.T) {
 	const expVal string = "flagvalue"
 
-	service := micro.NewService(
-		micro.Flags(
+	service := ms.NewService(
+		ms.Flags(
 			// to be able to run inside go test
 			&cli.StringFlag{
 				Name: "test.timeout",
@@ -41,7 +41,7 @@ func TestCliSourceDefault(t *testing.T) {
 	var cliSrc source.Source
 	service.Init(
 		// Loads CLI configuration
-		micro.Action(func(c *cli.Context) error {
+		ms.Action(func(c *cli.Context) error {
 			cliSrc = NewSource(
 				Context(c),
 			)

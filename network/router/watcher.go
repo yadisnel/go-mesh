@@ -71,7 +71,7 @@ type WatchOptions struct {
 }
 
 // WatchService sets what service routes to watch
-// Service is the microservice name
+// Service is the msservice name
 func WatchService(s string) WatchOption {
 	return func(o *WatchOptions) {
 		o.Service = s

@@ -29,17 +29,17 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// protoc-gen-micro is a plugin for the Google protocol buffer compiler to generate
+// protoc-gen-ms is a plugin for the Google protocol buffer compiler to generate
 // Go code.  Run it by building this program and putting it in your path with
 // the name
-// 	protoc-gen-micro
-// That word 'micro' at the end becomes part of the option string set for the
+// 	protoc-gen-ms
+// That word 'ms' at the end becomes part of the option string set for the
 // protocol compiler, so once the protocol compiler (protoc) is installed
 // you can run
-// 	protoc --micro_out=output_directory --go_out=output_directory input_directory/file.proto
-// to generate go-micro code for the protocol defined by file.proto.
+// 	protoc --ms_out=output_directory --go_out=output_directory input_directory/file.proto
+// to generate go-ms code for the protocol defined by file.proto.
 // With that input, the output will be written to
-// 	output_directory/file.micro.go
+// 	output_directory/file.ms.go
 //
 // The generated code is documented in the package comment for
 // the library.
@@ -53,8 +53,8 @@ import (
 	"os"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/yadisnel/go-ms/v2cmd/protoc-gen-micro/v2/generator"
-	_ "github.com/yadisnel/go-ms/v2cmd/protoc-gen-micro/v2/plugin/micro"
+	"github.com/yadisnel/go-ms/v2cmd/protoc-gen-ms/v2/generator"
+	_ "github.com/yadisnel/go-ms/v2cmd/protoc-gen-ms/v2/plugin/ms"
 )
 
 func main() {
